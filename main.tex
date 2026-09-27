@@ -9,7 +9,50 @@
 \begin{document}
 
 \frontmatter
-\maketitle
+
+% --- Forside ---
+\begin{titlepage}
+\centering
+\vspace*{1.5cm}
+
+{\Huge\bfseries Hamilton-Jacobi-kompendiet\par}
+\vspace{0.6cm}
+{\Large Lagrange-, Hamilton- og Hamilton-Jacobi-teori\par}
+\vspace{0.2cm}
+{\large --- fra Newtons love til den ældre kvanteteori\par}
+
+\vspace{2.2cm}
+
+% Emblem: faserumsellipse med virkningsvariablen J = oint p dq,
+% og en S=konstant "bølgefront" der krydser den vinkelret (jf.
+% figur~\ref{fig:virkningsareal} og figur~\ref{fig:hj-boelgefront}),
+% som visuelt sammenfatter kompendiets vej fra klassisk mekanik til
+% den semiklassiske grænse.
+\begin{tikzpicture}[scale=1.35]
+  \draw[-{Latex}] (-3.0,0) -- (3.0,0) node[right] {\small $q$};
+  \draw[-{Latex}] (0,-2.1) -- (0,2.1) node[above] {\small $p$};
+  \draw[thick,blue!60!black,fill=blue!8] (0,0) ellipse (2.3 and 1.5);
+  \node[blue!60!black] at (0,0.05) {\small $J=\oint p\,dq$};
+  % "Bølgefronter": kurver af konstant S, krydser ellipsen vinkelret
+  \foreach \x/\op in {-1.6/0.55,-0.6/0.7,0.6/0.7,1.6/0.55} {
+    \draw[orange!70!black,opacity=\op]
+      (\x,-1.9) to[out=90,in=-100] (\x-0.22,0) to[out=80,in=-90] (\x,1.9);
+  }
+  \node[orange!70!black] at (2.55,1.75) {\footnotesize $S=\text{konst.}$};
+\end{tikzpicture}
+
+\vspace{2.0cm}
+
+{\large Jørn Skoven Pedersen\par}
+\vspace{0.3cm}
+{\normalsize cand.scient.\ i fysik, matematik og astronomi\par}
+
+\vfill
+
+{\normalsize \today\par}
+
+\end{titlepage}
+
 \tableofcontents
 
 \mainmatter
@@ -37,5 +80,65 @@
 % \appendix
 
 \printindex
+
+% --- Bagside ---
+\begin{titlepage}
+\centering
+\vspace*{1.2cm}
+
+% Emblem: virknings-vinkel-variablens "gitter" af kvantiserede baner,
+% J_n = nh, som ekko af Bohr-Sommerfeld-kvantiseringen
+% (\ref{eq:bohr-sommerfeld}) — et andet motiv end forsidens rene
+% klassiske faserumsellipse, for at signalere bogens endestation.
+\begin{tikzpicture}[scale=1.0]
+  \draw[-{Latex}] (-2.6,0) -- (2.6,0) node[right] {\small $q$};
+  \draw[-{Latex}] (0,-1.9) -- (0,1.9) node[above] {\small $p$};
+  \foreach \ea/\eb in {0.55/0.36,0.95/0.62,1.3/0.85,1.62/1.06,1.9/1.24} {
+    \draw[thick,blue!60!black,opacity=0.75] (0,0) ellipse ({\ea} and {\eb});
+  }
+  \node[blue!60!black] at (0,-2.35) {\footnotesize $J_n=nh,\ n=1,2,3,\dots$};
+\end{tikzpicture}
+
+\vspace{1.4cm}
+
+\begin{minipage}{0.82\textwidth}
+\small
+Dette kompendium bygger, skridt for skridt, den mekaniske formalisme
+op, som var til rådighed, da kvantemekanikken blev født: fra Newtons
+love og D'Alemberts princip, over Lagrange- og Hamilton-mekanikken,
+Poisson-parenteser og kanoniske transformationer, til
+Hamilton-Jacobi-teorien og virknings-vinkel-variablene. Undervejs
+krydshenvises der løbende til \emph{kvantemekanik-kompendiet}, hvor
+det er relevant.
+
+Kompendiet når sin endestation med Bohr-Sommerfeld-kvantiseringen —
+den ældre kvanteteoris svar på, hvilke klassiske baner der er
+fysisk tilladte — og med en kort udvidelse til klassisk feltteori
+(Lagrange- og Hamilton-tæthed, Noethers sætning for felter), som
+forberedelse til et senere, selvstændigt kompendium om
+kvantefeltteori og spredningsteori.
+\end{minipage}
+
+\vspace{1.2cm}
+
+\begin{minipage}{0.7\textwidth}
+\small
+\textbf{Kompendiet dækker blandt andet:}
+\begin{itemize}
+  \setlength{\itemsep}{0.15em}
+  \item D'Alemberts princip og Hamiltons princip
+  \item Euler-Lagrange-ligningerne og Noethers sætning
+  \item Hamiltons ligninger, faserum og Poisson-parenteser
+  \item Kanoniske transformationer
+  \item Hamilton-Jacobi-ligningen
+  \item Virknings-vinkel-variable og adiabatiske invarianter
+  \item Bohr-Sommerfeld-kvantisering og korrespondensprincippet
+  \item Klassisk feltteori: Lagrange-tæthed og Noether-strømme for felter
+\end{itemize}
+\end{minipage}
+
+\vfill
+
+\end{titlepage}
 
 \end{document}

@@ -137,6 +137,18 @@ Stikordsregister (indeks) er nu sat op og udfyldt (2026-09-27):
 - Makefile's `clean`-target er udvidet til også at rydde
   `*.idx`/`*.ilg`/`*.ind`.
 
+Forside og bagside er nu også på plads (2026-09-27):
+- Forside (titlepage i main.tex): titel, undertitel, forfatter, og et
+  emblem — en faserumsellipse med virkningsvariablen
+  $J=\oint p\,dq$ (kapitel 7) krydset af "bølgefronter" $S=$konstant
+  (kapitel 6), som visuelt sammenfatter kompendiets rejse fra klassisk
+  mekanik til den semiklassiske grænse.
+- Bagside (efter `\printindex`): et andet emblem — indlejrede
+  faserumsellipser der ekkoer Bohr-Sommerfeld-kvantiseringen
+  $J_n=nh$ — samt en kort blurb og en punktliste over kompendiets
+  hovedemner.
+- Bekræftet fejlfri test-compilering med begge tilføjede sider.
+
 Naturlige næste skridt herfra (ikke påbegyndt):
 - Gennemlæsning/korrekturlæsning af hele kompendiet i sammenhæng.
 - Eventuel udbygning af enkelte afsnit eller flere opgaver.
