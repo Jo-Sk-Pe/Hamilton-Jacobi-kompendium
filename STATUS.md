@@ -1,7 +1,7 @@
 # STATUS — Hamilton-Jacobi-kompendiet
 
-Kapitelstruktur er nu lagt fast (2026-09-27). Skrivearbejdet er endnu ikke
-begyndt.
+Alle 10 kapitler er skrevet og compilerer uden fejl (2026-09-27) —
+kompendiets første fulde udkast er færdigt.
 
 ## Formål og afgrænsning
 
@@ -91,4 +91,35 @@ begrebsmæssige overgange.
   ($E_n=nh\nu$, sammenlignet med den korrekte $(n+\tfrac12)h\nu$ —
   mangler nulpunktsenergi), partikel i kasse (eksakt
   $E_n=n^2h^2/(8mL^2)$), og korrespondensprincippet. To opgaver.
-- Kapitel 9 (Klassisk feltteori) er næste skridt.
+- Kapitel 9 (Klassisk feltteori) skrevet og compileret uden fejl
+  (2026-09-27). Udleder kontinuumsgrænsen fra diskret kæde til felt
+  (TikZ-figur), Euler-Lagrange-ligningen for felter fra Hamiltons
+  princip, bølgeligningen for strengen som eksempel, Noethers sætning
+  for felter (kontinuitetsligning, energitæthed/-strøm), og et udblik
+  mod relativistisk notation og Klein-Gordon-Lagrangianen (forbereder
+  det senere QFT-kompendium). To opgaver.
+- Kapitel 10 (Hamiltonsk feltteori) skrevet og compileret uden fejl
+  (2026-09-27) — kompendiets afsluttende kapitel. Legendre-
+  transformerer feltet ($\pi=\partial\mathcal{L}/\partial\dot\varphi$),
+  udleder Hamiltons ligninger for felter (med ekstra rumligt led),
+  strengen i Hamilton-billede (konsistenstjek mod kapitel 9), og de
+  fundamentale felt-Poisson-parenteser $\{\varphi(x),\pi(y)\}=\delta(x-y)$
+  — den klassiske forløber for QFT's ligetids-kommutator. Kapitlet
+  slutter med en kort, samlet konklusion på hele kompendiet.
+
+## Status: første fulde udkast færdigt
+
+Alle 10 planlagte kapitler er skrevet, og hele main.tex compilerer
+uden fejl på tværs af alle kryds-referencer (bekræftet med to
+compileringspas, 2026-09-27). Del IV (Spredningsteori) er fjernet fra
+main.tex's struktur, i overensstemmelse med den aftalte afgrænsning:
+kompendiet stopper ved den ældre kvanteteoris tankegods og klassisk
+feltteori; QFT og spredningsteori er emnet for det senere, separate
+kompendium.
+
+Naturlige næste skridt herfra (ikke påbegyndt):
+- Gennemlæsning/korrekturlæsning af hele kompendiet i sammenhæng.
+- Eventuel udbygning af enkelte afsnit eller flere opgaver.
+- Facitliste/løsninger til opgaverne (jf.\ konventionen fra de øvrige
+  kompendier).
+- Indeks.

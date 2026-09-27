@@ -4,6 +4,48 @@ Kronologisk log over beslutninger og fremdrift. Nyeste øverst.
 
 ---
 
+## 2026-09-27 — Kapitel 10 skrevet: første fulde udkast af kompendiet færdigt
+
+Kapitel 10, "Hamiltonsk feltteori", er skrevet, compileret uden fejl,
+og aktiveret i main.tex. Legendre-transformerer feltet
+($\pi=\partial\mathcal{L}/\partial\dot\varphi$), udleder Hamiltons
+ligninger for felter fra et modificeret Hamiltons princip (med det
+ekstra rumlige led, der skyldes $\mathcal{H}$'s afhængighed af
+$\varphi'$), viser strengen i Hamilton-billede som konsistenstjek mod
+kapitel 9, og udleder de fundamentale felt-Poisson-parenteser
+$\{\varphi(x),\pi(y)\}=\delta(x-y)$ ved kontinuumsgrænse af de
+diskrete parenteser — den klassiske forløber for QFT's
+ligetids-kommutator. Kapitlet, og dermed kompendiet, slutter med en
+kort konklusion, der samler hele rejsen og peger mod de to opfølgende
+kompendier (kvantemekanik og QFT).
+
+Del IV (Spredningsteori) er fjernet fra main.tex, i overensstemmelse
+med den aftalte afgrænsning fra 2026-09-27 (se nedenfor): kompendiet
+stopper her.
+
+**Alle 10 kapitler er nu skrevet, og hele kompendiet compilerer
+uden fejl (bekræftet med to compileringspas for kryds-referencer).**
+Dette er første fulde udkast. Naturlige næste skridt: gennemlæsning i
+sammenhæng, evt.\ udbygning, facitliste og indeks — se STATUS.md.
+
+---
+
+## 2026-09-27 — Kapitel 9 skrevet
+
+Kapitel 9, "Klassisk feltteori", er skrevet, compileret uden fejl, og
+aktiveret i main.tex. Udleder kontinuumsgrænsen fra en diskret kæde af
+koblede oscillatorer til et felt (TikZ-figur), Euler-Lagrange-
+ligningen for felter fra et fuldt udført variationsprincip (med
+randtermer diskuteret), bølgeligningen for strengen som gennemarbejdet
+eksempel, og Noethers sætning for felter (kontinuitetsligning for
+energitæthed/-strøm). Slutter med et udblik mod relativistisk
+notation og Klein-Gordon-Lagrangianen, som forbereder det senere
+QFT-kompendium. To opgaver.
+
+Næste og sidste skridt: kapitel 10 (Hamiltonsk feltteori).
+
+---
+
 ## 2026-09-27 — Kapitel 8 skrevet (nøglekapitel: broen til den ældre kvanteteori)
 
 Kapitel 8, "Adiabatiske invarianter — broen til den ældre kvanteteori",
