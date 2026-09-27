@@ -241,7 +241,207 @@ højre for $x$ — en formel, der er velkendt fra strengens akustik og
 fra bølgeledningsteori generelt.
 \end{eksempel}
 
+\section{Rumtranslationssymmetri: impulstæthed}
+\label{sec:rum-translation}
+
+Tidstranslation var kun det første af tre eksempler på Noethers
+mønster "symmetri $\to$ bevaret strøm" for felter. Vi udleder nu det
+andet: \emph{rumlig} translationssymmetri, som fører til
+\emph{impulsbevarelse}, ved en udledning der er strukturelt identisk
+med den foregående — blot med rollerne af $t$ og $x$ byttet om.
+
+Antag stadig, at $\mathcal{L}$ ikke afhænger eksplicit af $x$ (som for
+strengen: $\mu$ og $\tau$ er konstanter, uafhængige af position). Vi
+beregner nu $d\mathcal{L}/dx$ langs en faktisk løsning, igen ved at
+bruge Euler-Lagrange-ligningen \eqref{eq:euler-lagrange-felt} til at
+omskrive $\partial\mathcal{L}/\partial\varphi$:
+\begin{align}
+  \dv{\mathcal{L}}{x} &= \pdv{\mathcal{L}}{\varphi}\varphi'
+    + \pdv{\mathcal{L}}{\dot\varphi}\dot\varphi' + \pdv{\mathcal{L}}{\varphi'}\varphi'' \\
+  &= \left[\dv{}{t}\pdv{\mathcal{L}}{\dot\varphi} + \dv{}{x}\pdv{\mathcal{L}}{\varphi'}\right]\varphi'
+    + \pdv{\mathcal{L}}{\dot\varphi}\dot\varphi' + \pdv{\mathcal{L}}{\varphi'}\varphi'' \\
+  &= \dv{}{t}\left(\varphi'\pdv{\mathcal{L}}{\dot\varphi}\right)
+    + \dv{}{x}\left(\varphi'\pdv{\mathcal{L}}{\varphi'}\right),
+\end{align}
+hvor vi i sidste skridt igen brugte $\dot\varphi'=\partial_x\dot\varphi$
+og produktreglen baglæns to gange, ganske som i det foregående afsnit
+— blot med $\dot\varphi$ og $\varphi'$'s roller ombyttet. Omskrevet:
+\begin{equation}
+  \boxed{\pdv{\mathcal{P}}{t} + \pdv{\mathcal{T}}{x} = 0,}
+  \qquad
+  \mathcal{P} \equiv \varphi'\pdv{\mathcal{L}}{\dot\varphi},
+  \qquad
+  \mathcal{T} \equiv \varphi'\pdv{\mathcal{L}}{\varphi'} - \mathcal{L}.
+  \label{eq:impuls-kontinuitet}
+\end{equation}
+$\mathcal{P}$ kaldes \emph{impulstætheden} og $\mathcal{T}$
+\emph{impulsstrømtætheden} (eller \emph{spændingen}, i mekanisk
+sprogbrug — det er netop den mekaniske spænding i materialet, betragtet
+som en impulsstrøm). Integreret over hele strengen, med samme
+antagelse om, at $\mathcal{T}\to0$ ved randen, giver dette bevarelse af
+den \emph{totale} impuls $P=\int\mathcal{P}\,dx$.
+
+\begin{bemaerkning}
+Bemærk, at $\mathcal{P}=\varphi'\,\partial\mathcal{L}/\partial\dot\varphi
+= \varphi'\pi$, hvor $\pi$ er den kanoniske impulstæthed, vi først
+møder systematisk i kapitel~\ref{kap:felter-hamilton}. Dette er ikke
+en tilfældighed: $\mathcal{P}$ og $\mathcal{H}$ (energitætheden) er de
+to komponenter af det, der i relativistisk notation
+(afsnit~\ref{sec:relativistisk-udblik}) kaldes
+\emph{energi-impuls-tensoren} $T^{\mu\nu}$ — en enkelt, samlet
+størrelse, hvis komponenter er netop de bevarede strømme, der svarer
+til henholdsvis tids- og rumtranslation.
+\end{bemaerkning}
+
+\subsection{Eksempel: impulstæthed for strengen}
+
+\begin{eksempel}
+For strengen er
+\begin{equation}
+  \mathcal{P} = \varphi'(\mu\dot\varphi) = \mu\dot\varphi\,\varphi',
+\end{equation}
+og
+\begin{equation}
+  \mathcal{T} = \varphi'(-\tau\varphi') - \left(\frac12\mu\dot\varphi^2-\frac12\tau(\varphi')^2\right)
+  = -\frac12\mu\dot\varphi^2 - \frac12\tau(\varphi')^2 = -\mathcal{H}.
+\end{equation}
+Det er en pæn, men ikke tilfældig detalje, at $\mathcal{T}=-\mathcal{H}$
+for netop dette system: begge er specialtilfælde af den generelle
+energi-impuls-tensor $T^{\mu\nu}=\partial\mathcal{L}/\partial(\partial_\mu\varphi)\,\partial^\nu\varphi-\eta^{\mu\nu}\mathcal{L}$
+(afsnit~\ref{sec:relativistisk-udblik}), og for et fritfelt i $1+1$
+dimensioner falder $T^{11}$ og $-T^{00}$ netop sammen på denne måde.
+\end{eksempel}
+
+\section{Intern symmetri: ladningsbevarelse}
+\label{sec:ladning}
+
+Det tredje og sidste eksempel på Noethers mønster er kvalitativt
+forskelligt fra de to foregående: en symmetri, der \emph{ikke}
+virker på rumtidskoordinaterne $t,x$ selv, men på feltets \emph{værdi}
+— en såkaldt \emph{intern} symmetri. Dette kræver et felt med mindst
+to reelle komponenter; det simplest mulige eksempel er et
+\emph{komplekst} felt $\psi(x,t)$ (fysisk: to reelle felter, pakket
+sammen som real- og imaginærdel).
+
+Betragt Lagrange-tætheden
+\begin{equation}
+  \mathcal{L} = \mu\,\dot\psi^\ast\dot\psi - \tau\,\psi^{\ast\prime}\psi',
+  \label{eq:L-komplekst-felt}
+\end{equation}
+en naturlig komplex generalisering af strengens Lagrange-tæthed
+\eqref{eq:L-tætthed-streng}, hvor $\psi$ og $\psi^\ast$ nu behandles
+som to \emph{uafhængige} felter i variationsprincippet (dette er den
+sædvanlige og fuldt korrekte måde at behandle et komplekst felt — se
+opgave 3). Euler-Lagrange-ligningerne for $\psi$ og $\psi^\ast$ giver
+hver sin bølgeligning, af samme form som \eqref{eq:boelgeligning}.
+
+$\mathcal{L}$ i \eqref{eq:L-komplekst-felt} er uændret under den
+\emph{globale fasetransformation}
+\begin{equation}
+  \psi \to e^{i\alpha}\psi, \qquad \psi^\ast \to e^{-i\alpha}\psi^\ast,
+  \qquad \alpha\in\mathbb{R} \text{ konstant},
+\end{equation}
+fordi hvert led i $\mathcal{L}$ indeholder netop ét $\psi$ og ét
+$\psi^\ast$, så faktorerne $e^{i\alpha}$ og $e^{-i\alpha}$ altid
+ophæver hinanden. Denne symmetri kaldes en $U(1)$-symmetri. For en
+infinitesimal transformation, $\alpha=\varepsilon\ll1$:
+\begin{equation}
+  \delta\psi = i\varepsilon\psi, \qquad \delta\psi^\ast = -i\varepsilon\psi^\ast.
+\end{equation}
+
+\subsection{Udledning af den bevarede ladningsstrøm}
+
+Invarians af $\mathcal{L}$ betyder, at $\delta\mathcal{L}=0$ til første
+orden i $\varepsilon$. Vi udregner $\delta\mathcal{L}$ ved kædereglen
+og bruger Euler-Lagrange-ligningerne for $\psi$ og $\psi^\ast$ til at
+omskrive $\partial\mathcal{L}/\partial\psi$ og
+$\partial\mathcal{L}/\partial\psi^\ast$ — helt analogt til de to
+foregående udledninger, men nu med \emph{to} felter i stedet for et:
+\begin{align}
+  0 = \delta\mathcal{L} &= \pdv{\mathcal{L}}{\psi}\delta\psi
+    + \pdv{\mathcal{L}}{\dot\psi}\delta\dot\psi + \pdv{\mathcal{L}}{\psi'}\delta\psi'
+    + \pdv{\mathcal{L}}{\psi^\ast}\delta\psi^\ast
+    + \pdv{\mathcal{L}}{\dot\psi^\ast}\delta\dot\psi^\ast
+    + \pdv{\mathcal{L}}{\psi^{\ast\prime}}\delta\psi^{\ast\prime} \\
+  &= \dv{}{t}\left(\pdv{\mathcal{L}}{\dot\psi}\delta\psi + \pdv{\mathcal{L}}{\dot\psi^\ast}\delta\psi^\ast\right)
+   + \dv{}{x}\left(\pdv{\mathcal{L}}{\psi'}\delta\psi + \pdv{\mathcal{L}}{\psi^{\ast\prime}}\delta\psi^\ast\right),
+\end{align}
+hvor mellemskridtet (samme type omgruppering som i de to foregående
+afsnit, anvendt på hvert af de fire led med $\delta\psi'$/$\delta\dot\psi$
+osv.) er udført i detaljer i opgave 3. Indsættes
+$\delta\psi=i\varepsilon\psi$, $\delta\psi^\ast=-i\varepsilon\psi^\ast$,
+og divideres med $\varepsilon$, fås
+\begin{equation}
+  \boxed{\pdv{\rho}{t} + \pdv{j}{x} = 0,}
+  \qquad
+  \rho \equiv i\left(\psi\pdv{\mathcal{L}}{\dot\psi} - \psi^\ast\pdv{\mathcal{L}}{\dot\psi^\ast}\right),
+  \qquad
+  j \equiv i\left(\psi\pdv{\mathcal{L}}{\psi'} - \psi^\ast\pdv{\mathcal{L}}{\psi^{\ast\prime}}\right).
+  \label{eq:ladnings-kontinuitet}
+\end{equation}
+$\rho$ kaldes \emph{ladningstætheden} og $j$ \emph{ladningsstrøm\-
+tætheden}. Integreret over hele rummet (med $j\to0$ ved randen) giver
+dette bevarelse af den \emph{totale ladning} $Q=\int\rho\,dx$ —
+en tredje, kvalitativt ny type bevarelseslov, der ikke stammer fra en
+rumtidssymmetri, men fra feltets egen interne struktur.
+
+\subsection{Eksempel: ladningstæthed for det komplekse felt}
+
+\begin{eksempel}
+For \eqref{eq:L-komplekst-felt} er
+$\partial\mathcal{L}/\partial\dot\psi=\mu\dot\psi^\ast$ og
+$\partial\mathcal{L}/\partial\dot\psi^\ast=\mu\dot\psi$, så
+\begin{equation}
+  \rho = i\mu\left(\psi\dot\psi^\ast - \psi^\ast\dot\psi\right) = -2\mu\,\text{Im}(\psi^\ast\dot\psi),
+\end{equation}
+hvor vi brugte, at $\psi\dot\psi^\ast-\psi^\ast\dot\psi=-2i\,\text{Im}(\psi^\ast\dot\psi)$
+for et komplekst tal. Tilsvarende er ladningsstrømtætheden
+\begin{equation}
+  j = i\left(\psi(-\tau\psi^{\ast\prime}) - \psi^\ast(-\tau\psi')\right)
+    = -i\tau\left(\psi\psi^{\ast\prime}-\psi^\ast\psi'\right) = 2\tau\,\text{Im}(\psi^\ast\psi').
+\end{equation}
+
+\begin{bemaerkning}
+Formen $\rho\propto\text{Im}(\psi^\ast\dot\psi)$ bør give genklang: det
+er strukturelt \emph{samme} udtryk som sandsynlighedstætheden og
+-strømmen, man møder for Schrödinger-ligningens bølgefunktion i
+[[kvantemekanik-kompendiet]] ($\rho_{\text{QM}}\propto\text{Im}(\psi^\ast\dot\psi)$
+eller, i den sædvanlige rumlige form,
+$j_{\text{QM}}\propto\text{Im}(\psi^\ast\nabla\psi)$). Dette er ingen
+tilfældighed: begge er Noether-ladningen for netop den samme $U(1)$-
+fasesymmetri, blot anvendt på to forskellige felter — et klassisk
+mekanisk felt her, og kvantemekanikkens bølgefunktion der. Sammenhængen
+er et af de tydeligste eksempler i hele kompendiet på, hvordan
+klassisk feltteoris begrebsapparat går næsten upåvirket over i
+kvantemekanikken.
+\end{bemaerkning}
+\end{eksempel}
+
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}[scale=1.0]
+    \draw[-{Latex}] (-0.3,0) -- (7.0,0) node[right] {$x$};
+    % Kontrolvolumen
+    \draw[thick,blue!60!black,fill=blue!8] (2.2,-0.9) rectangle (4.8,0.9);
+    \node[blue!60!black] at (3.5,1.3) {kontrolvolumen $[x_1,x_2]$};
+    % Ind- og udstrømning
+    \draw[-{Latex},thick,green!55!black] (0.6,0) -- (2.0,0);
+    \node[green!55!black] at (1.3,0.35) {ind};
+    \draw[-{Latex},thick,green!55!black] (5.0,0) -- (6.4,0);
+    \node[green!55!black] at (5.7,0.35) {ud};
+    % Densitet inde i boksen (symbolsk)
+    \node at (3.5,0) {$\displaystyle\int_{x_1}^{x_2}\!\rho\,dx$};
+  \end{tikzpicture}
+  \caption{Det fælles mønster bag alle tre bevarelseslove i dette
+  kapitel: en kontinuitetsligning $\partial\rho/\partial t+\partial j/\partial x=0$
+  siger, at ændringen i den samlede mængde ($\rho$: energi, impuls
+  eller ladning) inde i et område kun kan skyldes strøm ($j$) ind eller
+  ud gennem randen — intet forsvinder eller opstår "midt i" volumenet.}
+  \label{fig:kontinuitet-generel}
+\end{figure}
+
 \section{Udblik: relativistisk notation og Klein-Gordon-feltet}
+\label{sec:relativistisk-udblik}
 
 Vi antyder her, hvordan formalismen generaliserer til relativistiske
 felter i tre rumlige dimensioner — det udgangspunkt, det senere
@@ -299,6 +499,23 @@ kvantiseret kontekst.
         $\partial\mathcal{H}/\partial t + \partial\mathcal{S}/\partial x=0$,
         med energitæthed $\mathcal{H}=\dot\varphi\,\partial\mathcal{L}/\partial\dot\varphi-\mathcal{L}$
         og energistrøm $\mathcal{S}=\dot\varphi\,\partial\mathcal{L}/\partial\varphi'$.
+  \item Rumtranslationssymmetri giver analogt
+        $\partial\mathcal{P}/\partial t+\partial\mathcal{T}/\partial x=0$,
+        med impulstæthed $\mathcal{P}=\varphi'\,\partial\mathcal{L}/\partial\dot\varphi$
+        og impulsstrøm (spænding)
+        $\mathcal{T}=\varphi'\,\partial\mathcal{L}/\partial\varphi'-\mathcal{L}$.
+        $\mathcal{P}$ og $\mathcal{H}$ er komponenter af
+        energi-impuls-tensoren $T^{\mu\nu}$.
+  \item En intern $U(1)$-fasesymmetri af et komplekst felt $\psi$
+        giver en tredje kontinuitetsligning,
+        $\partial\rho/\partial t+\partial j/\partial x=0$, med
+        ladningstæthed $\rho=i(\psi\,\partial\mathcal{L}/\partial\dot\psi-\psi^\ast\,\partial\mathcal{L}/\partial\dot\psi^\ast)$
+        — strukturelt identisk med kvantemekanikkens
+        sandsynlighedstæthed.
+  \item Alle tre bevarelseslove (energi, impuls, ladning) er
+        specialtilfælde af samme mønster: en lokal kontinuitetsligning
+        $\partial\rho/\partial t+\partial j/\partial x=0$, der
+        integreret giver en global bevaret størrelse.
   \item Relativistisk generaliseres formalismen via $\partial_\mu$;
         Klein-Gordon-Lagrangianen har samme struktur som strengens,
         og peger direkte mod det senere QFT-kompendium.
@@ -320,4 +537,26 @@ ligning, at Klein-Gordon-Lagrangianen $\mathcal{L}_{\text{KG}}$
 faktisk giver $(\Box+m^2)\varphi=0$. (Brug metrikken
 $\eta^{\mu\nu}=\text{diag}(1,-1,-1,-1)$, så
 $\partial_\mu\varphi\partial^\mu\varphi = (\partial_t\varphi)^2/c^2 - |\nabla\varphi|^2$.)
+\end{opgave}
+
+\begin{opgave}
+Udfør mellemskridtet i udledningen af \eqref{eq:ladnings-kontinuitet}
+i detaljer: brug Euler-Lagrange-ligningerne for $\psi$ og $\psi^\ast$
+til at omskrive $\partial\mathcal{L}/\partial\psi\cdot\delta\psi$ og
+$\partial\mathcal{L}/\partial\psi^\ast\cdot\delta\psi^\ast$, og vis, at
+de resterende led kan grupperes til en total tids- og en total
+rumafledt, ganske som i udledningerne af
+\eqref{eq:kontinuitetsligning} og \eqref{eq:impuls-kontinuitet}.
+\end{opgave}
+
+\begin{opgave}
+Skriv $\psi=\varphi_1+i\varphi_2$ med $\varphi_1,\varphi_2$ reelle
+felter, og vis, at Lagrange-tætheden \eqref{eq:L-komplekst-felt}
+bliver $\mathcal{L}=\mu(\dot\varphi_1^2+\dot\varphi_2^2)-\tau(\varphi_1'^2+\varphi_2'^2)$
+— to uafhængige, reelle strenge. Vis derefter, at $U(1)$-transformationen
+$\psi\to e^{i\alpha}\psi$ svarer til en \emph{rotation} af
+$(\varphi_1,\varphi_2)$ i "internt rum", og at den bevarede ladning
+$Q=\int\rho\,dx$ er den kontinuerte analog til banemomentet
+$L_z=xp_y-yp_x$ fra kapitel~\ref{kap:poisson} — nu med $(\varphi_1,\varphi_2)$
+i stedet for $(x,y)$.
 \end{opgave}
