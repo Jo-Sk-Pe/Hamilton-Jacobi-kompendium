@@ -4,6 +4,102 @@ Kronologisk log over beslutninger og fremdrift. Nyeste øverst.
 
 ---
 
+## 2026-09-27 — Kapitel 5 skrevet
+
+Kapitel 5, "Kanoniske transformationer", er skrevet, compileret uden
+fejl, og aktiveret i main.tex. Indeholder: udledning af genererende
+funktioner (type $F_1$ og $F_2$) fra et modificeret Hamiltons princip,
+eksemplet hvor $q$ og $p$ bytter rolle (viser Hamilton-formalismens
+symmetri mellem koordinater og impulser), infinitesimale kanoniske
+transformationer og relationen $\delta f=\varepsilon\{f,G\}$, med den
+vigtige pointe at $H$ selv genererer tidsudviklingen som en kanonisk
+transformation — dette er sat op som direkte forberedelse til
+Hamilton-Jacobi-ligningen i kapitel 6. Slutter med invariansen af
+Poisson-parenteser under kanoniske transformationer (TikZ-figur). Fire
+opgaver.
+
+Næste skridt: kapitel 6 (Hamilton-Jacobi-teori) — kompendiets centrale
+kapitel.
+
+---
+
+## 2026-09-27 — Kapitel 4 skrevet
+
+Kapitel 4, "Poisson-parenteser og kanonisk struktur", er skrevet,
+compileret uden fejl, og aktiveret i main.tex. Indeholder: definitionen
+af Poisson-parentesen udledt fra $df/dt$ for en vilkårlig
+faserumsfunktion, de fundamentale parenteser, de algebraiske
+egenskaber (antisymmetri, Leibniz, Jacobi), bevarelseskriteriet
+$\{f,H\}=0$, et fuldt udført eksempel med banemomentets Poisson-
+algebra ($\{L_x,L_y\}=L_z$), og Liouvilles sætning med en TikZ-figur.
+Tre opgaver.
+
+Næste skridt: kapitel 5 (Kanoniske transformationer).
+
+---
+
+## 2026-09-27 — Kapitel 3 skrevet
+
+Kapitel 3, "Hamilton-formalisme", er skrevet, compileret uden fejl, og
+aktiveret i main.tex. Indeholder: Legendre-transformationen (generel
+form + anvendt på $L$), udledning af Hamiltons ligninger via
+sammenligning af to udtryk for $dH$, resultatet $dH/dt=\partial
+H/\partial t$, og et fuldt udført eksempel (harmonisk oscillator) med
+faseportræt som TikZ-figur. Tre opgaver, herunder kanonisk impuls for
+en ladet partikel i et EM-felt.
+
+Næste skridt: kapitel 4 (Poisson-parenteser og kanonisk struktur).
+
+---
+
+## 2026-09-27 — Kapitel 2 skrevet; rettede farvefejl i kapitel 1
+
+Kapitel 2, "Lagrange-formalisme", er skrevet og aktiveret i main.tex.
+Compileret uden fejl. Udleder Euler-Lagrange-ligningerne to veje (fra
+D'Alembert og fra Hamiltons princip/variationsregning), viser deres
+ækvivalens, behandler Lagrange-multiplikatorer for tvangsbetingelser,
+og indfører cykliske koordinater og Noethers sætning (tidssymmetri →
+bevaret $H$). Indeholder én TikZ-figur (perle på roterende ring, med
+bifurkation som ekstra pointe) og tre opgaver.
+
+Ved samme lejlighed opdaget og rettet: TikZ-figuren i kapitel 1 brugte
+farven "ForestGreen", som kræver `dvipsnames`-pakken og ikke ville
+compilere med den nuværende praeambel.tex — ændret til `green!55!black`
+i begge kapitler.
+
+Næste skridt: kapitel 3 (Hamilton-formalisme).
+
+---
+
+## 2026-09-27 — Kapitel 1 skrevet
+
+Kapitel 1, "Newtonsk mekanik og variationsprincipper", er skrevet og
+aktiveret i main.tex. Compileret uden fejl (kun forventede advarsler om
+referencer til kapitel 2, som endnu ikke findes). Indeholder to
+opgaver, én TikZ-figur (kugle på skråplan) og udleder D'Alemberts
+princip fra Newtons love via virtuel forskydning/virtuelt arbejde, med
+et udblik mod Hamiltons princip.
+
+Næste skridt: kapitel 2 (Lagrange-formalisme).
+
+---
+
+## 2026-09-27 — Arbejdsplan og kapitelstruktur lagt fast
+
+Afklaret:
+- Formål: kompendiet skal bygge frem til det tankegods, der var på plads
+  ved kvantemekanikkens opståen (ældre kvanteteori: Bohr-Sommerfeld,
+  adiabatiske invarianter) — ikke frem til QFT selv. QFT/spredningsteori
+  udskydes til et senere, separat kompendium.
+- Klassisk feltteori skal med, som forberedelse til det senere QFT-kompendium.
+- Der skal krydshenvises løbende til kvantemekanik-kompendiet.
+- Kapitelstruktur fastlagt, 10 kapitler fra Newtonsk mekanik til Hamiltonsk
+  feltteori — se STATUS.md for fuld liste og begrundelse.
+
+Næste skridt: begynde skrivning af kapitel 1.
+
+---
+
 ## 2026-09-16 — Projektet oprettet (hvilende)
 
 Idéen opstod som en sidebemærkning under arbejdet med kvantemekanik-kompendiet:
