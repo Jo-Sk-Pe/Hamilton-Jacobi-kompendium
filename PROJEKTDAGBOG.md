@@ -4,6 +4,36 @@ Kronologisk log over beslutninger og fremdrift. Nyeste øverst.
 
 ---
 
+## 2026-09-27 — Kapitel 9 udvidet med fuld Noether-behandling af felter
+
+Jørn er i gang med at oprette et nyt, kommende projekt om
+spredningsteori og QFT, som forudsætter en kort "Del 0" om klassisk
+feltteori (Lagrange-tæthed, Euler-Lagrange for felter, Noethers
+sætning for energi/impuls/ladning som bevarede strømme). Ved
+gennemgang stod det klart, at kapitel 9 her kun dækkede
+tidstranslation → energi; rumtranslation → impuls og intern
+$U(1)$-symmetri → ladning manglede.
+
+Kapitel 9 er derfor udvidet med to nye afsnit: rumtranslationssymmetri
+(impulstæthed $\mathcal{P}$ og -strøm/spænding $\mathcal{T}$, med
+bemærkning om at $\mathcal{P},\mathcal{H}$ er komponenter af
+energi-impuls-tensoren), og intern symmetri (et komplekst felt
+$\psi$, $U(1)$-fasesymmetri, ladningstæthed $\rho$ og -strøm $j$ — med
+en bemærkning om, at $\rho\propto\text{Im}(\psi^\ast\dot\psi)$ er
+strukturelt identisk med kvantemekanikkens sandsynlighedstæthed). Ny
+figur, der viser det fælles kontinuitetsligning-mønster bag alle tre
+bevarelseslove. To nye opgaver (i alt fire i kapitlet).
+
+Hele kompendiet er genkompileret uden fejl efter udvidelsen (to pas,
+alle kryds-referencer OK). Diskuterede desuden, om klassisk
+spredningsteori burde tilføjes som et 11. kapitel her — konklusion
+(Jørn tilsluttede sig): nej, det hører hjemme som det nye
+QFT-projekts eget indledende kapitel, ikke her; dette kompendiums
+afgrænsning (stopper ved den ældre kvanteteori + klassisk feltteori)
+står fast.
+
+---
+
 ## 2026-09-27 — Kapitel 10 skrevet: første fulde udkast af kompendiet færdigt
 
 Kapitel 10, "Hamiltonsk feltteori", er skrevet, compileret uden fejl,

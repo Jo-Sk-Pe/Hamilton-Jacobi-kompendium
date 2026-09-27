@@ -91,13 +91,20 @@ begrebsmæssige overgange.
   ($E_n=nh\nu$, sammenlignet med den korrekte $(n+\tfrac12)h\nu$ —
   mangler nulpunktsenergi), partikel i kasse (eksakt
   $E_n=n^2h^2/(8mL^2)$), og korrespondensprincippet. To opgaver.
-- Kapitel 9 (Klassisk feltteori) skrevet og compileret uden fejl
-  (2026-09-27). Udleder kontinuumsgrænsen fra diskret kæde til felt
-  (TikZ-figur), Euler-Lagrange-ligningen for felter fra Hamiltons
-  princip, bølgeligningen for strengen som eksempel, Noethers sætning
-  for felter (kontinuitetsligning, energitæthed/-strøm), og et udblik
-  mod relativistisk notation og Klein-Gordon-Lagrangianen (forbereder
-  det senere QFT-kompendium). To opgaver.
+- Kapitel 9 (Klassisk feltteori) skrevet, udvidet og compileret uden
+  fejl (2026-09-27). Udleder kontinuumsgrænsen fra diskret kæde til
+  felt (TikZ-figur), Euler-Lagrange-ligningen for felter fra Hamiltons
+  princip, bølgeligningen for strengen som eksempel, og Noethers
+  sætning for felter i \emph{alle tre} tilfælde: tidstranslation
+  → energitæthed/-strøm, rumtranslation → impulstæthed/spænding
+  ($\mathcal{P},\mathcal{T}$), og intern $U(1)$-fasesymmetri af et
+  komplekst felt → ladningstæthed/-strøm ($\rho,j$, strukturelt
+  identisk med kvantemekanikkens sandsynlighedsstrøm). Fælles
+  kontinuitetsligning-figur. Udblik mod energi-impuls-tensoren,
+  relativistisk notation og Klein-Gordon-Lagrangianen. Fire opgaver.
+  Dette giver feltteorien en komplet Noether-behandling
+  (energi/impuls/ladning som bevarede strømme), som forudsætning for
+  Jørns nye, kommende QFT/spredningsteori-projekt.
 - Kapitel 10 (Hamiltonsk feltteori) skrevet og compileret uden fejl
   (2026-09-27) — kompendiets afsluttende kapitel. Legendre-
   transformerer feltet ($\pi=\partial\mathcal{L}/\partial\dot\varphi$),
