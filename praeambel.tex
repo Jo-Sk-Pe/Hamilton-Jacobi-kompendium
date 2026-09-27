@@ -1,0 +1,38 @@
+% praeambel.tex — Hamilton-Jacobi-kompendiet
+% Den sædvanlige opsætning (jf. lineær algebra- og kvantemekanik-kompendierne)
+
+\usepackage[a4paper,twoside,margin=2.5cm]{geometry}
+\usepackage[danish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathpazo}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{physics}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,positioning,decorations.pathmorphing}
+\usepackage{mdframed}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{caption}
+\captionsetup{font=small,margin=1.2cm}
+
+% --- Sidehoved/-fod (even/odd) ---
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\leftmark}
+\fancyhead[LO]{\rightmark}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% --- Farvede miljøer ---
+\newmdenv[linecolor=blue!60!black,backgroundcolor=blue!5,linewidth=1pt,roundcorner=3pt]{eksempel}
+\newmdenv[linecolor=orange!70!black,backgroundcolor=orange!5,linewidth=1pt,roundcorner=3pt]{bemaerkning}
+\newmdenv[linecolor=orange!70!black,backgroundcolor=orange!5,linewidth=1pt,roundcorner=3pt]{opgave}
+
+% --- Faste makroer (videreføres fra tidligere kompendier, udvides efter behov) ---
+% \newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}}
+% Hamilton-Jacobi-specifikke makroer tilføjes her efterhånden som de opstår,
+% f.eks. \newcommand{\Ham}{\mathcal{H}} for Hamilton-funktionen,
+% \newcommand{\Lag}{\mathcal{L}} for Lagrange-funktionen,
+% \newcommand{\Hact}{S} for virkningsfunktionen (Hamiltons principfunktion).
