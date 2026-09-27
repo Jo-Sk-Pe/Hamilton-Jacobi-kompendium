@@ -49,7 +49,8 @@ tvangsbetingelser, reduceres antallet af uafhængige frihedsgrader til
 \end{equation}
 
 I stedet for at arbejde med de $3N$ kartesiske koordinater og $k$
-tvangsligninger, indfører vi $n$ \emph{generaliserede koordinater}
+tvangsligninger, indfører vi $n$ \emph{generaliserede
+koordinater}\index{generaliserede koordinater}
 $q_1,\dots,q_n$, valgt så tvangsbetingelserne er automatisk opfyldt for
 alle værdier af $q_i$. De kartesiske koordinater kan da skrives som
 funktioner af de generaliserede koordinater (og eventuelt tiden, hvis
@@ -83,14 +84,14 @@ eventuelt tiden),
 \begin{equation}
   f(\vb{r}_1,\dots,\vb{r}_N,t) = 0,
 \end{equation}
-kaldes \emph{holonom}. Pendulets $x^2+y^2-\ell^2=0$ er et eksempel.
+kaldes \emph{holonom}\index{tvangsbetingelse!holonom}\index{holonom tvangsbetingelse|see{tvangsbetingelse, holonom}}. Pendulets $x^2+y^2-\ell^2=0$ er et eksempel.
 Holonome tvangsbetingelser er netop dem, der kan elimineres ved et
 koordinatvalg som i \eqref{eq:transformationsligning}: de reducerer
 antallet af \emph{koordinater}, vi behøver.
 
 En tvangsbetingelse, der ikke kan skrives på denne form — typisk fordi
 den kun begrænser hastigheder uden at være en totale-differential af
-en funktion af koordinaterne — kaldes \emph{ikke-holonom}. Det klassiske
+en funktion af koordinaterne — kaldes \emph{ikke-holonom}\index{tvangsbetingelse!ikke-holonom}. Det klassiske
 eksempel er en mønt, der ruller uden at glide på et plan: mønten kan nå
 et hvilket som helst punkt på planet med en hvilken som helst
 orientering, men rullebetingelsen (ingen glidning) lægger et
@@ -107,7 +108,8 @@ det.
 \section{Virtuel forskydning og virtuelt arbejde}
 
 For at komme fra Newtons love til et princip, der ikke kræver kendskab
-til tvangskræfterne, indfører vi begrebet \emph{virtuel forskydning}.
+til tvangskræfterne, indfører vi begrebet \emph{virtuel
+forskydning}\index{virtuel forskydning}.
 
 En virtuel forskydning $\delta\vb{r}_\alpha$ er en tænkt,
 infinitesimal ændring af partikel $\alpha$'s position, som
@@ -126,7 +128,7 @@ Ordet "virtuel" markerer netop denne forskel: $\delta\vb{r}_\alpha$ er
 ikke en bevægelse, systemet rent faktisk udfører, men en tilladt
 \emph{sammenligningskonfiguration}, vi bruger som redskab.
 
-\emph{Virtuelt arbejde} er det arbejde, en kraft $\vb{F}_\alpha$ ville
+\emph{Virtuelt arbejde}\index{virtuelt arbejde} er det arbejde, en kraft $\vb{F}_\alpha$ ville
 udføre under en sådan virtuel forskydning:
 \begin{equation}
   \delta W = \sum_{\alpha} \vb{F}_\alpha \cdot \delta\vb{r}_\alpha.
@@ -184,7 +186,8 @@ $\delta\vb{r}_\alpha$ og summerer over alle partikler:
   = -\sum_\alpha \vb{R}_\alpha\cdot\delta\vb{r}_\alpha.
 \end{equation}
 Ifølge \eqref{eq:ideal-tvang} er højresiden nul for ideale
-tvangsbetingelser. Vi står tilbage med \emph{D'Alemberts princip}:
+tvangsbetingelser. Vi står tilbage med \emph{D'Alemberts
+princip}\index{D'Alemberts princip}:
 \begin{equation}
   \boxed{\sum_\alpha \left(\vb{F}_\alpha^{(a)} - m_\alpha\ddot{\vb{r}}_\alpha\right)\cdot\delta\vb{r}_\alpha = 0.}
   \label{eq:dalembert}
@@ -308,12 +311,13 @@ kapitel~\ref{kap:lagrange}, er, om der findes et analogt princip for
 mekanisk bevægelse: findes der en størrelse, hvis integral over banen
 er stationært netop for den bane, partiklen faktisk følger?
 
-Svaret er ja, og det er netop \emph{Hamiltons princip}: den faktiske
-bane gør \emph{virkningen}
+Svaret er ja, og det er netop \emph{Hamiltons
+princip}\index{Hamiltons princip}: den faktiske
+bane gør \emph{virkningen}\index{virkning (Hamiltons principfunktion)}
 \begin{equation}
   S = \int_{t_1}^{t_2} L\,dt
 \end{equation}
-stationær, hvor $L$ er Lagrange-funktionen. At D'Alemberts princip —
+stationær, hvor $L$ er Lagrange-funktionen\index{Lagrange-funktion}. At D'Alemberts princip —
 et differentielt, øjeblik-for-øjeblik-udsagn — faktisk er
 \emph{ækvivalent} med et globalt variationsprincip af denne type, er et
 af de smukkeste resultater i klassisk mekanik, og det er hovedemnet i

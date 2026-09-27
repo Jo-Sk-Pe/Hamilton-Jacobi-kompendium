@@ -56,7 +56,8 @@ to led, som vi behandler hver for sig.
   &= \sum_i \left(\sum_\alpha \vb{F}_\alpha^{(a)}\cdot\pdv{\vb{r}_\alpha}{q_i}\right)\delta q_i
   \;\equiv\; \sum_i Q_i\,\delta q_i,
 \end{align}
-hvor vi har defineret den \emph{generaliserede kraft}
+hvor vi har defineret den \emph{generaliserede
+kraft}\index{generaliseret kraft}
 \begin{equation}
   Q_i \equiv \sum_\alpha \vb{F}_\alpha^{(a)}\cdot\pdv{\vb{r}_\alpha}{q_i}.
   \label{eq:generaliseret-kraft}
@@ -162,7 +163,8 @@ $\vb{F}_\alpha^{(a)} = -\grad_\alpha V$. Da er
 hvor $V$ nu forstås som funktion af $q_1,\dots,q_n,t$ via
 \eqref{eq:transformationsligning}. Da $V$ ikke afhænger af
 $\dot q_i$, kan vi flytte $-\partial V/\partial q_i$ ind under samme
-afledte-struktur som $T$, ved at definere \emph{Lagrange-funktionen}
+afledte-struktur som $T$, ved at definere \emph{Lagrange-
+funktionen}\index{Lagrange-funktion}
 \begin{equation}
   \boxed{L(q,\dot q,t) \equiv T(q,\dot q,t) - V(q,t).}
   \label{eq:def-L}
@@ -174,7 +176,7 @@ den berømte form:
   \boxed{\dv{t}\pdv{L}{\dot q_i} - \pdv{L}{q_i} = 0, \qquad i=1,\dots,n.}
   \label{eq:euler-lagrange}
 \end{equation}
-Dette er \emph{Euler-Lagrange-ligningerne}. De er $n$ andenordens
+Dette er \emph{Euler-Lagrange-ligningerne}\index{Euler-Lagrange-ligningerne}. De er $n$ andenordens
 differentialligninger — én for hver frihedsgrad — og de indeholder
 \emph{al} den dynamiske information om systemet, uden at
 tvangskræfterne nogen steder er optrådt eksplicit.
@@ -292,12 +294,12 @@ kapitel~\ref{kap:newton-variation}.
 Betragt en tænkt bane $q_i(t)$ mellem to fastholdte tidspunkter $t_1$
 og $t_2$, med fastholdte endepunkter
 $q_i(t_1)=q_i^{(1)}$ og $q_i(t_2)=q_i^{(2)}$. For hver sådan bane
-definerer vi \emph{virkningen}
+definerer vi \emph{virkningen}\index{virkning (Hamiltons principfunktion)}
 \begin{equation}
   S[q] \equiv \int_{t_1}^{t_2} L(q(t),\dot q(t),t)\,dt.
   \label{eq:virkning}
 \end{equation}
-$S$ er en \emph{funktional}: den tager en hel funktion $q(t)$ som
+$S$ er en \emph{funktional}\index{funktional}: den tager en hel funktion $q(t)$ som
 input og giver et enkelt tal som output — i modsætning til en
 almindelig funktion, der tager et tal og giver et tal.
 \emph{Hamiltons princip} siger:
@@ -391,7 +393,7 @@ $f_k(q_1,\dots,q_N,t)=0$, $k=1,\dots,m$, blandt $N$ koordinater (hvor
 $N>n=N-m$ er det faktiske antal frihedsgrader). Man kan da vise — ved
 en variation af virkningen, hvor $\delta q_j$ nu er bundet af
 $\sum_j (\partial f_k/\partial q_j)\delta q_j = 0$ for hvert $k$, og ved
-at indføre Lagrange-multiplikatorer $\lambda_k(t)$ til at håndtere
+at indføre Lagrange-multiplikatorer\index{Lagrange-multiplikatorer} $\lambda_k(t)$ til at håndtere
 disse bindinger — at de udvidede Euler-Lagrange-ligninger bliver
 \begin{equation}
   \dv{t}\pdv{L}{\dot q_j} - \pdv{L}{q_j} = \sum_{k=1}^m \lambda_k\,\pdv{f_k}{q_j}, \qquad j=1,\dots,N.
@@ -416,7 +418,7 @@ mellem \emph{symmetrier} i $L$ og \emph{bevarelseslove}.
 
 Antag, at $L$ ikke afhænger af en bestemt koordinat $q_k$ — dvs.
 $\partial L/\partial q_k = 0$, selvom $L$ udmærket kan afhænge af
-$\dot q_k$. En sådan koordinat kaldes \emph{cyklisk}. Euler-Lagrange-
+$\dot q_k$. En sådan koordinat kaldes \emph{cyklisk}\index{cyklisk koordinat}. Euler-Lagrange-
 ligningen for $q_k$ reduceres da til
 \begin{equation}
   \dv{t}\pdv{L}{\dot q_k} = 0
@@ -424,7 +426,8 @@ ligningen for $q_k$ reduceres da til
   p_k \equiv \pdv{L}{\dot q_k} = \text{konstant}.
   \label{eq:cyklisk-bevarelse}
 \end{equation}
-Størrelsen $p_k$ kaldes den \emph{generaliserede (kanoniske) impuls}
+Størrelsen $p_k$ kaldes den \emph{generaliserede (kanoniske)
+impuls}\index{kanonisk impuls}
 konjugeret til $q_k$, og vi ser her det første eksempel på et
 gennemgående mønster: \emph{en kontinuert symmetri i $L$ (uafhængighed
 af en koordinat) giver en bevaret størrelse}. Vi vil møde $p_k$ igen
@@ -445,7 +448,7 @@ Keplers anden lov.
 \subsection{Noethers sætning (translationssymmetri i tid)}
 
 Cyklicitet er et specialtilfælde af en mere generel sætning, formuleret
-af Emmy Noether: \emph{til hver kontinuert symmetri af virkningen svarer
+af Emmy Noether\index{Noethers sætning}: \emph{til hver kontinuert symmetri af virkningen svarer
 en bevaret størrelse}. Vi viser her det simpleste og for vores formål
 vigtigste eksempel: symmetri under tidstranslation, som giver
 energibevarelse.

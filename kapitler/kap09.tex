@@ -63,7 +63,7 @@ Riemann-integral $\int dx(\cdots)$:
   \label{eq:L-tætthed-streng}
 \end{equation}
 hvor $\varphi'\equiv\partial\varphi/\partial x$. Funktionen
-$\mathcal{L}$ kaldes \emph{Lagrange-tætheden}: den spiller for feltet
+$\mathcal{L}$ kaldes \emph{Lagrange-tætheden}\index{Lagrange-tæthed}: den spiller for feltet
 $\varphi(x,t)$ samme rolle, som $L(q,\dot q)$ spillede for en
 partikel — men nu er "koordinaten" selve feltet, mærket af det
 kontinuerte indeks $x$ i stedet for et diskret $i$.
@@ -139,7 +139,7 @@ må koefficienten være identisk nul:
   \boxed{\dv{}{t}\pdv{\mathcal{L}}{\dot\varphi} + \dv{}{x}\pdv{\mathcal{L}}{\varphi'} - \pdv{\mathcal{L}}{\varphi} = 0.}
   \label{eq:euler-lagrange-felt}
 \end{equation}
-Dette er \emph{Euler-Lagrange-ligningen for et felt} — den direkte
+Dette er \emph{Euler-Lagrange-ligningen for et felt}\index{Euler-Lagrange-ligningerne!for felter} — den direkte
 generalisering af \eqref{eq:euler-lagrange}, med et ekstra led for
 hver rumlig retning, feltet afhænger af.
 
@@ -159,7 +159,7 @@ så \eqref{eq:euler-lagrange-felt} giver
   \quad\Longrightarrow\quad
   \mu\ddot\varphi - \tau\varphi'' = 0,
 \end{equation}
-altså \emph{bølgeligningen}
+altså \emph{bølgeligningen}\index{bølgeligning}
 \begin{equation}
   \boxed{\pdv[2]{\varphi}{t} = v^2\pdv[2]{\varphi}{x}, \qquad v\equiv\sqrt{\frac{\tau}{\mu}}.}
   \label{eq:boelgeligning}
@@ -204,12 +204,12 @@ produktreglen baglæns endnu en gang. Omskrevet:
   \mathcal{S} \equiv \dot\varphi\pdv{\mathcal{L}}{\varphi'}.
   \label{eq:kontinuitetsligning}
 \end{equation}
-Dette er en \emph{kontinuitetsligning} — den lokale form af en
+Dette er en \emph{kontinuitetsligning}\index{kontinuitetsligning} — den lokale form af en
 bevarelseslov, velkendt fra elektromagnetismens ladningsbevarelse
 ($\partial\rho/\partial t+\partial J/\partial x=0$, i én rumlig
 dimension) og fra hydrodynamikkens massebevarelse. $\mathcal{H}$
-kaldes \emph{energitætheden} og $\mathcal{S}$ \emph{energi\-
-strømtætheden} (den effekt, der strømmer gennem et punkt $x$).
+kaldes \emph{energitætheden}\index{energitæthed} og $\mathcal{S}$ \emph{energi\-
+strømtætheden}\index{energistrømtæthed} (den effekt, der strømmer gennem et punkt $x$).
 
 Integrerer vi \eqref{eq:kontinuitetsligning} over hele strengens
 længde, og antager, at $\mathcal{S}\to0$ ved endepunkterne (eller ved
@@ -274,8 +274,8 @@ og produktreglen baglæns to gange, ganske som i det foregående afsnit
   \mathcal{T} \equiv \varphi'\pdv{\mathcal{L}}{\varphi'} - \mathcal{L}.
   \label{eq:impuls-kontinuitet}
 \end{equation}
-$\mathcal{P}$ kaldes \emph{impulstætheden} og $\mathcal{T}$
-\emph{impulsstrømtætheden} (eller \emph{spændingen}, i mekanisk
+$\mathcal{P}$ kaldes \emph{impulstætheden}\index{impulstæthed} og $\mathcal{T}$
+\emph{impulsstrømtætheden}\index{impulsstrømtæthed} (eller \emph{spændingen}, i mekanisk
 sprogbrug — det er netop den mekaniske spænding i materialet, betragtet
 som en impulsstrøm). Integreret over hele strengen, med samme
 antagelse om, at $\mathcal{T}\to0$ ved randen, giver dette bevarelse af
@@ -288,7 +288,7 @@ møder systematisk i kapitel~\ref{kap:felter-hamilton}. Dette er ikke
 en tilfældighed: $\mathcal{P}$ og $\mathcal{H}$ (energitætheden) er de
 to komponenter af det, der i relativistisk notation
 (afsnit~\ref{sec:relativistisk-udblik}) kaldes
-\emph{energi-impuls-tensoren} $T^{\mu\nu}$ — en enkelt, samlet
+\emph{energi-impuls-tensoren}\index{energi-impuls-tensor} $T^{\mu\nu}$ — en enkelt, samlet
 størrelse, hvis komponenter er netop de bevarede strømme, der svarer
 til henholdsvis tids- og rumtranslation.
 \end{bemaerkning}
@@ -318,7 +318,7 @@ dimensioner falder $T^{11}$ og $-T^{00}$ netop sammen på denne måde.
 Det tredje og sidste eksempel på Noethers mønster er kvalitativt
 forskelligt fra de to foregående: en symmetri, der \emph{ikke}
 virker på rumtidskoordinaterne $t,x$ selv, men på feltets \emph{værdi}
-— en såkaldt \emph{intern} symmetri. Dette kræver et felt med mindst
+— en såkaldt \emph{intern symmetri}\index{intern symmetri}. Dette kræver et felt med mindst
 to reelle komponenter; det simplest mulige eksempel er et
 \emph{komplekst} felt $\psi(x,t)$ (fysisk: to reelle felter, pakket
 sammen som real- og imaginærdel).
@@ -336,14 +336,14 @@ opgave 3). Euler-Lagrange-ligningerne for $\psi$ og $\psi^\ast$ giver
 hver sin bølgeligning, af samme form som \eqref{eq:boelgeligning}.
 
 $\mathcal{L}$ i \eqref{eq:L-komplekst-felt} er uændret under den
-\emph{globale fasetransformation}
+\emph{globale fasetransformation}\index{fasetransformation, global}
 \begin{equation}
   \psi \to e^{i\alpha}\psi, \qquad \psi^\ast \to e^{-i\alpha}\psi^\ast,
   \qquad \alpha\in\mathbb{R} \text{ konstant},
 \end{equation}
 fordi hvert led i $\mathcal{L}$ indeholder netop ét $\psi$ og ét
 $\psi^\ast$, så faktorerne $e^{i\alpha}$ og $e^{-i\alpha}$ altid
-ophæver hinanden. Denne symmetri kaldes en $U(1)$-symmetri. For en
+ophæver hinanden. Denne symmetri kaldes en \emph{$U(1)$-symmetri}\index{U(1)-symmetri}. For en
 infinitesimal transformation, $\alpha=\varepsilon\ll1$:
 \begin{equation}
   \delta\psi = i\varepsilon\psi, \qquad \delta\psi^\ast = -i\varepsilon\psi^\ast.
@@ -379,8 +379,8 @@ og divideres med $\varepsilon$, fås
   j \equiv i\left(\psi\pdv{\mathcal{L}}{\psi'} - \psi^\ast\pdv{\mathcal{L}}{\psi^{\ast\prime}}\right).
   \label{eq:ladnings-kontinuitet}
 \end{equation}
-$\rho$ kaldes \emph{ladningstætheden} og $j$ \emph{ladningsstrøm\-
-tætheden}. Integreret over hele rummet (med $j\to0$ ved randen) giver
+$\rho$ kaldes \emph{ladningstætheden}\index{ladningstæthed} og $j$ \emph{ladningsstrøm\-
+tætheden}\index{ladningsstrømtæthed}. Integreret over hele rummet (med $j\to0$ ved randen) giver
 dette bevarelse af den \emph{totale ladning} $Q=\int\rho\,dx$ —
 en tredje, kvalitativt ny type bevarelseslov, der ikke stammer fra en
 rumtidssymmetri, men fra feltets egen interne struktur.
@@ -456,11 +456,11 @@ kompakt til
   \qquad\text{(summeret over } \mu = 0,1,2,3\text{).}
 \end{equation}
 Det kanoniske eksempel på et relativistisk felt er
-\emph{Klein-Gordon-Lagrangianen},
+\emph{Klein-Gordon-Lagrangianen}\index{Klein-Gordon-Lagrangianen},
 \begin{equation}
   \mathcal{L}_{\text{KG}} = \frac12\partial_\mu\varphi\,\partial^\mu\varphi - \frac12 m^2\varphi^2,
 \end{equation}
-som giver \emph{Klein-Gordon-ligningen} $(\Box+m^2)\varphi=0$ (med
+som giver \emph{Klein-Gordon-ligningen}\index{Klein-Gordon-ligningen} $(\Box+m^2)\varphi=0$ (med
 $\Box\equiv\partial^\mu\partial_\mu$) — den relativistiske
 bølgeligning for et skalarfelt med masse $m$. Bemærk den strukturelle
 lighed med strengens Lagrange-tæthed \eqref{eq:L-tætthed-streng}: begge
