@@ -114,7 +114,7 @@ begrebsmæssige overgange.
   — den klassiske forløber for QFT's ligetids-kommutator. Kapitlet
   slutter med en kort, samlet konklusion på hele kompendiet.
 
-## Status: første fulde udkast færdigt
+## Status: første fulde udkast færdigt, inkl. stikordsregister
 
 Alle 10 planlagte kapitler er skrevet, og hele main.tex compilerer
 uden fejl på tværs af alle kryds-referencer (bekræftet med to
@@ -124,9 +124,21 @@ kompendiet stopper ved den ældre kvanteteoris tankegods og klassisk
 feltteori; QFT og spredningsteori er emnet for det senere, separate
 kompendium.
 
+Stikordsregister (indeks) er nu sat op og udfyldt (2026-09-27):
+- `makeidx`-pakken og `\makeindex` er tilføjet i praeambel.tex;
+  `\printindex` er tilføjet i main.tex lige før `\end{document}`.
+- Alle 10 kapitler har fået `\index{}`-markeringer ved de centrale
+  fagtermer, ved deres første/definerende forekomst (69 opslagsord i
+  alt), inkl.\ underopslag hvor det er naturligt (fx
+  "tvangsbetingelse!holonom", "Euler-Lagrange-ligningerne!for
+  felter", "Poisson-parentes!felt-") og en enkelt "see"-henvisning.
+- Fuld test-compilering med `pdflatex → makeindex → pdflatex` er
+  gennemført uden fejl eller advarsler (0 afviste opslagsord).
+- Makefile's `clean`-target er udvidet til også at rydde
+  `*.idx`/`*.ilg`/`*.ind`.
+
 Naturlige næste skridt herfra (ikke påbegyndt):
 - Gennemlæsning/korrekturlæsning af hele kompendiet i sammenhæng.
 - Eventuel udbygning af enkelte afsnit eller flere opgaver.
 - Facitliste/løsninger til opgaverne (jf.\ konventionen fra de øvrige
   kompendier).
-- Indeks.

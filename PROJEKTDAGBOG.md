@@ -4,6 +4,32 @@ Kronologisk log over beslutninger og fremdrift. Nyeste øverst.
 
 ---
 
+## 2026-09-27 — Stikordsregister sat op og udfyldt
+
+Jørn spurgte, om indholdsfortegnelse og stikordsregister var på
+plads. Indholdsfortegnelsen var i orden, men der var intet
+stikordsregister — Jørn bad om, at det blev sat op ordentligt fra
+starten.
+
+Infrastruktur: `makeidx`-pakken og `\makeindex` tilføjet i
+praeambel.tex, `\printindex` tilføjet i main.tex, og Makefile's
+`clean`-target udvidet til at rydde `.idx`/`.ilg`/`.ind`-filer.
+
+Alle 10 kapitler er derefter gennemgået systematisk, og
+`\index{}`-markeringer er indsat ved hver central fagterms
+definerende forekomst — 69 opslagsord i alt, inkl.\ underopslag hvor
+naturligt (fx "tvangsbetingelse!holonom",
+"Euler-Lagrange-ligningerne!for felter", "Poisson-parentes!felt-") og
+en "see"-henvisning ("holonom tvangsbetingelse" → "tvangsbetingelse,
+holonom"). Fuld test-compilering (pdflatex → makeindex → pdflatex) er
+gennemført uden fejl eller advarsler.
+
+Næste skridt: ingen planlagte — kompendiets første fulde udkast,
+inkl.\ register, er nu færdigt. Mulige senere skridt: korrekturlæsning
+i sammenhæng og facitliste til opgaverne.
+
+---
+
 ## 2026-09-27 — Kapitel 9 udvidet med fuld Noether-behandling af felter
 
 Jørn er i gang med at oprette et nyt, kommende projekt om
