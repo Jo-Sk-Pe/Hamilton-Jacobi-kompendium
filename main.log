@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.8.6)  27 SEP 2026 16:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex 2026.8.6)  27 SEP 2026 18:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2177,16 +2177,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[66]
-No file main.ind.
+[66] (main.ind [67
 
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.142 \end{titlepage}
-                      [1
 
+]) [68
+
+] [69] [70
 
 ] (main.aux)
  ***********
@@ -2197,10 +2193,10 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 140E3CDD1A9A1B2B9D98F42DA19F0CA7;26007.
  ) 
 Here is how much of TeX's memory you used:
- 27579 strings out of 468647
- 518783 string characters out of 5440999
+ 27589 strings out of 468647
+ 518963 string characters out of 5440999
  940625 words of memory out of 5000000
- 55677 multiletter control sequences out of 15000+600000
+ 55680 multiletter control sequences out of 15000+600000
  707116 words of font info for 229 fonts, out of 8000000 for 9000
  547 hyphenation exceptions out of 8191
  89i,12n,107p,576b,746s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2219,9 +2215,9 @@ b><C:/Users/jsped/AppData/Local/Programs/MiKTeX/fonts/type1/urw/palatino/uplbi8
 a.pfb><C:/Users/jsped/AppData/Local/Programs/MiKTeX/fonts/type1/urw/palatino/up
 lr8a.pfb><C:/Users/jsped/AppData/Local/Programs/MiKTeX/fonts/type1/urw/palatino
 /uplri8a.pfb>
-Output written on main.pdf (73 pages, 579647 bytes).
+Output written on main.pdf (76 pages, 595456 bytes).
 PDF statistics:
- 1518 PDF objects out of 1728 (max. 8388607)
- 402 named destinations out of 1000 (max. 500000)
+ 1604 PDF objects out of 1728 (max. 8388607)
+ 406 named destinations out of 1000 (max. 500000)
  917 words of extra memory for PDF output out of 10000 (max. 10000000)
 

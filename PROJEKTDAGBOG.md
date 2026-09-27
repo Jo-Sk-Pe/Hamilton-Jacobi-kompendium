@@ -4,6 +4,31 @@ Kronologisk log over beslutninger og fremdrift. Nyeste øverst.
 
 ---
 
+## 2026-09-27 — Lige sidetal til tosidet udskrivning: bagsiden uden titlepage
+
+Jørn påpegede korrekt, at den ekstra blanke side (for at få et lige
+sidetal) skal ligge FØR bagsiden, ikke efter — ellers ville bagsiden
+selv ende på en ulige side og printes forkert på et tosidet ark.
+
+Rodårsag til at et forsøg på dette gav en uventet ekstra side med kun
+sidehoved: `titlepage`-miljøet i klassen `book` (som er `twoside` som
+standard) indeholder internt et `\cleardoublepage`, der ALTID tvinger
+den efterfølgende side til at være ulige — hvis den ikke allerede er
+det, indsætter LaTeX selv en ekstra side (med det almindelige
+sidehoved, da intet undertrykker det) for at nå derhen. Så uanset hvor
+mange blanke sider der blev sat ind før bagsiden, "korrigerede"
+`titlepage` det tilbage til et ulige sidetal.
+
+Rettelse: bagsiden bruger nu ikke `titlepage`-miljøet længere, men en
+almindelig side (`\clearpage \thispagestyle{empty} \begingroup...
+\endgroup \clearpage`) med samme visuelle indhold. Dermed kan der
+frit indsættes lige mange blanke sider før den, og det samlede
+sidetal bliver nu lige. Verificeret i test-sandkassen (med ægte
+dansk babel): 76 sider i alt, to helt blanke sider (uden sidehoved)
+efter stikordsregisteret, bagsiden på side 76 (lige).
+
+---
+
 ## 2026-09-27 — Rettet compileringsfejl: lige gåseøjne under dansk babel
 
 Jørn sendte en fejlliste fra sin egen MiKTeX-compilering. Rodårsagen:
