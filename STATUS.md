@@ -67,5 +67,28 @@ begrebsmæssige overgange.
   generator af tidsudvikling selv — forbereder Hamilton-Jacobi),
   og noterer at kanoniske transformationer bevarer Poisson-strukturen
   (TikZ-figur). Fire opgaver.
-- Kapitel 6 (Hamilton-Jacobi-teori) er næste skridt — kompendiets
-  centrale kapitel.
+- Kapitel 6 (Hamilton-Jacobi-teori) skrevet og compileret uden fejl
+  (2026-09-27) — kompendiets centrale kapitel. Udleder HJ-ligningen
+  som betingelsen $K\equiv 0$ for en kanonisk transformation
+  (genererende funktion $S$), viser $S$ er virkningen ($dS/dt=L$),
+  giver løsningsproceduren via $\beta_i=\partial S/\partial\alpha_i$,
+  separation i tid til den tidsuafhængige HJ-ligning, og løser den
+  harmoniske oscillator fuldstændigt via metoden. Geometrisk
+  bølgefront-billede (TikZ-figur) og udblik mod den semiklassiske
+  grænse af kvantemekanikken ($\psi\sim e^{iS/\hbar}$). Tre opgaver.
+- Kapitel 7 (Virknings-vinkel-variable) skrevet og compileret uden
+  fejl (2026-09-27). Definerer libration/rotation, virkningsvariablen
+  $J=\oint p\,dq$ (TikZ-figur: areal i faserum), vinkelvariablen $w$
+  og udleder $\nu=dE/dJ=1/\tau$ som svingningsfrekvensen. Løser den
+  harmoniske oscillator via metoden ($E=\nu J$ — peger direkte mod
+  Plancks $E=nh\nu$), og skitserer separable systemer med flere
+  frihedsgrader. To opgaver.
+- Kapitel 8 (Adiabatiske invarianter — broen til den ældre
+  kvanteteori) skrevet og compileret uden fejl (2026-09-27). Udleder
+  adiabatisk invarians af $J$ (plausibilitetsargument à la Landau),
+  eksempel med oscillator ($E/\omega=$ konst., TikZ-figur),
+  Bohr-Sommerfeld-kvantisering $J=nh$, kvantisering af oscillatoren
+  ($E_n=nh\nu$, sammenlignet med den korrekte $(n+\tfrac12)h\nu$ —
+  mangler nulpunktsenergi), partikel i kasse (eksakt
+  $E_n=n^2h^2/(8mL^2)$), og korrespondensprincippet. To opgaver.
+- Kapitel 9 (Klassisk feltteori) er næste skridt.

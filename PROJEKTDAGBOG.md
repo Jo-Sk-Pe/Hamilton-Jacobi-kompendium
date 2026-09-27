@@ -4,6 +4,58 @@ Kronologisk log over beslutninger og fremdrift. Nyeste øverst.
 
 ---
 
+## 2026-09-27 — Kapitel 8 skrevet (nøglekapitel: broen til den ældre kvanteteori)
+
+Kapitel 8, "Adiabatiske invarianter — broen til den ældre kvanteteori",
+er skrevet, compileret uden fejl, og aktiveret i main.tex (Del III
+påbegyndt). Udleder adiabatisk invarians af virkningsvariablen $J$
+med et fuldt (om end ikke stringent-matematisk) argument, illustrerer
+med oscillator-eksemplet $E/\omega=\text{konst.}$ (TikZ-figur), og når
+frem til Bohr-Sommerfeld-kvantiseringen $J=nh$. To gennemarbejdede
+eksempler: oscillatoren ($E_n=nh\nu$, sammenlignet ærligt med den
+korrekte $(n+\tfrac12)h\nu$ og den manglende nulpunktsenergi) og
+partiklen i kassen (hvor den ældre teori giver det \emph{eksakte}
+kvantemekaniske resultat). Slutter med korrespondensprincippet. To
+opgaver.
+
+Næste skridt: kapitel 9 (Klassisk feltteori).
+
+---
+
+## 2026-09-27 — Kapitel 7 skrevet
+
+Kapitel 7, "Virknings-vinkel-variable", er skrevet, compileret uden
+fejl, og aktiveret i main.tex. Indeholder: klassifikation af
+libration/rotation, virkningsvariablen $J=\oint p\,dq$ med geometrisk
+tolkning (TikZ-figur), udledning af at $\nu=dE/dJ=1/\tau$ er
+svingningsfrekvensen (uden at skulle finde $q(t)$ eksplicit), et
+gennemarbejdet eksempel med den harmoniske oscillator ($E=\nu J$,
+direkte optakt til Plancks kvantiseringsbetingelse), og separable
+systemer med flere frihedsgrader. To opgaver.
+
+Næste skridt: kapitel 8 (Adiabatiske invarianter — broen til den
+ældre kvanteteori). Dette er sammen med kapitel 10 et af de to
+nøglekapitler, der peger direkte mod kvantemekanik-kompendiet.
+
+---
+
+## 2026-09-27 — Kapitel 6 skrevet (kompendiets omdrejningspunkt)
+
+Kapitel 6, "Hamilton-Jacobi-teori", er skrevet, compileret uden fejl,
+og aktiveret i main.tex (Del II påbegyndt). Udleder Hamilton-Jacobi-
+ligningen fra strategien om at finde en kanonisk transformation til
+$K\equiv0$, bekræfter at $S$ er virkningen ($dS/dt=L$), giver den
+fulde løsningsprocedure, separerer tidsafhængigheden for
+tidsuafhængig $H$, og løser den harmoniske oscillator fuldstændigt
+som et gennemarbejdet eksempel (inkl. tjek at $p=m\dot x$ og
+$H=E$ er opfyldt identisk). Geometrisk bølgefront-billede med
+TikZ-figur, og et udblik mod den semiklassiske grænse af
+kvantemekanikken. Tre opgaver.
+
+Næste skridt: kapitel 7 (Virknings-vinkel-variable).
+
+---
+
 ## 2026-09-27 — Kapitel 5 skrevet
 
 Kapitel 5, "Kanoniske transformationer", er skrevet, compileret uden
