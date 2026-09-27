@@ -1,0 +1,306 @@
+% kap04.tex — Poisson-parenteser og kanonisk struktur
+% Hamilton-Jacobi-kompendiet
+
+\chapter{Poisson-parenteser og kanonisk struktur}
+\label{kap:poisson}
+
+\section{Tidsudviklingen af en vilkårlig størrelse}
+
+I kapitel~\ref{kap:hamilton} udledte vi, at $dH/dt=\partial H/\partial t$
+langs en faktisk bane. Det naturlige næste spørgsmål er: hvad gælder
+for tidsafledningen af en \emph{vilkårlig} funktion
+$f(q,p,t)$ af faserumsvariablene — ikke kun $H$ selv? Svaret på dette
+spørgsmål fører os til at indføre \emph{Poisson-parentesen}, som
+bliver det centrale algebraiske redskab for resten af kompendiet, og
+som — det skal siges allerede her — er den klassiske forløber for
+kommutatoren i kvantemekanikken.
+
+Ved kædereglen og Hamiltons ligninger \eqref{eq:hamiltons-ligninger}:
+\begin{equation}
+  \dv{f}{t} = \sum_i\left(\pdv{f}{q_i}\dot q_i + \pdv{f}{p_i}\dot p_i\right) + \pdv{f}{t}
+  = \sum_i\left(\pdv{f}{q_i}\pdv{H}{p_i} - \pdv{f}{p_i}\pdv{H}{q_i}\right) + \pdv{f}{t}.
+  \label{eq:df-dt-udledning}
+\end{equation}
+Summen på højresiden — uden $\partial f/\partial t$-leddet — optræder
+så ofte og med en så bestemt algebraisk struktur, at den fortjener sit
+eget symbol og navn.
+
+\section{Definition af Poisson-parentesen}
+
+For to funktioner $f(q,p,t)$ og $g(q,p,t)$ på faserummet defineres
+\emph{Poisson-parentesen}
+\begin{equation}
+  \boxed{\{f,g\} \equiv \sum_{i=1}^n\left(\pdv{f}{q_i}\pdv{g}{p_i} - \pdv{f}{p_i}\pdv{g}{q_i}\right).}
+  \label{eq:def-poisson}
+\end{equation}
+Med denne definition bliver \eqref{eq:df-dt-udledning} til den
+kompakte og centrale formel
+\begin{equation}
+  \boxed{\dv{f}{t} = \{f,H\} + \pdv{f}{t}.}
+  \label{eq:bevaegelse-poisson}
+\end{equation}
+Dette er \emph{bevægelsesligningen for en vilkårlig faserumsfunktion},
+udtrykt via Poisson-parentesen med $H$. Vi kan endda genskrive
+Hamiltons ligninger selv i denne form: sæt $f=q_i$ og $f=p_i$
+(begge er trivielt tidsuafhængige som funktioner, $\partial q_i/\partial t=0$),
+og brug definitionen \eqref{eq:def-poisson} direkte:
+\begin{equation}
+  \dot q_i = \{q_i,H\} = \pdv{H}{p_i}, \qquad
+  \dot p_i = \{p_i,H\} = -\pdv{H}{q_i},
+\end{equation}
+i fuld overensstemmelse med \eqref{eq:hamiltons-ligninger}. Hamiltons
+ligninger er altså blot specialtilfælde af den generelle formel
+\eqref{eq:bevaegelse-poisson}.
+
+\section{De fundamentale parenteser}
+
+Ved direkte indsættelse i \eqref{eq:def-poisson}, med $q_i$ og $p_i$
+som de indsatte funktioner, og med Kronecker-deltaet
+$\delta_{ij}=1$ for $i=j$ og $0$ ellers (fordi $\partial q_i/\partial q_j=\delta_{ij}$
+og $\partial p_i/\partial p_j=\delta_{ij}$, mens $q_i$ og $p_j$ er
+uafhængige, så $\partial q_i/\partial p_j=0$), finder man
+\begin{equation}
+  \boxed{\{q_i,q_j\} = 0, \qquad \{p_i,p_j\} = 0, \qquad \{q_i,p_j\} = \delta_{ij}.}
+  \label{eq:fundamentale-parenteser}
+\end{equation}
+Disse tre relationer kaldes de \emph{fundamentale Poisson-parenteser}.
+De er selve definitionen af, hvad det betyder for et sæt variable
+$(q_i,p_i)$ at være \emph{kanonisk konjugerede} — en egenskab, vi
+udnytter systematisk, når vi i kapitel~\ref{kap:kanoniske-transf}
+spørger, hvilke koordinatskift på faserummet bevarer Hamiltons
+ligningers form.
+
+\begin{bemaerkning}
+Relationen $\{q_i,p_j\}=\delta_{ij}$ er den klassiske forgænger til
+kommutationsrelationen $[\hat q_i,\hat p_j]=i\hbar\,\delta_{ij}$ i
+kvantemekanikken (se [[kvantemekanik-kompendiet]]). Reglen for at gå
+fra klassisk til kvantemekanik — \emph{kanonisk kvantisering} — er
+netop at erstatte Poisson-parenteser med kommutatorer efter reglen
+$\{f,g\}\to \frac{1}{i\hbar}[\hat f,\hat g]$. Vi vil ikke udføre
+denne kvantisering i dette kompendium (det er det senere QFT-
+kompendiums opgave at gøre det systematisk), men det er værd at bære
+med sig, at hele den algebraiske struktur, vi bygger op i dette
+kapitel, overlever næsten ord for ord ind i kvanteteorien.
+\end{bemaerkning}
+
+\section{Algebraiske egenskaber}
+
+Poisson-parentesen har en række egenskaber, som gør den til en såkaldt
+\emph{Lie-parentes} — den samme abstrakte struktur, man møder i teorien
+for kontinuerte symmetrigrupper. Vi angiver dem her; de følger alle
+direkte af definitionen \eqref{eq:def-poisson} ved indsættelse (se
+opgave 1).
+
+\begin{itemize}
+  \item \textbf{Antisymmetri:} $\{f,g\} = -\{g,f\}$. Specielt
+        $\{f,f\}=0$.
+  \item \textbf{Bilinearitet:} $\{af+bg,h\} = a\{f,h\}+b\{g,h\}$ for
+        konstanter $a,b$ (og tilsvarende i det andet argument, via
+        antisymmetrien).
+  \item \textbf{Leibniz-regel (produktregel):}
+        $\{fg,h\} = f\{g,h\} + \{f,h\}g$.
+  \item \textbf{Jacobi-identiteten:}
+        \begin{equation}
+          \{f,\{g,h\}\} + \{g,\{h,f\}\} + \{h,\{f,g\}\} = 0.
+        \end{equation}
+\end{itemize}
+
+Jacobi-identiteten er den mindst intuitive, men også den vigtigste af
+de fire: det er den, der garanterer, at Poisson-parenteser (og senere
+kommutatorer) definerer en konsistent algebraisk struktur, som man kan
+bygge en gruppeteori af symmetritransformationer ovenpå.
+
+\begin{bemaerkning}
+Et sæt størrelser, der er lukket under Poisson-parentesen — dvs.\
+hvor $\{f,g\}$ altid selv kan skrives som en (lineær) kombination af
+størrelserne i sættet — udgør, hvad man kalder en \emph{Lie-algebra}.
+Dette er præcis den struktur, der ligger bag begrebet "symmetrigruppe"
+i fysikken: banemomentkomponenterne $(L_x,L_y,L_z)$, som vi ser i
+næste afsnit, er det arketypiske eksempel, og deres Poisson-
+algebra er den klassiske skygge af rotationsgruppens
+kommutationsrelationer i kvantemekanikken.
+\end{bemaerkning}
+
+\section{Bevarelseslove via Poisson-parenteser}
+
+Formel \eqref{eq:bevaegelse-poisson} giver et umiddelbart og meget
+anvendt kriterium for bevarelse: hvis $f$ ikke afhænger eksplicit af
+tiden ($\partial f/\partial t=0$), så er
+\begin{equation}
+  \boxed{f \text{ er bevaret} \quad\Longleftrightarrow\quad \{f,H\}=0.}
+  \label{eq:bevarelse-poisson}
+\end{equation}
+Dette generaliserer både resultatet for cykliske koordinater
+(kapitel~\ref{kap:lagrange}) og for $H$ selv
+(kapitel~\ref{kap:hamilton}, hvor $\{H,H\}=0$ trivielt pga.\
+antisymmetrien, så $H$ er bevaret netop når $\partial H/\partial t=0$,
+som vi allerede vidste).
+
+\begin{bemaerkning}
+Et vigtigt strukturelt resultat, som følger direkte af Jacobi-
+identiteten (se opgave 2), er, at hvis $f$ og $g$ begge er bevarede
+størrelser (begge Poisson-kommuterer med $H$), så er deres Poisson-
+parentes $\{f,g\}$ \emph{også} en bevaret størrelse. Bevarede
+størrelser er altså lukkede under Poisson-parentesen — de udgør netop
+en Lie-algebra i den forstand, der blev nævnt ovenfor. Dette er
+oprindelsen til, at bevægelseskonstanter for et system med
+tilstrækkeligt mange symmetrier ofte "kommer i familier", der danner
+en gruppe (rotationsgruppen for banemoment er det stående eksempel).
+\end{bemaerkning}
+
+\subsection{Eksempel: banemomentets Poisson-algebra}
+
+\begin{eksempel}
+Betragt banemomentets tre kartesiske komponenter for en partikel i tre
+dimensioner,
+\begin{equation}
+  L_x = yp_z - zp_y, \qquad L_y = zp_x - xp_z, \qquad L_z = xp_y - yp_x,
+\end{equation}
+udtrykt ved de kanoniske variable $(x,y,z,p_x,p_y,p_z)$, som opfylder
+de fundamentale parenteser \eqref{eq:fundamentale-parenteser} (med
+$q_1,q_2,q_3=x,y,z$). Vi beregner $\{L_x,L_y\}$ direkte fra
+definitionen \eqref{eq:def-poisson},
+\begin{equation}
+  \{L_x,L_y\} = \sum_{i\in\{x,y,z\}}\left(\pdv{L_x}{i}\pdv{L_y}{p_i} - \pdv{L_x}{p_i}\pdv{L_y}{i}\right),
+\end{equation}
+ved først at opskrive alle de nødvendige partielle afledte:
+\begin{equation}
+  \pdv{L_x}{x}=0,\quad \pdv{L_x}{y}=p_z,\quad \pdv{L_x}{z}=-p_y,\quad
+  \pdv{L_x}{p_x}=0,\quad \pdv{L_x}{p_y}=-z,\quad \pdv{L_x}{p_z}=y,
+\end{equation}
+\begin{equation}
+  \pdv{L_y}{x}=-p_z,\quad \pdv{L_y}{y}=0,\quad \pdv{L_y}{z}=p_x,\quad
+  \pdv{L_y}{p_x}=z,\quad \pdv{L_y}{p_y}=0,\quad \pdv{L_y}{p_z}=-x.
+\end{equation}
+Bidraget fra $i=x$ er $\left(\partial_xL_x\right)\left(\partial_{p_x}L_y\right)-\left(\partial_{p_x}L_x\right)\left(\partial_xL_y\right)=0\cdot z-0\cdot(-p_z)=0$,
+og bidraget fra $i=y$ er ligeledes $p_z\cdot 0-(-z)\cdot 0=0$: begge
+forsvinder, fordi enten $L_x$ eller $L_y$ mangler den relevante
+afhængighed. Kun $i=z$ bidrager:
+\begin{equation}
+  \left(\pdv{L_x}{z}\right)\left(\pdv{L_y}{p_z}\right) - \left(\pdv{L_x}{p_z}\right)\left(\pdv{L_y}{z}\right)
+  = (-p_y)(-x) - (y)(p_x) = xp_y - yp_x = L_z.
+\end{equation}
+Vi finder altså
+\begin{equation}
+  \boxed{\{L_x,L_y\} = L_z,}
+  \label{eq:Lx-Ly}
+\end{equation}
+og ved cyklisk ombytning af $(x,y,z)$:
+\begin{equation}
+  \{L_y,L_z\} = L_x, \qquad \{L_z,L_x\} = L_y.
+\end{equation}
+Banemomentets tre komponenter er altså \emph{lukkede} under Poisson-
+parentesen — de danner en Lie-algebra, isomorf til rotationsgruppen
+$SO(3)$'s Lie-algebra. Dette er den klassiske skygge af de velkendte
+kommutationsrelationer $[\hat L_x,\hat L_y]=i\hbar\hat L_z$ (cyklisk) i
+kvantemekanikken (se [[kvantemekanik-kompendiet]]).
+\end{eksempel}
+
+\section{Liouvilles sætning: bevarelse af faserumsvolumen}
+
+Vi slutter kapitlet med et geometrisk resultat, der binder Poisson-
+strukturen sammen med faserumsbilledet fra
+kapitel~\ref{kap:hamilton}. Betragt en samling af systemer med
+starttilstande fordelt over et lille område $\Omega_0$ i faserummet
+(fx alle med næsten samme $(q,p)$, men med små variationer). Under
+tidsudviklingen bevæger hvert punkt i $\Omega_0$ sig efter Hamiltons
+ligninger, og området deformeres til et nyt område $\Omega_t$.
+
+\emph{Liouvilles sætning} siger, at \emph{volumenet} af dette område i
+faserummet er \emph{bevaret}:
+\begin{equation}
+  \text{Vol}(\Omega_t) = \text{Vol}(\Omega_0) \qquad \text{for alle } t.
+  \label{eq:liouville}
+\end{equation}
+Den underliggende grund er, at Hamiltons ligninger definerer et
+"strømningsfelt" på faserummet,
+$\vb{v}=(\dot q_1,\dots,\dot q_n,\dot p_1,\dots,\dot p_n)$, hvis
+divergens er identisk nul:
+\begin{equation}
+  \sum_i\left(\pdv{\dot q_i}{q_i} + \pdv{\dot p_i}{p_i}\right)
+  = \sum_i\left(\pdv{}{q_i}\pdv{H}{p_i} - \pdv{}{p_i}\pdv{H}{q_i}\right) = 0,
+\end{equation}
+fordi de to blandede andenafledte af $H$ er identiske og trækkes fra
+hinanden. Et divergensfrit strømningsfelt bevarer volumen, ganske som
+en inkompressibel væskestrømning — dette er indholdet af
+\eqref{eq:liouville}.
+
+\begin{bemaerkning}
+Liouvilles sætning er grundstenen for al klassisk statistisk mekanik:
+den garanterer, at en sandsynlighedsfordeling over faserummet
+udvikler sig som et inkompressibelt "faserumsfluidum", hvilket er
+udgangspunktet for Liouville-ligningen for fordelingsfunktionen
+$\rho(q,p,t)$. Vi forfølger ikke denne retning i dette kompendium, men
+den er værd at nævne, fordi den samme volumenbevarelse (nu udtrykt som
+unitaritet af tidsudviklingen) er en af de mest grundlæggende
+egenskaber, kvantemekanikken må arve fra den klassiske teori.
+\end{bemaerkning}
+
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}[scale=1.0]
+    \draw[-{Latex}] (-0.3,0) -- (7.5,0) node[right] {$q$};
+    \draw[-{Latex}] (0,-0.3) -- (0,3.3) node[above] {$p$};
+    % Oprindeligt område Omega_0 (cirkulær-ish blob)
+    \draw[thick,blue!60!black,fill=blue!12] plot[smooth cycle] coordinates
+      {(1.0,1.6) (1.5,2.0) (2.0,1.7) (1.9,1.1) (1.4,0.9)};
+    \node[blue!60!black] at (1.5,1.5) {$\Omega_0$};
+    % Deformeret område Omega_t (aflangt, samme areal, forskudt)
+    \draw[thick,black,fill=black!8] plot[smooth cycle] coordinates
+      {(4.6,2.4) (5.6,2.55) (6.5,2.1) (6.2,1.55) (5.2,1.5) (4.5,1.85)};
+    \node at (5.5,2.0) {$\Omega_t$};
+    % Pil der viser strømningen/tidsudviklingen
+    \draw[-{Latex},thick,dashed,green!55!black] (2.1,1.4) to[bend left=15] (4.4,1.85);
+    \node[green!55!black] at (3.2,2.15) {tidsudvikling};
+  \end{tikzpicture}
+  \caption{Liouvilles sætning: et område $\Omega_0$ i faserummet
+  deformeres under tidsudviklingen til $\Omega_t$ — formen ændres,
+  men arealet (i to dimensioner) hhv.\ volumenet (i $2n$ dimensioner)
+  er bevaret.}
+  \label{fig:liouville}
+\end{figure}
+
+\section{Opsummering}
+
+\begin{itemize}
+  \item Poisson-parentesen $\{f,g\}=\sum_i(\partial_{q_i}f\,\partial_{p_i}g - \partial_{p_i}f\,\partial_{q_i}g)$
+        opsummerer tidsudviklingen af enhver faserumsfunktion:
+        $df/dt = \{f,H\} + \partial f/\partial t$.
+  \item De fundamentale parenteser $\{q_i,p_j\}=\delta_{ij}$,
+        $\{q_i,q_j\}=\{p_i,p_j\}=0$ definerer, hvad det betyder at være
+        kanonisk konjugerede variable.
+  \item Poisson-parentesen er antisymmetrisk, bilineær, opfylder
+        Leibniz-reglen og Jacobi-identiteten — den er en Lie-parentes.
+  \item En tidsuafhængig størrelse $f$ er bevaret netop når
+        $\{f,H\}=0$; bevarede størrelser er lukkede under
+        Poisson-parentesen.
+  \item Banemomentets komponenter opfylder $\{L_x,L_y\}=L_z$ (cyklisk)
+        — den klassiske forløber for rotationsgruppens
+        kommutationsrelationer.
+  \item Liouvilles sætning: faserumsvolumen er bevaret under
+        Hamiltons ligningers tidsudvikling, fordi strømningsfeltet er
+        divergensfrit.
+\end{itemize}
+
+\begin{opgave}
+Vis direkte fra definitionen \eqref{eq:def-poisson}, at Poisson-
+parentesen er antisymmetrisk og opfylder Leibniz-reglen
+$\{fg,h\}=f\{g,h\}+\{f,h\}g$.
+\end{opgave}
+
+\begin{opgave}
+Brug Jacobi-identiteten til at vise, at hvis $\{f,H\}=0$ og
+$\{g,H\}=0$ (begge tidsuafhængige og bevarede), så er
+$\{\{f,g\},H\}=0$ — altså at $\{f,g\}$ også er bevaret. (Antag
+$\partial f/\partial t=\partial g/\partial t=0$.)
+\end{opgave}
+
+\begin{opgave}
+Gennemfør den fulde udregning af $\{L_x,L_y\}$ fra definitionen
+\eqref{eq:def-poisson}, led for led, og bekræft resultatet
+\eqref{eq:Lx-Ly}. Vis derudover, at $\{L_z,x\}=-y$ og $\{L_z,y\}=x$
+(dvs.\ at $L_z$ genererer infinitesimale rotationer om $z$-aksen —
+en forsmag på den generelle forbindelse mellem Poisson-parenteser og
+symmetritransformationer, som vender tilbage i
+kapitel~\ref{kap:kanoniske-transf}).
+\end{opgave}
