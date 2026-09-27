@@ -1,0 +1,362 @@
+% kap03.tex — Hamilton-formalisme
+% Hamilton-Jacobi-kompendiet
+
+\chapter{Hamilton-formalisme}
+\label{kap:hamilton}
+
+\section{Målet: fra hastigheder til impulser}
+
+I kapitel~\ref{kap:lagrange} stødte vi to gange på den generaliserede
+impuls $p_i=\partial L/\partial\dot q_i$ (afsnit om cykliske
+koordinater) og på størrelsen
+$H=\sum_i\dot q_i\,\partial L/\partial\dot q_i - L$
+(afsnit om Noethers sætning), uden at give dem en systematisk
+behandling. I dette kapitel gør vi netop det: vi bytter de $n$
+generaliserede hastigheder $\dot q_i$ ud med de $n$ generaliserede
+impulser $p_i$ som de fundamentale variable, og omskriver hele
+dynamikken i termer af $(q_i,p_i)$ i stedet for $(q_i,\dot q_i)$.
+
+Det matematiske redskab til denne ombytning er
+\emph{Legendre-transformationen}. Resultatet er \emph{Hamiltons
+ligninger} — to \emph{første}ordens differentialligninger for hver
+frihedsgrad, i stedet for Euler-Lagranges \emph{ene anden}ordens
+ligning. Denne omskrivning er ikke blot kosmetisk: den flytter
+beskrivelsen fra konfigurationsrummet ($n$-dimensionalt, koordinaterne
+$q_i$) til \emph{faserummet} ($2n$-dimensionalt, $(q_i,p_i)$), som er
+selve arenaen for al den resterende teori i kompendiet — kanoniske
+transformationer, Poisson-parenteser og til sidst Hamilton-Jacobi-
+ligningen selv.
+
+\section{Legendre-transformationen}
+
+\subsection{Den generelle idé, illustreret i én variabel}
+
+Før vi anvender Legendre-transformationen på $L$, er det nyttigt at se
+den i sin enkleste form. Lad $f(x)$ være en konveks funktion af én
+variabel $x$ (dvs.\ $f''(x)>0$ overalt). Vi definerer en ny variabel
+\begin{equation}
+  p \equiv \dv{f}{x},
+\end{equation}
+og — fordi $f$ er konveks, er $p(x)$ monotont voksende og dermed
+invertibel: vi kan i princippet løse for $x$ som funktion af $p$. Den
+\emph{Legendre-transformerede} funktion defineres som
+\begin{equation}
+  g(p) \equiv x\,p - f(x), \qquad \text{hvor } x = x(p) \text{ (den inverse funktion).}
+  \label{eq:legendre-generel}
+\end{equation}
+Pointen er, at $g$ indeholder \emph{præcis} den samme information som
+$f$ — vi kan altid gå tilbage — men udtrykt i den nye variabel $p$ i
+stedet for $x$. At vi ganger med $p$ og trækker $f$ fra, er ikke en
+arbitrær opskrift: det er netop den kombination, der garanterer, at
+$dg/dp = x$ (vis selv dette ved at differentiere
+\eqref{eq:legendre-generel} med hensyn til $p$ og bruge
+$dp/dx\cdot dx/dp=1$), så transformationen er sin egen invers, op til
+et fortegn — en symmetri, vi skal udnytte om et øjeblik.
+
+\begin{bemaerkning}
+Legendre-transformationen er langt fra unik for mekanik. Den samme
+konstruktion optræder i termodynamikken (fra intern energi $U(S,V)$
+til fri energi $F(T,V)=U-TS$, hvor $T=\partial U/\partial S$) og i
+konveks optimering. Den fælles struktur er altid: erstat en variabel
+med dens "partielle afledte-partner", og betal for skiftet med et
+produktled.
+\end{bemaerkning}
+
+\subsection{Anvendt på Lagrange-funktionen}
+
+Vi anvender nu \eqref{eq:legendre-generel} led for led på
+$L(q_1,\dots,q_n,\dot q_1,\dots,\dot q_n,t)$, med de $n$ hastigheder
+$\dot q_i$ som de variable, der skal udskiftes. For hver $i$ definerer
+vi den \emph{kanoniske impuls}
+\begin{equation}
+  \boxed{p_i \equiv \pdv{L}{\dot q_i}.}
+  \label{eq:def-p}
+\end{equation}
+For at denne transformation er veldefineret — dvs.\ at vi entydigt kan
+løse \eqref{eq:def-p} for $\dot q_i$ som funktion af $(q,p,t)$ — skal
+Hesse-matricen
+\begin{equation}
+  \left(\pdv[2]{L}{\dot q_i}{\dot q_j}\right)
+\end{equation}
+være ikke-singulær (invertibel implicit funktionssætning). Dette er
+opfyldt for stort set alle fysisk relevante Lagrange-funktioner —
+konkret er det opfyldt, når den kinetiske energi $T$ er en ægte
+kvadratisk (positivt definit) funktion af hastighederne, hvad den er
+for alle systemer, vi møder i dette kompendium.
+
+\begin{bemaerkning}
+Systemer, hvor Hesse-matricen \emph{er} singulær, kaldes
+"tvangssystemer" (constrained systems) i en teknisk betydning, der er
+snævrere end de holonome tvangsbetingelser fra
+kapitel~\ref{kap:newton-variation} — de kræver Diracs teori for
+tvangssystemer. Dette optræder typisk for felter med gaugesymmetri
+(elektromagnetisme, Yang-Mills-teori), og bliver derfor relevant, når
+vi i kapitel~\ref{kap:felter} og i det senere QFT-kompendium når til
+gaugefelter. Vi nævner det her, så du genkender det, når det opstår —
+men det ligger uden for dette kompendiums rækkevidde at behandle det.
+\end{bemaerkning}
+
+Vi definerer nu \emph{Hamilton-funktionen} som den
+Legendre-transformerede af $L$ med hensyn til alle $\dot q_i$
+samtidigt:
+\begin{equation}
+  \boxed{H(q,p,t) \equiv \sum_{i=1}^n p_i\dot q_i - L(q,\dot q,t),}
+  \label{eq:def-H}
+\end{equation}
+hvor $\dot q_i$ på højresiden skal udtrykkes ved $(q,p,t)$ via den
+(lokale) inversion af \eqref{eq:def-p}. Dette er netop den størrelse,
+vi kaldte $H$ i \eqref{eq:def-H-forlobig} i kapitel~\ref{kap:lagrange}
+— nu givet en fuldstændig, systematisk definition som funktion af
+$(q,p,t)$ i stedet for $(q,\dot q,t)$.
+
+\section{Hamiltons ligninger}
+
+\subsection{Udledning ved direkte differentiation}
+
+Vi differentierer definitionen \eqref{eq:def-H} totalt:
+\begin{equation}
+  dH = \sum_i\left(\dot q_i\,dp_i + p_i\,d\dot q_i\right) - dL.
+\end{equation}
+Da $L=L(q,\dot q,t)$, er
+\begin{equation}
+  dL = \sum_i\left(\pdv{L}{q_i}dq_i + \pdv{L}{\dot q_i}d\dot q_i\right) + \pdv{L}{t}dt
+     = \sum_i\left(\pdv{L}{q_i}dq_i + p_i\,d\dot q_i\right) + \pdv{L}{t}dt,
+\end{equation}
+hvor vi brugte definitionen \eqref{eq:def-p} i sidste skridt. Indsat i
+udtrykket for $dH$ ovenfor ser vi, at leddene med $d\dot q_i$
+\emph{går ud} — det er netop pointen ved en Legendre-transformation:
+\begin{equation}
+  dH = \sum_i\left(\dot q_i\,dp_i - \pdv{L}{q_i}dq_i\right) - \pdv{L}{t}dt.
+  \label{eq:dH-mellemresultat}
+\end{equation}
+Vi genkender nu $\partial L/\partial q_i$ fra Euler-Lagrange-ligningen
+\eqref{eq:euler-lagrange}: langs en faktisk løsning er
+$\partial L/\partial q_i = \dv*{}{t}(\partial L/\partial \dot q_i) =
+\dot p_i$. Med denne substitution bliver
+\eqref{eq:dH-mellemresultat}:
+\begin{equation}
+  dH = \sum_i\left(\dot q_i\,dp_i - \dot p_i\,dq_i\right) - \pdv{L}{t}dt.
+  \label{eq:dH-slutresultat}
+\end{equation}
+
+På den anden side er $H=H(q,p,t)$ per konstruktion, så den totale
+differential \emph{også} kan skrives
+\begin{equation}
+  dH = \sum_i\left(\pdv{H}{q_i}dq_i + \pdv{H}{p_i}dp_i\right) + \pdv{H}{t}dt.
+  \label{eq:dH-fra-H}
+\end{equation}
+Da $q_i$, $p_i$ og $t$ er uafhængige variable i $H$'s beskrivelse, må
+koefficienterne til $dq_i$, $dp_i$ og $dt$ i
+\eqref{eq:dH-slutresultat} og \eqref{eq:dH-fra-H} stemme overens led
+for led. Dette giver os \emph{Hamiltons ligninger}:
+\begin{equation}
+  \boxed{\dot q_i = \pdv{H}{p_i}, \qquad \dot p_i = -\pdv{H}{q_i}, \qquad i=1,\dots,n,}
+  \label{eq:hamiltons-ligninger}
+\end{equation}
+samt, som en biprodukt af samme sammenligning,
+\begin{equation}
+  \pdv{H}{t} = -\pdv{L}{t}.
+  \label{eq:dH-dt}
+\end{equation}
+
+\begin{bemaerkning}
+Hamiltons ligninger \eqref{eq:hamiltons-ligninger} er $2n$ \emph{først}e-
+ordens differentialligninger, mod Euler-Lagranges $n$ \emph{anden}-
+ordens ligninger. Dette er ikke en tilfældig gevinst: en tilstand i
+faserummet, $(q_i(t),p_i(t))$, er nu fuldstændig bestemt af sin værdi
+ved \emph{ét} tidspunkt — der er ikke brug for at kende både position
+\emph{og} hastighed ved starttidspunktet særskilt, fordi $p_i$ allerede
+"indeholder" den information, der før lå i $\dot q_i$. Denne
+førsteordens-struktur er præcis, hvad der gør faserumsbilledet så
+naturligt, og den er en direkte forløber for tilstandsbegrebet i
+kvantemekanikken, hvor en tilstand (bølgefunktionen) også er
+fuldstændigt bestemt ved et enkelt tidspunkt.
+\end{bemaerkning}
+
+\subsection{Fortolkningen af $H$: bevarelse og energi}
+
+Vi genbesøger nu \eqref{eq:dH-dt} i lyset af Hamiltons ligninger. Den
+totale tidsafledte af $H$ langs en faktisk bane er
+\begin{equation}
+  \dv{H}{t} = \sum_i\left(\pdv{H}{q_i}\dot q_i + \pdv{H}{p_i}\dot p_i\right) + \pdv{H}{t}
+  = \sum_i\left(\pdv{H}{q_i}\pdv{H}{p_i} - \pdv{H}{p_i}\pdv{H}{q_i}\right) + \pdv{H}{t}
+  = \pdv{H}{t},
+\end{equation}
+hvor vi brugte Hamiltons ligninger \eqref{eq:hamiltons-ligninger} til
+at indsætte $\dot q_i$ og $\dot p_i$, og de to led i parentesen
+ophæver hinanden identisk. Vi har altså det generelle resultat
+\begin{equation}
+  \dv{H}{t} = \pdv{H}{t}.
+  \label{eq:dHdt-generel}
+\end{equation}
+Specielt: hvis $H$ ikke afhænger \emph{eksplicit} af tiden
+($\partial H/\partial t=0$, hvilket ifølge \eqref{eq:dH-dt} er
+ækvivalent med $\partial L/\partial t=0$), er $H$ en \emph{bevaret
+størrelse} langs bevægelsen — vi genfinder Noether-resultatet fra
+kapitel~\ref{kap:lagrange}, nu udledt direkte i Hamilton-billedet, uden
+omvejen over $L$.
+
+For de systemer, vi typisk møder — tidsuafhængige holonome
+tvangsbetingelser, og et potential $V$, der ikke afhænger af
+hastigheder — viste opgave 3 i kapitel~\ref{kap:lagrange}, at
+$H=T+V$, den samlede mekaniske energi. I disse tilfælde er Hamiltons
+ligninger derfor blot en omskrivning af energibevarelse og
+bevægelsesligningerne i førsteordensform — men formalismens virkelige
+styrke viser sig, når $H\neq T+V$ (fx i tidsafhængige eller
+elektromagnetiske systemer), hvor $H$ stadig er den korrekte
+"generator" af tidsudviklingen, selv om den ikke er den mekaniske
+energi.
+
+\section{Eksempel: den harmoniske oscillator i faserum}
+
+\begin{eksempel}
+For en énddimensional harmonisk oscillator med masse $m$ og
+fjederkonstant $k$ er
+\begin{equation}
+  L = \frac12 m\dot x^2 - \frac12 kx^2.
+\end{equation}
+Den kanoniske impuls er
+\begin{equation}
+  p = \pdv{L}{\dot x} = m\dot x
+  \quad\Longrightarrow\quad
+  \dot x = \frac{p}{m},
+\end{equation}
+som her simpelthen er den velkendte bevægelsesmængde — Legendre-
+transformationen er triviel at invertere for dette system. Hamilton-
+funktionen bliver
+\begin{equation}
+  H = p\dot x - L = p\cdot\frac{p}{m} - \left(\frac12 m\left(\frac{p}{m}\right)^2 - \frac12 kx^2\right)
+    = \frac{p^2}{2m} + \frac12 kx^2,
+\end{equation}
+altså netop $T+V$ udtrykt ved $p$ i stedet for $\dot x$, som forventet.
+Hamiltons ligninger \eqref{eq:hamiltons-ligninger} giver
+\begin{equation}
+  \dot x = \pdv{H}{p} = \frac{p}{m}, \qquad
+  \dot p = -\pdv{H}{x} = -kx.
+\end{equation}
+Den første ligning er blot definitionen af $p$ igen (som det altid vil
+være for et system uden hastighedsafhængigt potential); den anden er
+Newtons anden lov, $m\ddot x=-kx$, skrevet i førsteordensform. Løsningen
+er velkendt, $x(t)=A\cos(\Omega t+\varphi)$ med $\Omega=\sqrt{k/m}$, og
+banen i faserummet $(x,p)$ er ellipsen
+\begin{equation}
+  \frac{p^2}{2mH} + \frac{x^2}{2H/k} = 1,
+\end{equation}
+fordi $H$ er konstant langs banen (se figur~\ref{fig:faseportraet}).
+Dette er vores første eksempel på et \emph{faseportræt}: en geometrisk
+repræsentation af systemets dynamik som en kurve (eller familie af
+kurver, for forskellige energier $H$) i faserummet, uden nogen
+eksplicit reference til tiden $t$.
+\end{eksempel}
+
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}[scale=1.0]
+    % Akser
+    \draw[-{Latex}] (-3.2,0) -- (3.2,0) node[right] {$x$};
+    \draw[-{Latex}] (0,-2.4) -- (0,2.4) node[above] {$p$};
+    % Familie af faseportræt-ellipser for forskellige energier
+    \foreach \sc/\col in {0.5/gray!70,0.8/gray!45,1.1/black} {
+      \draw[thick,\col] (0,0) ellipse ({2.6*\sc} and {1.9*\sc});
+    }
+    % Pil der viser bevægelsesretning (med uret) på yderste ellipse
+    \draw[-{Latex},thick] ({2.6*1.1*cos(20)},{1.9*1.1*sin(20)}) -- ({2.6*1.1*cos(-5)},{1.9*1.1*sin(-5)});
+    \node at (2.9,1.6) {$H_3$};
+    \node at (2.15,1.2) {$H_2$};
+    \node at (1.4,0.75) {$H_1$};
+  \end{tikzpicture}
+  \caption{Faseportræt for den harmoniske oscillator: hver ellipse er en
+  bane med konstant energi $H$ (voksende fra $H_1$ til $H_3$).
+  Bevægelsen langs hver ellipse sker med uret, som markeret med pilen.
+  Faserumsbeskrivelsen erstatter tidsforløbet $x(t)$ med en statisk,
+  geometrisk figur.}
+  \label{fig:faseportraet}
+\end{figure}
+
+\section{Faserummet som arena}
+
+Det er værd at fremhæve, hvad vi har vundet ved skiftet til
+$(q_i,p_i)$. I konfigurationsrummet ($q_i$ alene) skærer baner for
+forskellige startbetingelser hinanden hele tiden — en partikel, der
+passerer gennem et bestemt punkt $x_0$, kan have en hvilken som helst
+hastighed, så uendeligt mange baner går gennem samme punkt. I
+\emph{faserummet} $(q_i,p_i)$ er dette udelukket: gennem hvert punkt
+$(q_0,p_0)$ går \'en og kun \'en bane, fordi $(q_0,p_0)$ er en
+fuldstændig starttilstand. Faserumsbaner for forskellige startbetingelser
+kan derfor aldrig skære hinanden (bortset fra i entydige ligevægtspunkter)
+— en egenskab, der bliver central, når vi i kapitel~\ref{kap:kanoniske-transf}
+og \ref{kap:hj} studerer, hvordan hele familier af baner transformerer
+sig samtidigt under kanoniske transformationer.
+
+\begin{bemaerkning}
+Faserummets rolle som en arena, hvori "tilstanden" er et punkt, og hvor
+baner ikke skærer hinanden, er selve det billede, der (i en passende
+kvantiseret og "udtværet" form, jf.\ Heisenbergs
+usikkerhedsrelation) bliver til kvantemekanikkens tilstandsrum. Vejen
+fra det klassiske faserum til kvantemekanikkens Hilbert-rum går netop
+via de strukturer, vi udvikler i de kommende kapitler — Poisson-
+parenteser (kapitel~\ref{kap:poisson}), som bliver til kommutatorer ved
+kanonisk kvantisering, og Hamilton-Jacobi-ligningen
+(kapitel~\ref{kap:hj}), som viser sig at være den klassiske grænse af
+Schrödinger-ligningen (se [[kvantemekanik-kompendiet]] for den
+kvantemekaniske side af denne forbindelse).
+\end{bemaerkning}
+
+\section{Opsummering}
+
+\begin{itemize}
+  \item Legendre-transformationen udskifter en variabel med dens
+        partielle afledte-partner: $g(p)=xp-f(x)$, hvor $p=df/dx$.
+  \item Anvendt på $L(q,\dot q,t)$ med $p_i=\partial L/\partial\dot q_i$
+        giver dette Hamilton-funktionen
+        $H(q,p,t)=\sum_i p_i\dot q_i - L$.
+  \item Sammenligning af $dH$ udledt af definitionen med $dH$ udledt af
+        $H(q,p,t)$ giver Hamiltons ligninger,
+        $\dot q_i=\partial H/\partial p_i$,
+        $\dot p_i=-\partial H/\partial q_i$ — $2n$
+        førsteordensligninger i stedet for $n$ andenordensligninger.
+  \item $dH/dt = \partial H/\partial t$: $H$ er bevaret, når den ikke
+        afhænger eksplicit af tiden. For tidsuafhængige,
+        hastighedsuafhængige potentialer er $H=T+V$.
+  \item Faserummet $(q_i,p_i)$ er arenaen for resten af kompendiet:
+        hvert punkt er en fuldstændig tilstand, og baner for forskellige
+        starttilstande skærer aldrig hinanden.
+\end{itemize}
+
+\begin{opgave}
+Opskriv Lagrange-funktionen for en partikel med masse $m$ i et
+centralt potential $V(r)$ i planpolar-koordinater $(r,\phi)$ (jf.\
+opgave 2 i kapitel~\ref{kap:lagrange}), udfør Legendre-transformationen
+til $(p_r,p_\phi)$, og vis at
+\begin{equation}
+  H = \frac{p_r^2}{2m} + \frac{p_\phi^2}{2mr^2} + V(r).
+\end{equation}
+Opskriv Hamiltons ligninger for $(r,p_r,\phi,p_\phi)$ og sammenlign med
+resultatet fra kapitel~\ref{kap:lagrange}.
+\end{opgave}
+
+\begin{opgave}
+En ladet partikel med masse $m$ og ladning $e$ bevæger sig i et
+elektromagnetisk felt beskrevet ved skalarpotentialet $\Phi$ og
+vektorpotentialet $\vb{A}$. Lagrange-funktionen er (uden bevis her —
+den udledes korrekt først i forbindelse med feltteorien i
+kapitel~\ref{kap:felter})
+\begin{equation}
+  L = \frac12 m\dot{\vb{r}}^2 - e\Phi + e\,\dot{\vb{r}}\cdot\vb{A}.
+\end{equation}
+Vis, at den kanoniske impuls er $\vb{p}=m\dot{\vb{r}}+e\vb{A}$ — altså
+\emph{ikke} lig med den mekaniske bevægelsesmængde $m\dot{\vb{r}}$ —
+og find Hamilton-funktionen $H(\vb{r},\vb{p},t)$. Dette er det
+kanoniske eksempel på, at $H$ og den mekaniske energi $T+V$ kan være to
+forskellige størrelser.
+\end{opgave}
+
+\begin{opgave}
+Skitser (i hånden eller med et plot) faseportrættet for en partikel med
+energi $E$, der bevæger sig i et énddimensionalt potential med en
+enkelt potentialbrønd (fx $V(x)=\frac12 kx^2$ for $|x|<a$ og
+$V(x)=\infty$ for $|x|\geq a$, en "boks med fjederbund"). Angiv, hvilke
+værdier af $E$ der giver lukkede (periodiske) baner, og diskuter, hvad
+der sker med faseportrættet, når $E$ nærmer sig den energi, hvor
+partiklen netop når randen $|x|=a$.
+\end{opgave}
