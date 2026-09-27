@@ -4,6 +4,63 @@ Kronologisk log over beslutninger og fremdrift. Nyeste øverst.
 
 ---
 
+## 2026-09-27 — Rettet compileringsfejl: lige gåseøjne under dansk babel
+
+Jørn sendte en fejlliste fra sin egen MiKTeX-compilering. Rodårsagen:
+kompendiet brugte almindelige, lige `"..."`-gåseøjne omkring citerede
+ord/vendinger mange steder i teksten — helt harmløst under engelsk
+babel (som blev brugt som en midlertidig test-workaround i denne
+session, fordi det danske sprogmodul manglede i test-sandkassen), men
+`babel[danish]` gør `"` til et aktivt shorthand-tegn. I kapitel 6's
+sektionsoverskrift ``Det geometriske billede: $S$ som en "bølgefront"``
+ramte dette ind i hyperref's PDF-strengsbehandling af
+kapiteloverskriften og udløste en kaskade af parentes-/gruppefejl, der
+også ødelagde den efterfølgende TikZ-figur.
+
+Rettelse: alle ca. 74 forekomster af lige gåseøjne på tværs af alle 10
+kapitler erstattet med korrekte LaTeX-gåseøjne (``` ``...'' ```).
+Det danske sprogmodul (`texlive-lang-european`) blev denne gang
+installeret i test-sandkassen, så rettelsen kunne verificeres med den
+\emph{rigtige} `babel[danish]`-opsætning (ikke kun engelsk-workaroundet)
+— fuld compilering (pdflatex → makeindex → pdflatex) gennemført helt
+uden fejl eller advarsler, 75 sider.
+
+Læring til fremtidige kompendier: engelsk-babel-workaroundet i
+test-sandkassen kan skjule ægte fejl, der kun opstår under dansk babels
+shorthand-tegn (`"`, men også `'` og `` ` `` i visse sammenhænge) —
+bør fremover tjekkes eksplicit, eller sandkassen bør have det danske
+sprogmodul installeret fra start.
+
+---
+
+## 2026-09-27 — Forside og bagside tilføjet
+
+Jørn bemærkede, at der nu blot manglede en forside og en bagside med
+en beskrivelse af indholdet.
+
+Forsiden (titlepage i main.tex, erstatter \maketitle) viser titel,
+undertitel og forfatter, samt et TikZ-emblem: en faserumsellipse med
+virkningsvariablen $J=\oint p\,dq$ (jf.\ kapitel 7), krydset af
+"bølgefront"-kurver $S=$konstant (jf.\ kapitel 6's geometriske
+billede) — et motiv der visuelt opsummerer kompendiets vej fra
+klassisk mekanik til den semiklassiske grænse.
+
+Bagsiden (en ny titlepage-side lige efter \printindex) bruger et andet
+motiv — indlejrede faserumsellipser, der ekkoer
+Bohr-Sommerfeld-kvantiseringen $J_n=nh$ — samt en kort blurb om
+kompendiets formål og en punktliste over hovedemnerne.
+
+Fuld test-compilering (pdflatex → makeindex → pdflatex) bekræftet
+fejlfri med begge nye sider (kompendiet er nu 75 sider i testmiljøet).
+En mindre TikZ-syntaksfejl (`\a and \b` uden mellemrum efter
+foreach-substitution) blev fanget og rettet under test-compileringen.
+
+Næste skridt: ingen planlagte — kompendiet fremstår nu som et
+komplet, indbundet udseende værk (forside, indholdsfortegnelse,
+kapitler, register, bagside).
+
+---
+
 ## 2026-09-27 — Stikordsregister sat op og udfyldt
 
 Jørn spurgte, om indholdsfortegnelse og stikordsregister var på
