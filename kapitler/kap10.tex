@@ -1,0 +1,227 @@
+% kap10.tex — Hamiltonsk feltteori
+% Hamilton-Jacobi-kompendiet
+
+\chapter{Hamiltonsk feltteori}
+\label{kap:felter-hamilton}
+
+Vi slutter kompendiet, hvor vi startede: med Legendre-
+transformationen (kapitel~\ref{kap:hamilton}), nu anvendt på felter i
+stedet for partikler. Dette fuldender den klassiske del af broen mod
+kvantefeltteori, og er selve kompendiets sidste skridt.
+
+\section{Kanonisk impulstæthed}
+
+I fuld analogi med \eqref{eq:def-p} definerer vi den \emph{kanoniske
+impulstæthed}, konjugeret til feltet $\varphi(x,t)$, som
+\begin{equation}
+  \boxed{\pi(x,t) \equiv \pdv{\mathcal{L}}{\dot\varphi}.}
+  \label{eq:def-pi}
+\end{equation}
+Dette er den kontinuerte analog til $p_i=\partial L/\partial\dot q_i$
+— hvor det diskrete indeks $i$ er blevet til det kontinuerte $x$.
+Ligesom i det diskrete tilfælde kræver Legendre-transformationen, at
+\eqref{eq:def-pi} kan inverteres, dvs.\ løses for $\dot\varphi$ som
+funktion af $(\varphi,\pi,\varphi')$ — hvilket er opfyldt for alle
+Lagrange-tætheder i dette kompendium, hvor $\mathcal{L}$ er kvadratisk
+i $\dot\varphi$.
+
+\section{Hamilton-tæthed og Hamiltons ligninger for felter}
+
+Vi definerer \emph{Hamilton-tætheden} ved Legendre-transformation,
+netop som i \eqref{eq:def-H}:
+\begin{equation}
+  \boxed{\mathcal{H}(\varphi,\pi,\varphi') \equiv \pi\dot\varphi - \mathcal{L},}
+  \label{eq:def-H-felt}
+\end{equation}
+hvor $\dot\varphi$ på højresiden udtrykkes ved $(\varphi,\pi,\varphi')$
+via inversionen af \eqref{eq:def-pi}. Bemærk, at dette er netop den
+samme størrelse, vi allerede kaldte $\mathcal{H}$ i
+\eqref{eq:kontinuitetsligning} i forrige kapitel — vi giver den nu en
+systematisk definition som funktion af $(\varphi,\pi,\varphi')$ i
+stedet for $(\varphi,\dot\varphi,\varphi')$, ganske som $H(q,p,t)$
+afløste $H(q,\dot q,t)$ i kapitel~\ref{kap:hamilton}. Den samlede
+Hamilton-funktion er $H=\int\mathcal{H}\,dx$.
+
+\subsection{Udledning af bevægelsesligningerne}
+
+Vi udleder Hamiltons ligninger for felter via det modificerede
+Hamiltons princip (afsnit~\ref{sec:hamiltons-princip} i
+kapitel~\ref{kap:kanoniske-transf}, nu udvidet til felter):
+\begin{equation}
+  S = \int dt\int dx\,\bigl[\pi\dot\varphi - \mathcal{H}(\varphi,\pi,\varphi')\bigr],
+\end{equation}
+med uafhængige, arbitrære variationer $\delta\varphi(x,t)$ og
+$\delta\pi(x,t)$ (begge nul ved $t_1,t_2$ for $\delta\varphi$'s
+tidsrand; ingen tidsrandbetingelse er nødvendig for $\delta\pi$, jf.\
+opgave 1 i kapitel~\ref{kap:kanoniske-transf}). Variationen giver
+\begin{equation}
+  \delta S = \int dt\int dx\left[\pi\,\delta\dot\varphi + \dot\varphi\,\delta\pi
+    - \pdv{\mathcal{H}}{\varphi}\delta\varphi - \pdv{\mathcal{H}}{\pi}\delta\pi
+    - \pdv{\mathcal{H}}{\varphi'}\delta\varphi'\right].
+\end{equation}
+Vi integrerer $\pi\,\delta\dot\varphi$ partielt i $t$ (randtermen
+forsvinder, som altid) og $-(\partial\mathcal{H}/\partial\varphi')\delta\varphi'$
+partielt i $x$ (randtermen forsvinder ved strengens endepunkter, eller
+i det uendelige):
+\begin{equation}
+  \delta S = \int dt\int dx\left\{\left[-\dot\pi - \pdv{\mathcal{H}}{\varphi}
+    + \dv{}{x}\pdv{\mathcal{H}}{\varphi'}\right]\delta\varphi
+    + \left[\dot\varphi - \pdv{\mathcal{H}}{\pi}\right]\delta\pi\right\}.
+\end{equation}
+Da $\delta\varphi$ og $\delta\pi$ er uafhængige og arbitrære, må hver
+koefficient forsvinde for sig. Dette giver \emph{Hamiltons ligninger
+for felter}:
+\begin{equation}
+  \boxed{\dot\varphi = \pdv{\mathcal{H}}{\pi}, \qquad
+  \dot\pi = -\pdv{\mathcal{H}}{\varphi} + \dv{}{x}\pdv{\mathcal{H}}{\varphi'}.}
+  \label{eq:hamilton-ligninger-felt}
+\end{equation}
+Den anden ligning har et ekstra led, $d/dx(\partial\mathcal{H}/\partial\varphi')$,
+i forhold til den diskrete form \eqref{eq:hamiltons-ligninger} — en
+direkte konsekvens af, at $\mathcal{H}$ (i modsætning til $H$ for en
+partikel) også kan afhænge af feltets \emph{rumlige} afledte
+$\varphi'$.
+
+\section{Eksempel: strengen i Hamilton-billede}
+
+\begin{eksempel}
+For strengen er $\pi=\partial\mathcal{L}/\partial\dot\varphi=\mu\dot\varphi$,
+så $\dot\varphi=\pi/\mu$, og
+\begin{equation}
+  \mathcal{H} = \pi\dot\varphi - \mathcal{L} = \pi\cdot\frac{\pi}{\mu}
+    - \left(\frac12\mu\left(\frac{\pi}{\mu}\right)^2 - \frac12\tau(\varphi')^2\right)
+  = \frac{\pi^2}{2\mu} + \frac12\tau(\varphi')^2,
+\end{equation}
+netop kinetisk plus potentiel energitæthed, som i
+\eqref{eq:kontinuitetsligning}, nu udtrykt ved $\pi$ i stedet for
+$\dot\varphi$. Hamiltons ligninger \eqref{eq:hamilton-ligninger-felt}
+giver
+\begin{equation}
+  \dot\varphi = \pdv{\mathcal{H}}{\pi} = \frac{\pi}{\mu}, \qquad
+  \dot\pi = -\pdv{\mathcal{H}}{\varphi} + \dv{}{x}\pdv{\mathcal{H}}{\varphi'}
+          = 0 + \dv{}{x}(\tau\varphi') = \tau\varphi''.
+\end{equation}
+Den første er blot definitionen af $\pi$ igen; kombineres de to
+($\dot\pi=\mu\ddot\varphi=\tau\varphi''$), genfindes bølgeligningen
+\eqref{eq:boelgeligning}, $\ddot\varphi=v^2\varphi''$ — som forventet,
+og som et konsistenstjek af hele Legendre-transformationen for feltet.
+\end{eksempel}
+
+\section{Poisson-parenteser for felter}
+
+Vi generaliserer til sidst Poisson-parentesen (kapitel~\ref{kap:poisson})
+til felter. Husk fra den diskrete kæde i
+kapitel~\ref{kap:felter}, at $L=\sum_i a\,\mathcal{L}_i$, så den
+diskrete kanoniske impuls er $p_i=\partial L/\partial\dot\varphi_i =
+a\,\partial\mathcal{L}/\partial\dot\varphi_i = a\,\pi(x_i)$. De
+fundamentale parenteser \eqref{eq:fundamentale-parenteser},
+$\{\varphi_i,p_j\}=\delta_{ij}$, bliver derfor
+$\{\varphi(x_i),\pi(x_j)\} = \delta_{ij}/a$. I kontinuumsgrænsen
+$a\to0$ er $\delta_{ij}/a$ netop den diskrete repræsentation af
+Diracs deltafunktion (arealet under $\delta_{ij}/a$, summeret med
+vægt $a$ over $j$, giver $1$ — nøjagtig deltafunktionens
+definerende egenskab). Vi finder derfor de \emph{fundamentale
+felt-Poisson-parenteser}
+\begin{equation}
+  \boxed{\{\varphi(x),\pi(y)\} = \delta(x-y), \qquad
+  \{\varphi(x),\varphi(y)\} = 0, \qquad \{\pi(x),\pi(y)\} = 0,}
+  \label{eq:felt-poisson}
+\end{equation}
+evalueret ved samme tidspunkt $t$ for begge argumenter (såkaldte
+\emph{ligetids-parenteser}).
+
+\begin{bemaerkning}
+Ligesom de fundamentale parenteser $\{q_i,p_j\}=\delta_{ij}$ for en
+partikel er den klassiske forløber for kommutationsrelationen
+$[\hat q_i,\hat p_j]=i\hbar\delta_{ij}$ (kapitel~\ref{kap:poisson}), er
+\eqref{eq:felt-poisson} den klassiske forløber for kvantefeltteoriens
+fundamentale ligetids-kommutationsrelation
+\begin{equation}
+  \bigl[\hat\varphi(x),\hat\pi(y)\bigr] = i\hbar\,\delta(x-y).
+\end{equation}
+Dette er selve udgangspunktet for kanonisk feltkvantisering — reglen,
+der forvandler et klassisk felt $\varphi(x,t)$ (en almindelig funktion)
+til en \emph{feltoperator} $\hat\varphi(x,t)$. Vi udfører ikke denne
+kvantisering her; det er det senere QFT-kompendiums opgave. Men med
+\eqref{eq:felt-poisson} har vi nået præcis det punkt, hvorfra den
+kvantisering tager sit udspring — og dermed også det punkt, hvor dette
+kompendiums rejse ender.
+\end{bemaerkning}
+
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}[scale=1.0]
+    % Diskret faserum-gitter (q_i,p_i)
+    \foreach \x/\lbl in {0/1,1.3/2,2.6/3,3.9/4} {
+      \draw[-{Latex}] (\x,0) -- (\x,1.3);
+      \filldraw[fill=blue!25,draw=blue!60!black] (\x,0.8) circle (0.08);
+      \node[below] at (\x,-0.15) {\footnotesize$(\varphi_\lbl,\pi_\lbl)$};
+    }
+    \node at (1.95,1.8) {diskret: par $(\varphi_i,\pi_i)$ for hvert $i$};
+    % Pil ned til kontinuert felt-par
+    \draw[-{Latex},thick] (1.95,-0.6) -- (1.95,-1.1);
+    \node at (3.1,-0.85) {$a\to0$};
+    % Kontinuert par af felter
+    \draw[thick,green!55!black] plot[smooth] coordinates
+      {(0,-2.0) (1.0,-1.7) (2.0,-2.1) (3.0,-1.75) (3.9,-2.0)};
+    \node[green!55!black] at (1.95,-2.6) {kontinuert: felt-par $(\varphi(x),\pi(x))$};
+  \end{tikzpicture}
+  \caption{Overgangen fra et diskret sæt kanonisk konjugerede par
+  $(\varphi_i,\pi_i)$, ét for hver masse i kæden, til et kontinuert
+  felt-par $(\varphi(x),\pi(x))$ — den kanoniske analog til
+  kontinuumsgrænsen i figur~\ref{fig:kaede-til-streng}.}
+  \label{fig:felt-poisson}
+\end{figure}
+
+\section{Opsummering}
+
+\begin{itemize}
+  \item Den kanoniske impulstæthed er $\pi=\partial\mathcal{L}/\partial\dot\varphi$;
+        Hamilton-tætheden er $\mathcal{H}=\pi\dot\varphi-\mathcal{L}$.
+  \item Hamiltons ligninger for felter er
+        $\dot\varphi=\partial\mathcal{H}/\partial\pi$,
+        $\dot\pi=-\partial\mathcal{H}/\partial\varphi + d/dx(\partial\mathcal{H}/\partial\varphi')$
+        — sidste led skyldes $\mathcal{H}$'s afhængighed af den
+        rumlige afledte $\varphi'$.
+  \item For strengen: $\mathcal{H}=\pi^2/(2\mu)+\frac12\tau(\varphi')^2$,
+        og Hamiltons ligninger reproducerer bølgeligningen.
+  \item De fundamentale felt-Poisson-parenteser er
+        $\{\varphi(x),\pi(y)\}=\delta(x-y)$ — den klassiske forløber
+        for kvantefeltteoriens ligetids-kommutator
+        $[\hat\varphi(x),\hat\pi(y)]=i\hbar\delta(x-y)$.
+\end{itemize}
+
+\section*{Kompendiets konklusion}
+\addcontentsline{toc}{section}{Kompendiets konklusion}
+
+Vi har nu tilbagelagt hele den rejse, kapitelstrukturen lagde ud: fra
+Newtons love og D'Alemberts princip (kapitel~\ref{kap:newton-variation}),
+over Lagrange- og Hamilton-formalismen
+(kapitel~\ref{kap:lagrange}--\ref{kap:hamilton}), Poisson-parenteser
+og kanoniske transformationer
+(kapitel~\ref{kap:poisson}--\ref{kap:kanoniske-transf}), til
+Hamilton-Jacobi-teorien og virknings-vinkel-variablene
+(kapitel~\ref{kap:hj}--\ref{kap:virkning-vinkel}) — som i
+kapitel~\ref{kap:adiabatisk} førte os direkte til Bohr-Sommerfeld-
+kvantiseringen, det tankegods, der reelt var på plads, da
+kvantemekanikken blev født. De to sidste kapitler
+(\ref{kap:felter}--\ref{kap:felter-hamilton}) udvidede hele
+formalismen fra endelige til uendelige frihedsgrader — klassiske
+felter — og nåede frem til feltenes fundamentale Poisson-parenteser,
+det naturlige udspringspunkt for kanonisk feltkvantisering.
+
+Kompendiets erklærede mål — at nå frem til den ældre kvanteteoris
+begrebsapparat, uden selv at udføre kvantiseringen — er hermed
+opnået. To retninger står åbne herfra, begge allerede antydet
+undervejs:
+
+\begin{itemize}
+  \item Den semiklassiske grænse ($\psi\sim e^{iS/\hbar}$, WKB,
+        Bohr-Sommerfeld) forbinder til den fulde, korrekte
+        kvantemekanik, som er [[kvantemekanik-kompendiet]]s emne.
+  \item Kanonisk feltkvantisering ($\varphi\to\hat\varphi$,
+        $\{\cdot,\cdot\}\to\frac{1}{i\hbar}[\cdot,\cdot]$, anvendt på
+        felternes Poisson-algebra \eqref{eq:felt-poisson})
+        fører til kvantefeltteori og videre til spredningsteori — det
+        senere, selvstændige kompendiums emne.
+\end{itemize}

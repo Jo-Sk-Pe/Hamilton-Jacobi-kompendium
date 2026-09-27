@@ -1,0 +1,258 @@
+% kap07.tex — Virknings-vinkel-variable
+% Hamilton-Jacobi-kompendiet
+
+\chapter{Virknings-vinkel-variable}
+\label{kap:virkning-vinkel}
+
+\section{Motivation: periodiske systemer uden fuld løsning}
+
+I kapitel~\ref{kap:hj} løste vi den harmoniske oscillator ved at
+integrere den tidsuafhængige Hamilton-Jacobi-ligning helt igennem for
+at finde $W(x,E)$, og derefter differentiere med hensyn til $E$ for at
+finde bevægelsen. Denne fulde løsning gav os $x(t)$ eksplicit — men den
+kræver, at vi rent faktisk kan udføre integralet og derefter
+\emph{invertere} resultatet for $x(t)$, hvad der langt fra altid er
+muligt i lukket form.
+
+For \emph{periodiske} systemer (og alle vores eksempler til videre er
+periodiske eller kvasi-periodiske bevægelser i én frihedsgrad) findes
+der en mellemvej, som giver os de fysisk vigtigste størrelser —
+navnlig svingningsfrekvenserne — uden at kræve den fulde inversion.
+Dette er \emph{virknings-vinkel-variablene}. De er ikke kun et regne\-
+teknisk trick: de er den formalisme, hvor den ældre kvanteteoris
+kvantiseringsregler (kapitel~\ref{kap:adiabatisk}) tager deres mest
+naturlige form.
+
+\section{Klassifikation af periodisk bevægelse i én frihedsgrad}
+
+Betragt et system med én frihedsgrad og tidsuafhængig $H(q,p)$. Banen i
+faserummet $(q,p)$ — faseportrættet, jf.\ figur~\ref{fig:faseportraet}
+— falder i to kvalitativt forskellige klasser:
+
+\begin{itemize}
+  \item \textbf{Libration}: banen er en lukket kurve i faserummet (som
+        ellipserne for den harmoniske oscillator). Både $q$ og $p$ er
+        periodiske funktioner af tiden med samme periode. Dette
+        optræder typisk for bunden bevægelse i en potentialbrønd.
+  \item \textbf{Rotation}: $p$ er en periodisk funktion af $q$, men
+        $q$ selv vokser ubegrænset (som en vinkel, der løber
+        rundt gentagne gange) — det klassiske eksempel er et
+        pendul, der svinger hele vejen rundt i stedet for at
+        oscillere, eller blot en fri partikel på en cirkel.
+\end{itemize}
+
+I begge tilfælde er $p(q)$ (banen i faserummet, ved fast $E$) en
+\emph{periodisk} funktion af $q$, med en veldefineret periode i
+$q$-retningen (for libration: hele svingningen; for rotation: én
+omgang). Det er denne fælles egenskab, virknings-vinkel-formalismen
+udnytter.
+
+\section{Definition af virkningsvariablen}
+
+For et system i én frihedsgrad definerer vi \emph{virkningsvariablen}
+\begin{equation}
+  \boxed{J \equiv \oint p\,dq,}
+  \label{eq:def-J}
+\end{equation}
+hvor integralet tages over \'en fuld periode af bevægelsen: for
+libration, hele vejen rundt om den lukkede faserumskurve; for
+rotation, over ét fuldt gennemløb af $q$ (fx $0$ til $2\pi$ for en
+vinkelvariabel). Da $p=\partial W/\partial q$ langs banen (fra
+Hamilton-Jacobi-teorien i kapitel~\ref{kap:hj}), er $J$ funktionen af
+energien $E$ alene:
+\begin{equation}
+  J(E) = \oint \pdv{W}{q}\,dq.
+  \label{eq:J-fra-W}
+\end{equation}
+Geometrisk er $J/(2\pi)$ (eller, i visse konventioner, $J$ selv) netop
+\emph{arealet}, som den lukkede faserumskurve indeslutter (for
+librationstilfældet) — se figur~\ref{fig:virkningsareal}. Dette er en
+direkte generalisering af det areal, vi allerede så for den harmoniske
+oscillators ellipser i figur~\ref{fig:faseportraet}.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}[scale=1.0]
+    \draw[-{Latex}] (-2.8,0) -- (2.8,0) node[right] {$q$};
+    \draw[-{Latex}] (0,-2.0) -- (0,2.0) node[above] {$p$};
+    \draw[thick,blue!60!black,fill=blue!12] (0,0) ellipse (2.2 and 1.5);
+    \node[blue!60!black] at (0,0) {$J=\oint p\,dq$};
+    \draw[-{Latex},thick] (2.2*0.71,1.5*0.71) -- (2.2*0.71-0.35,1.5*0.71+0.5);
+    \node at (2.1,1.55) {bane};
+  \end{tikzpicture}
+  \caption{Virkningsvariablen $J=\oint p\,dq$ er (op til en faktor
+  $2\pi$) arealet, som banen indeslutter i faserummet — her for
+  libration (en lukket bane, som for den harmoniske oscillator).}
+  \label{fig:virkningsareal}
+\end{figure}
+
+\section{Den konjugerede vinkelvariabel}
+
+Da $J=J(E)$ (fra \eqref{eq:J-fra-W}) er en funktion af $E$ alene, kan
+vi — i hvert fald i princippet — invertere den til $E=E(J)$, og
+udtrykke Hamiltons karakteristiske funktion $W$ som funktion af $q$ og
+$J$ i stedet for $q$ og $E$: $W=W(q,J)$. Vi udfører nu en kanonisk
+transformation af type $F_2$ (kapitel~\ref{kap:kanoniske-transf}), med
+$W(q,J)$ selv som genererende funktion, og med $J$ i rollen som den
+nye impuls:
+\begin{equation}
+  p = \pdv{W}{q}, \qquad w \equiv \pdv{W}{J},
+  \label{eq:def-w}
+\end{equation}
+hvor vi kalder den nye, konjugerede koordinat $w$ — \emph{vinkel\-
+variablen}. Da $H=E=E(J)$ i disse variable ikke afhænger af $w$, giver
+Hamiltons ligninger \eqref{eq:hamilton-nye-var} med $K=E(J)$:
+\begin{equation}
+  \dot J = -\pdv{E}{w} = 0, \qquad \dot w = \pdv{E}{J} \equiv \nu(J),
+  \label{eq:hamilton-vinkel}
+\end{equation}
+hvor $\nu(J)\equiv dE/dJ$ er konstant i tiden (fordi $J$ selv er
+konstant). Den anden ligning integreres trivielt:
+\begin{equation}
+  w(t) = \nu t + w_0.
+  \label{eq:w-lineaer}
+\end{equation}
+Vinklen $w$ vokser altså \emph{lineært} med tiden — al den
+tilsyneladende komplicerede periodiske bevægelse i $q$ er blevet
+transformeret om til en variabel, der simpelthen løber rundt med
+konstant hastighed $\nu$.
+
+\subsection{$\nu$ er svingningsfrekvensen}
+
+Vi viser nu, at $\nu$ netop er systemets svingningsfrekvens — hvilket
+retfærdiggør navnet "vinkelvariabel" og gør hele konstruktionen
+praktisk anvendelig. Betragt ændringen i $w$, når $q$ gennemløber netop
+\'en fuld periode (defineret som i diskussionen omkring
+\eqref{eq:def-J}):
+\begin{equation}
+  \Delta w \equiv \oint \pdv{w}{q}\,dq = \oint \pdv{}{q}\left(\pdv{W}{J}\right)dq
+  = \dv{}{J}\oint \pdv{W}{q}\,dq = \dv{J}{J}\oint p\,dq\Big/ dJ,
+\end{equation}
+mere ligefremt: vi ombytter $\partial/\partial J$ og $\oint(\cdots)dq$
+(tilladt, da integrationskonturen — én fuld periode i $q$ — ikke selv
+afhænger af $J$), og bruger \eqref{eq:J-fra-W}:
+\begin{equation}
+  \Delta w = \dv{}{J}\oint\pdv{W}{q}\,dq = \dv{J}{J} = 1.
+  \label{eq:delta-w-1}
+\end{equation}
+Vinkelvariablen $w$ vokser altså med præcis $1$ for hver fulde periode
+af den oprindelige bevægelse i $q$. Sammenholdt med
+\eqref{eq:w-lineaer}, hvor $w$ vokser lineært med hastighed $\nu$,
+betyder dette, at perioden $\tau$ af den oprindelige bevægelse opfylder
+$\nu\tau=1$, altså
+\begin{equation}
+  \boxed{\nu = \dv{E}{J} = \frac{1}{\tau}.}
+  \label{eq:nu-er-frekvens}
+\end{equation}
+Dette er den centrale pointe i hele kapitlet: \emph{svingnings\-
+frekvensen kan beregnes som $dE/dJ$, uden at vi nogensinde behøver
+finde bevægelsen $q(t)$ eksplicit}. Vi skal blot kende $J$ som funktion
+af $E$ — et almindeligt (ikke partielt) integral, jf.\
+\eqref{eq:def-J} — og differentiere.
+
+\section{Eksempel: den harmoniske oscillator, igen}
+
+\begin{eksempel}
+Vi genbesøger den harmoniske oscillator en tredje gang (jf.\
+kapitel~\ref{kap:hamilton} og \ref{kap:hj}), nu via virknings-vinkel-
+metoden. Faserumsbanen ved energi $E$ er ellipsen
+$p^2/(2mE)+x^2/(2E/k)=1$ (fra kapitel~\ref{kap:hj}'s resultat
+$x=a\sin(\omega(t+\beta))$, $p=ma\omega\cos(\omega(t+\beta))$, med
+$a=\sqrt{2E/k}$). Virkningsvariablen \eqref{eq:def-J} er per
+definition arealet af denne ellipse, ganget med $2\pi$ (se
+figur~\ref{fig:virkningsareal}): en ellipse med halvakser
+$a=\sqrt{2E/k}$ (i $x$-retningen) og $b=\sqrt{2mE}$ (i $p$-retningen)
+har areal $\pi a b$, så
+\begin{equation}
+  J = \oint p\,dx = \pi ab = \pi\sqrt{\frac{2E}{k}}\sqrt{2mE} = 2\pi E\sqrt{\frac{m}{k}} = \frac{2\pi E}{\omega},
+\end{equation}
+hvor vi brugte $\omega=\sqrt{k/m}$. Løst for $E$:
+\begin{equation}
+  E(J) = \frac{\omega J}{2\pi} = \omega\left(\frac{J}{2\pi}\right).
+\end{equation}
+Frekvensen, ifølge \eqref{eq:nu-er-frekvens}, er
+\begin{equation}
+  \nu = \dv{E}{J} = \frac{\omega}{2\pi},
+\end{equation}
+netop svingningsfrekvensen $\nu=\omega/(2\pi)$ (i enheder af
+svingninger pr.\ tidsenhed; $\omega$ selv er vinkelfrekvensen i
+radianer pr.\ tidsenhed) — udledt uden på noget tidspunkt at have
+integreret $dW/dx$ eksplicit, i modsætning til den fulde løsning i
+kapitel~\ref{kap:hj}. Bemærk også formen $E=\nu J$ (med $\nu=\omega/2\pi$):
+dette er den klassiske sammenhæng, der — som vi antyder i næste kapitel
+— bliver til Plancks kvantiseringsbetingelse $E=nh\nu$, når $J$
+begrænses til heltalsmultipla af Plancks konstant $h$.
+\end{eksempel}
+
+\section{Flere frihedsgrader: separable systemer}
+
+Konstruktionen generaliseres til $n$ frihedsgrader, når
+Hamilton-Jacobi-ligningen er \emph{fuldt separabel}: dvs.\ når man kan
+finde en komplet integral af formen
+\begin{equation}
+  W(q_1,\dots,q_n,\alpha) = \sum_{i=1}^n W_i(q_i,\alpha),
+\end{equation}
+hvor hver $W_i$ kun afhænger af sin egen koordinat $q_i$ (og af de
+$n$ konstanter $\alpha$ som parametre). Dette er tilfældet for alle
+systemer, vi har mødt i kompendiet (fx central-kraft-problemet i
+planpolar-koordinater, hvor $r$- og $\phi$-delen separerer, jf.\
+opgaverne i kapitel~\ref{kap:lagrange} og \ref{kap:hamilton}).
+
+For hvert sådant separabelt "led" defineres en egen virkningsvariabel
+\begin{equation}
+  J_i \equiv \oint p_i\,dq_i,
+\end{equation}
+hvor $p_i=\partial W_i/\partial q_i$, og integralet tages over den
+periode, der er naturlig for netop koordinaten $q_i$ (som kan være
+libration eller rotation, forskelligt for hver $i$). Hver $J_i$ har sin
+egen konjugerede vinkelvariabel $w_i$, som vokser lineært med sin egen
+frekvens $\nu_i=\partial E/\partial J_i$ — nu en \emph{partiel}
+afledt, da $E=E(J_1,\dots,J_n)$ generelt afhænger af alle
+virkningsvariablene. Systemets fulde bevægelse er dermed opløst i $n$
+uafhængige, lineært voksende vinkler, hver med sin egen frekvens — en
+\emph{multiperiodisk} bevægelse.
+
+\begin{bemaerkning}
+Dette er den klassiske forløber for begrebet "normalmoder" og for
+kvantetalene $(n_1,\dots,n_n)$, der mærker de enkelte frihedsgrader i
+et kvantiseret system (fx radial- og vinkelkvantetal for
+hydrogenatomet). Vi forfølger denne parallel systematisk i næste
+kapitel.
+\end{bemaerkning}
+
+\section{Opsummering}
+
+\begin{itemize}
+  \item For periodiske systemer (libration eller rotation) i én
+        frihedsgrad defineres virkningsvariablen $J=\oint p\,dq$
+        — arealet (op til $2\pi$), som faserumsbanen indeslutter.
+  \item $J=J(E)$; den konjugerede vinkelvariabel $w=\partial W/\partial J$
+        vokser lineært med tiden, $w(t)=\nu t+w_0$, med
+        $\nu=dE/dJ$.
+  \item $\nu$ er præcis den fysiske svingningsfrekvens,
+        $\nu=1/\tau$ — beregnet uden at skulle finde $q(t)$ eksplicit.
+  \item For den harmoniske oscillator: $E(J)=\nu J$ med
+        $\nu=\omega/(2\pi)$ — en form, der peger direkte mod Plancks
+        kvantiseringsbetingelse.
+  \item For separable systemer i flere frihedsgrader defineres en
+        virkningsvariabel $J_i$ og frekvens $\nu_i=\partial E/\partial J_i$
+        for hver koordinat, som løber uafhængigt og lineært.
+\end{itemize}
+
+\begin{opgave}
+En partikel med masse $m$ og energi $E$ bevæger sig frit ("rotation")
+på en cirkel med radius $R$ ($0\leq\phi<2\pi$, periodisk). Hamilton-
+funktionen er $H=p_\phi^2/(2mR^2)$. Beregn $J=\oint p_\phi\,d\phi$
+(integreret over $\phi\in[0,2\pi)$), find $E(J)$, og bekræft, at
+$\nu=dE/dJ$ stemmer med den kendte omløbsfrekvens $v/(2\pi R)$, hvor
+$v$ er partiklens (konstante) banehastighed.
+\end{opgave}
+
+\begin{opgave}
+Vis, ved at differentiere \eqref{eq:def-w} med hensyn til tiden og
+bruge kædereglen, at $\dot w = (\partial^2W/\partial q\partial J)\dot q$,
+og brug dette sammen med \eqref{eq:hamilton-vinkel} til at genudlede
+\eqref{eq:delta-w-1} på en alternativ måde: ved at integrere $\dot w$
+over én fuld periode $\tau$ i $q$, og sammenholde med
+$\Delta w = \nu\tau$.
+\end{opgave}

@@ -1,0 +1,363 @@
+% kap08.tex — Adiabatiske invarianter: broen til den ældre kvanteteori
+% Hamilton-Jacobi-kompendiet
+
+\chapter{Adiabatiske invarianter — broen til den ældre kvanteteori}
+\label{kap:adiabatisk}
+
+Dette kapitel er, sammen med kapitel~\ref{kap:felter-hamilton} (om
+Hamiltonsk feltteori), et af de to kapitler, der udtrykkeligt peger
+frem mod kompendiets endestation: det tankegods, der var på plads, da
+kvantemekanikken blev født. Her når vi frem til selve
+kvantiseringsbetingelsen fra "den ældre kvanteteori" (1900--1925) —
+Bohr-Sommerfeld-kvantisering — som en næsten umiddelbar konsekvens af
+virkningsvariablen $J$ fra kapitel~\ref{kap:virkning-vinkel}.
+
+\section{Motivation: hvad sker der, når systemet ændres langsomt?}
+
+Betragt et system, hvis Hamilton-funktion afhænger af en eller flere
+ydre parametre — pendulets længde, kondensatorens pladeafstand,
+beholderens rumfang — som ændres over tid, men \emph{langsomt} i
+forhold til systemets egen svingningsperiode $\tau$. Vi skriver
+Hamilton-funktionen som $H(q,p;\lambda(t))$, hvor $\lambda(t)$ er den
+ydre parameter, og "langsomt" betyder præcist
+\begin{equation}
+  \left|\dv{\lambda}{t}\right|\cdot\tau \ll \lambda,
+\end{equation}
+altså at $\lambda$ ændrer sig kun ubetydeligt over en enkelt periode.
+Et sådant system kaldes \emph{adiabatisk} varierende — en betegnelse,
+der (som i termodynamikken) betyder "langsomt nok til, at systemet
+ikke mærker forandringen fra et øjeblik til det næste", ikke
+nødvendigvis relateret til varmeisolation.
+
+Spørgsmålet er: hvad sker der med virkningsvariablen $J$, når
+$\lambda$ ændres på denne måde? Energien $E$ er bestemt \emph{ikke}
+bevaret længere (systemet udveksler energi med det, der styrer
+$\lambda$ — fx den hånd, der langsomt forkorter pendulets snor).
+Svaret, vi udleder i næste afsnit, er overraskende robust: $J$ er
+\emph{tilnærmelsesvis bevaret}, selv når $E$ ændrer sig betydeligt.
+
+\section{Udledning af adiabatisk invarians}
+
+Lad $J(E,\lambda)$ være virkningsvariablen \eqref{eq:def-J}, udregnet
+ved en \emph{fastfrosset} værdi af $\lambda$ (dvs.\ langs den
+faserumsbane, systemet ville følge, hvis $\lambda$ holdtes konstant på
+sin nuværende værdi). Vi ønsker at vise, at den ægte tidsafledte af
+$J$, \emph{gennemsnitliggjort over én svingningsperiode}, forsvinder
+til første orden i $\dot\lambda$.
+
+\subsection{Energiens ændring}
+
+Langs den faktiske bevægelse er $H=H(q,p,\lambda(t))$, så den totale
+tidsafledte af energien er (jf.\ \eqref{eq:dHdt-generel}, nu med
+eksplicit tidsafhængighed via $\lambda(t)$ i stedet for direkte via
+$t$):
+\begin{equation}
+  \dv{E}{t} = \pdv{H}{\lambda}\dot\lambda.
+  \label{eq:dEdt-adiabatisk}
+\end{equation}
+Da $\lambda$ varierer langsomt, er $\dot\lambda$ tilnærmelsesvis
+konstant over én periode $\tau$, og vi kan derfor gennemsnitliggøre
+\eqref{eq:dEdt-adiabatisk} over en periode, med $\langle\cdot\rangle$
+betegnende tidsgennemsnit:
+\begin{equation}
+  \left\langle\dv{E}{t}\right\rangle = \dot\lambda\left\langle\pdv{H}{\lambda}\right\rangle.
+  \label{eq:dEdt-gennemsnit}
+\end{equation}
+
+\subsection{$J$'s afhængighed af $\lambda$ ved fast $E$}
+
+Vi skal også kende, hvordan $J(E,\lambda)=\oint p\,dq$ ændrer sig, når
+$\lambda$ ændres ved \emph{fast} $E$ (dvs.\ langs en anden frossen
+bane, med samme energi men ny parameterværdi). Differentier
+$H(q,p,\lambda)=E$ med hensyn til $\lambda$ ved fast $q$ og $E$:
+\begin{equation}
+  \pdv{H}{p}\pdv{p}{\lambda}\bigg|_{q,E} + \pdv{H}{\lambda}\bigg|_{q,p} = 0
+  \quad\Longrightarrow\quad
+  \pdv{p}{\lambda}\bigg|_{q,E} = -\dfrac{\partial H/\partial\lambda}{\partial H/\partial p} = -\dfrac{\partial H/\partial\lambda}{\dot q},
+  \label{eq:dp-dlambda}
+\end{equation}
+hvor vi i sidste skridt brugte Hamiltons ligning $\dot q=\partial H/\partial p$.
+Dermed:
+\begin{equation}
+  \pdv{J}{\lambda}\bigg|_E = \oint\pdv{p}{\lambda}\bigg|_{q,E}\,dq
+  = -\oint\dfrac{\partial H/\partial\lambda}{\dot q}\,dq
+  = -\oint\pdv{H}{\lambda}\,dt
+  = -\tau\left\langle\pdv{H}{\lambda}\right\rangle,
+  \label{eq:dJ-dlambda}
+\end{equation}
+hvor vi brugte $dq=\dot q\,dt$, og at integralet over én fuld periode
+i $q$ svarer til integration over $t$ fra $0$ til $\tau$ — netop
+$\tau$ gange tidsgennemsnittet.
+
+\subsection{Sammenligning: $J$ er invariant}
+
+$J(E,\lambda)$ er en funktion af to variable, så dens totale
+tidsafledte er
+\begin{equation}
+  \dv{J}{t} = \pdv{J}{E}\dv{E}{t} + \pdv{J}{\lambda}\dot\lambda.
+\end{equation}
+Vi gennemsnitliggør over én periode, idet vi bruger, at $\partial J/\partial E$
+og $\partial J/\partial\lambda$ selv varierer langsomt (de er
+funktioner af de langsomt varierende $E$ og $\lambda$) og derfor kan
+trækkes uden for gennemsnittet:
+\begin{equation}
+  \left\langle\dv{J}{t}\right\rangle
+  = \pdv{J}{E}\left\langle\dv{E}{t}\right\rangle + \pdv{J}{\lambda}\dot\lambda.
+\end{equation}
+Vi indsætter nu \eqref{eq:dEdt-gennemsnit} og \eqref{eq:dJ-dlambda},
+samt $\partial J/\partial E=1/\nu=\tau$ (fra
+\eqref{eq:nu-er-frekvens}):
+\begin{equation}
+  \left\langle\dv{J}{t}\right\rangle
+  = \tau\cdot\dot\lambda\left\langle\pdv{H}{\lambda}\right\rangle
+    + \left(-\tau\left\langle\pdv{H}{\lambda}\right\rangle\right)\dot\lambda
+  = 0.
+  \label{eq:J-invariant-bevis}
+\end{equation}
+De to led ophæver hinanden \emph{identisk}. Dette er resultatet, vi
+søgte:
+
+\begin{center}
+\emph{Virkningsvariablen $J$ er, gennemsnitligt over hver periode,
+bevaret under langsomme (adiabatiske) ændringer af systemets
+parametre — selvom energien $E$ generelt ændrer sig betydeligt.}
+\end{center}
+
+\begin{bemaerkning}
+Beviset ovenfor er en plausibilitetsargumentation på det niveau, der
+er sædvanligt i indførende fremstillinger (jf.\ Landaus \emph{Mechanics}),
+og er ikke en fuldt rigorøs matematisk sætning: en fuldstændig
+behandling skal vise, at afvigelserne fra invarians er af højere orden
+i $\dot\lambda/\omega$ og ikke akkumulerer systematisk over mange
+perioder. Vi nøjes her med resultatet i den form, der er nødvendig for
+at forstå dets historiske og begrebsmæssige rolle.
+\end{bemaerkning}
+
+\section{Eksempel: oscillator med langsomt varierende frekvens}
+
+\begin{eksempel}
+For den harmoniske oscillator fandt vi i
+kapitel~\ref{kap:virkning-vinkel}, at $J=2\pi E/\omega$. Er $\omega$
+(fx fordi fjederkonstanten $k$ eller massen $m$ ændres langsomt) en
+langsomt varierende parameter, siger adiabatisk invarians af $J$, at
+\begin{equation}
+  \frac{E}{\omega} = \text{konstant} \qquad\text{(adiabatisk)}.
+\end{equation}
+Gøres $\omega$ større (fx en snor, der gøres kortere, eller en fjeder,
+der strammes), vokser $E$ proportionalt — svingningens amplitude
+\emph{aftager} (da $E=\frac12kA^2\propto\omega^2A^2$, og
+$E\propto\omega$ giver $A^2\propto1/\omega$, altså $A\propto1/\sqrt\omega$),
+men netop på den måde, at $J$, og dermed antallet af "virkningskvanta"
+i systemet (som vi præciserer i næste afsnit), forbliver uændret.
+Dette er præcis den klassiske mekanisme, der ligger bag et velkendt
+fænomen: et pendul, hvis snor langsomt forkortes (fx ved at trække
+snoren op gennem et lille hul), får en voksende svingningsfrekvens og
+en aftagende amplitude, på en måde, der er forudsigelig alene fra
+$E/\omega=\text{konstant}$, uden at løse bevægelsesligningen i detalje.
+\end{eksempel}
+
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}[scale=1.0]
+    \draw[-{Latex}] (-3.4,0) -- (3.4,0) node[right] {$x$};
+    \draw[-{Latex}] (0,-2.2) -- (0,2.2) node[above] {$p$};
+    % Oprindelig ellipse (lav omega, stor amplitude, moderat p)
+    \draw[thick,blue!60!black,fill=blue!12] (0,0) ellipse (2.6 and 1.3);
+    \node[blue!60!black] at (0,1.7) {tidligt ($\omega$ lille)};
+    % Sen ellipse (høj omega, lille amplitude i x, stor i p) - samme areal
+    \draw[thick,black,fill=black!8] (0,0) ellipse (1.3 and 2.6);
+    \node at (1.9,-1.9) {sent ($\omega$ stor)};
+  \end{tikzpicture}
+  \caption{Adiabatisk invarians for oscillatoren: når $\omega$ langsomt
+  vokser, ændrer faserumsellipsens form sig (amplituden i $x$
+  aftager, i $p$ vokser) — men \emph{arealet}, altså $J$, forbliver
+  uændret.}
+  \label{fig:adiabatisk-ellipse}
+\end{figure}
+
+\section{Bohr-Sommerfeld-kvantiseringsbetingelsen}
+
+Vi er nu ved kompendiets historiske og begrebsmæssige mål. I 1900
+foreslog Planck, at strålingsenergien i en hulrumsresonator kun kunne
+optræde i diskrete portioner $E=nh\nu$, hvor $\nu$ er frekvensen,
+$h$ Plancks konstant, og $n$ et helt tal. Bohr udvidede i 1913 denne
+idé til atomart bundne elektroner, og Sommerfeld (og uafhængigt
+Wilson) generaliserede den i 1915--1916 til en systematisk regel for
+\emph{alle} periodiske mekaniske systemer:
+
+\begin{center}
+\emph{Kun de baner, for hvilke virkningsvariablen opfylder}
+\begin{equation}
+  \boxed{J = \oint p\,dq = nh, \qquad n=0,1,2,\dots,}
+  \label{eq:bohr-sommerfeld}
+\end{equation}
+\emph{er fysisk tilladte.}
+\end{center}
+
+Dette er \emph{Bohr-Sommerfeld-kvantiseringsbetingelsen}. Den centrale
+pointe — og selve grunden til, at vi har brugt to fulde kapitler på at
+udvikle virknings-vinkel-formalismen — er, at $J$ er netop den
+størrelse, der (a) er en ren funktion af de klassiske
+bevægelseskonstanter, og (b) er \emph{adiabatisk invariant}. Egenskab
+(b) er afgørende: den betyder, at hvis et system langsomt forstyrres
+(fx et atom, der langsomt bringes ind i et ydre felt), forbliver
+kvantetallet $n$ det samme — kvantiseringen er robust over for
+langsomme ydre ændringer, netop fordi den er formuleret via en
+adiabatisk invariant og ikke via $E$ direkte.
+
+\begin{bemaerkning}
+Det er værd at være helt klar om, hvad denne "ældre kvanteteori" er,
+og hvad den ikke er. Den er \emph{ikke} kvantemekanik i den moderne
+betydning — der er ingen bølgefunktion, intet Hilbert-rum, ingen
+operatorer. Den er en \emph{ad hoc}-regel, lagt oven på klassisk
+mekanik, som (som vi ser i eksemplerne nedenfor) giver forbløffende
+gode resultater for visse systemer, men fejler systematisk for andre
+(den giver fx ingen korrekt beskrivelse af spektrallinjers intensitet,
+og bryder sammen for mere komplicerede atomer end hydrogen). Dens
+historiske betydning er, at den viste, at \emph{noget} i denne stil
+måtte være rigtigt — og at dette "noget" senere blev identificeret som
+den semiklassiske grænse af den fulde kvantemekanik (jf.\
+afsnit~\ref{sec:hj-og-kvante} i kapitel~\ref{kap:hj}). Se
+[[kvantemekanik-kompendiet]] for den fulde, korrekte teori.
+\end{bemaerkning}
+
+\section{Eksempel: kvantisering af den harmoniske oscillator}
+
+\begin{eksempel}
+For den harmoniske oscillator fandt vi $J=2\pi E/\omega$
+(kapitel~\ref{kap:virkning-vinkel}). Bohr-Sommerfeld-betingelsen
+\eqref{eq:bohr-sommerfeld} giver
+\begin{equation}
+  \frac{2\pi E_n}{\omega} = nh
+  \quad\Longrightarrow\quad
+  E_n = \frac{nh\omega}{2\pi} = nh\nu,
+\end{equation}
+hvor $\nu=\omega/(2\pi)$ er svingningsfrekvensen — netop Plancks
+oprindelige kvantiseringsformel $E=nh\nu$! Dette er den historiske
+kerne af hele udviklingen: Bohr-Sommerfeld-reglen \emph{reproducerer}
+Plancks formel som et specialtilfælde, anvendt på den mekaniske
+oscillator, i stedet for at postulere den for stråling alene.
+
+Sammenlign nu med det korrekte kvantemekaniske resultat (udledt i
+[[kvantemekanik-kompendiet]] ved at løse Schrödinger-ligningen for
+oscillatoren):
+\begin{equation}
+  E_n^{\text{(korrekt)}} = \left(n+\frac12\right)h\nu, \qquad n=0,1,2,\dots
+\end{equation}
+De to resultater stemmer overens for \emph{energiforskellene} mellem
+niveauer, $\Delta E=h\nu$, men Bohr-Sommerfeld-reglen mangler
+nulpunktsenergien $\frac12h\nu$ — energien i grundtilstanden
+($n=0$), som i den ældre teori forudsiges at være nul (ingen
+bevægelse), men som i den korrekte kvantemekanik er strengt positiv
+(en konsekvens af Heisenbergs usikkerhedsrelation: en partikel kan
+ikke være fuldstændig i ro \emph{og} fuldstændig lokaliseret på
+samme tid). Dette er et instruktivt eksempel på, hvor den ældre
+kvanteteori går rigtigt (energikvantespring) og hvor den går forkert
+(grundtilstandens energi) — begge dele klarlagt først med den fulde
+kvantemekaniske behandling.
+\end{eksempel}
+
+\section{Eksempel: partikel i en kasse}
+
+\begin{eksempel}
+Betragt en partikel med masse $m$, der bevæger sig frit mellem to
+uendeligt høje potentialvægge i $x=0$ og $x=L$ (en "kasse" eller
+"boks"). Mellem væggene er $H=p^2/(2m)$, så ved energi $E$ er
+$p=\pm\sqrt{2mE}$ — konstant numerisk værdi, med fortegnsskift ved hver
+reflektion. Bevægelsen er libration: partiklen løber fra $0$ til $L$
+og tilbage igen, hvilket giver virkningsvariablen som \emph{hele}
+omløbet:
+\begin{equation}
+  J = \oint p\,dx = \int_0^L\sqrt{2mE}\,dx + \int_L^0\left(-\sqrt{2mE}\right)dx
+    = 2L\sqrt{2mE}.
+\end{equation}
+Bohr-Sommerfeld-betingelsen $J=nh$ giver
+\begin{equation}
+  2L\sqrt{2mE_n} = nh
+  \quad\Longrightarrow\quad
+  \boxed{E_n = \frac{n^2h^2}{8mL^2}, \qquad n=1,2,3,\dots}
+\end{equation}
+(vi udelukker $n=0$, som ville give $E=0$, dvs.\ ingen bevægelse
+overhovedet — et fysisk meningsløst resultat, som den ældre teori ikke
+selv kan udelukke, men som vi forkaster ud fra fysisk sund fornuft).
+Dette resultat er, i modsætning til oscillator-eksemplet ovenfor,
+\textbf{eksakt} — det stemmer fuldstændigt overens med den korrekte
+kvantemekaniske løsning af den uendelige potentialbrønd (se
+[[kvantemekanik-kompendiet]]). Dette er ingen tilfældighed: for netop
+dette system er den "gamle" og den "nye" teori i eksakt overensstemmelse,
+fordi potentialet er så simpelt (konstant inden i brønden), at der
+ingen krumning er i $p(x)$, som WKB-korrektionerne (jf.\
+afsnit~\ref{sec:hj-og-kvante}) ellers ville skulle rette for.
+\end{eksempel}
+
+\section{Korrespondensprincippet}
+
+De to eksempler ovenfor illustrerer et generelt mønster, formuleret af
+Bohr som \emph{korrespondensprincippet}: for store kvantetal $n$
+nærmer de kvantemekaniske forudsigelser sig de klassiske. For
+oscillatoren er den relative afvigelse mellem $E_n=nh\nu$ og
+$E_n^{\text{korrekt}}=(n+\frac12)h\nu$ af størrelsesordnen $1/(2n)\to0$,
+når $n\to\infty$. Mere generelt gælder, at forskellen mellem
+successive kvantiserede energiniveauer, $\Delta E=E_{n+1}-E_n$, går mod
+den klassiske svingningskvant $h\nu(E)$ — sammenlign med
+\eqref{eq:nu-er-frekvens}, $\nu=dE/dJ$, som i kvantesproget netop
+bliver $\Delta E/\Delta J$ med $\Delta J=h$.
+
+\begin{bemaerkning}
+Korrespondensprincippet er den sidste brik i broen fra klassisk
+mekanik til kvantemekanik, som dette kompendium bygger. Vi har nu set
+den i tre uafhængige, men sammenhængende former: (i) det geometriske
+bølgefront-billede og $\psi\sim e^{iS/\hbar}$ fra
+kapitel~\ref{kap:hj}, (ii) virkningsvariablens rolle som "antal
+kvanta gange $h$" i dette kapitel, og (iii) korrespondensprincippets
+udsagn, at kvantiseringens "gitterafstand" $\Delta E=h\nu$ bliver
+relativt ubetydelig for store $n$, netop hvor klassisk mekanik er en
+god beskrivelse. Den systematiske, korrekte udførelse af denne
+overgang — med bølgefunktioner, operatorer og Hilbert-rum — er
+[[kvantemekanik-kompendiet]]s emne. Dette kompendiums resterende
+kapitler (9--10) fuldender i stedet den klassiske side af historien
+ved at udvide formalismen til felter, som forberedelse til det senere
+kvantefeltteori-kompendium.
+\end{bemaerkning}
+
+\section{Opsummering}
+
+\begin{itemize}
+  \item Et system, hvis parametre $\lambda(t)$ ændres langsomt
+        ($\dot\lambda\tau\ll\lambda$) kaldes adiabatisk. Energien
+        $E$ ændrer sig generelt, men virkningsvariablen $J$ er
+        \emph{adiabatisk invariant}: $\langle dJ/dt\rangle=0$ til
+        første orden i $\dot\lambda$.
+  \item Beviset bruger $\partial J/\partial E=\tau$ og
+        $\partial J/\partial\lambda|_E=-\tau\langle\partial H/\partial\lambda\rangle$,
+        som tilsammen ophæver hinanden.
+  \item For oscillatoren: $E/\omega$ er adiabatisk invariant.
+  \item Bohr-Sommerfeld-kvantisering: $J=nh$ er den ældre kvanteteoris
+        regel for, hvilke klassiske baner der er fysisk realiserede.
+        Robustheden af $n$ under langsomme forstyrrelser er netop en
+        konsekvens af $J$'s adiabatiske invarians.
+  \item For oscillatoren giver reglen $E_n=nh\nu$ (Plancks formel),
+        men mangler den korrekte kvantemekaniske nulpunktsenergi
+        $\frac12h\nu$.
+  \item For partiklen i kassen giver reglen det \emph{eksakte}
+        kvantemekaniske resultat $E_n=n^2h^2/(8mL^2)$.
+  \item Korrespondensprincippet: klassisk og kvantemekanisk beskrivelse
+        falder sammen for store kvantetal $n$.
+\end{itemize}
+
+\begin{opgave}
+Et pendul med masse $m$ svinger med lille udslag og længde $\ell(t)$,
+der langsomt aftager med tiden (svingningsfrekvensen er
+$\omega=\sqrt{g/\ell}$). Brug den adiabatiske invarians $E/\omega=\text{konstant}$
+til at finde, hvordan svingningens amplitude $\theta_0$ afhænger af
+$\ell$ (brug $E\approx\frac12m\ell^2\omega^2\theta_0^2$ for et
+pendul med lille udslag).
+\end{opgave}
+
+\begin{opgave}
+Genudled resultatet $E_n=n^2h^2/(8mL^2)$ for partiklen i kassen ved i
+stedet at bruge det korrekte kvantemekaniske udtryk for de tilladte
+bølgetal, $k_n=n\pi/L$ (stående bølger med noder ved $x=0,L$), og
+$E_n=\hbar^2k_n^2/(2m)$, og bekræft, at de to fremgangsmåder giver
+identisk resultat (brug $h=2\pi\hbar$).
+\end{opgave}
