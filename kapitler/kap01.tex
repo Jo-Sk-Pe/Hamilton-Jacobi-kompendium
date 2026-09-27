@@ -1,0 +1,376 @@
+% kap01.tex — Newtonsk mekanik og variationsprincipper
+% Hamilton-Jacobi-kompendiet
+
+\chapter{Newtonsk mekanik og variationsprincipper}
+\label{kap:newton-variation}
+
+\section{Hvorfor forlade Newton?}
+
+Newtons anden lov,
+\begin{equation}
+  \vb{F} = m\vb{a},
+\end{equation}
+er det mest direkte udtryk for mekanikkens grundlov, vi har. Den er lokal
+i tid, den er intuitiv, og den virker for et enkelt punkt uden
+tvangsbetingelser. Men så snart vi vender os mod systemer, hvor
+bevægelsen er begrænset af tvang — en kugle der ruller på en skinne, en
+pendul der hænger i en stiv stang, en gasmolekyle der er låst inde i en
+beholder — bliver Newtons formulering upraktisk. Problemet er ikke, at
+loven svigter; problemet er, at den kræver, at vi kender \emph{alle}
+kræfter, herunder de tvangskræfter (normalkræfter, snortræk, reaktioner
+fra skinner), der holder systemet på dets tilladte bane. Disse
+tvangskræfter udfører intet arbejde i den retning, bevægelsen faktisk
+sker i, og de er i praksis ofte netop det, vi \emph{ikke} kender og
+\emph{ikke} er interesserede i.
+
+Kapitlets mål er at motivere og udlede et alternativt udgangspunkt —
+D'Alemberts princip — der elegant elimininerer tvangskræfterne fra
+beskrivelsen, uden at vi behøver kende deres størrelse. Dette er første
+skridt på vejen til Lagrange- og senere Hamilton-formalismen
+(kapitel~\ref{kap:lagrange} og \ref{kap:hamilton}), som igen er
+forudsætningen for Hamilton-Jacobi-teorien, der er kompendiets egentlige
+mål.
+
+Den fysiske pointe, vi skal holde fast i hele vejen igennem, er denne:
+\emph{et system med tvangsbetingelser har færre uafhængige
+frihedsgrader end antallet af koordinater, vi nemmest kan nedskrive
+det i}. Kunsten er at finde en beskrivelse, der kun bruger de
+uafhængige frihedsgrader — og det er præcis, hvad generaliserede
+koordinater giver os.
+
+\section{Frihedsgrader og generaliserede koordinater}
+
+Betragt et system af $N$ punktpartikler. Uden tvangsbetingelser har
+systemet $3N$ frihedsgrader — de kartesiske koordinater
+$\vb{r}_1,\dots,\vb{r}_N$. Er systemet underlagt $k$ uafhængige
+tvangsbetingelser, reduceres antallet af uafhængige frihedsgrader til
+\begin{equation}
+  n = 3N - k.
+\end{equation}
+
+I stedet for at arbejde med de $3N$ kartesiske koordinater og $k$
+tvangsligninger, indfører vi $n$ \emph{generaliserede koordinater}
+$q_1,\dots,q_n$, valgt så tvangsbetingelserne er automatisk opfyldt for
+alle værdier af $q_i$. De kartesiske koordinater kan da skrives som
+funktioner af de generaliserede koordinater (og eventuelt tiden, hvis
+tvangsbetingelserne selv er tidsafhængige):
+\begin{equation}
+  \vb{r}_\alpha = \vb{r}_\alpha(q_1,\dots,q_n,t), \qquad \alpha = 1,\dots,N.
+  \label{eq:transformationsligning}
+\end{equation}
+
+\begin{eksempel}
+For et simpelt plant pendul af længde $\ell$, der svinger i en fast
+lodret plan, er den naturlige kartesiske beskrivelse $(x,y)$ med
+tvangsbetingelsen $x^2+y^2=\ell^2$: to koordinater, én
+tvangsbetingelse, altså $n = 2-1=1$ frihedsgrad. Vi vælger den
+generaliserede koordinat $q_1=\theta$, udslagsvinklen fra lodret, og
+skriver
+\begin{equation}
+  x = \ell\sin\theta, \qquad y = -\ell\cos\theta.
+\end{equation}
+Tvangsbetingelsen $x^2+y^2=\ell^2$ er nu automatisk opfyldt for
+\emph{alle} værdier af $\theta$ — vi behøver aldrig nedskrive den igen.
+\end{eksempel}
+
+Denne idé — at vælge koordinater, hvori tvangsbetingelserne er "bygget
+ind" — er selve nøglen til alt, hvad der følger i dette kompendium.
+
+\subsection{Holonome og ikke-holonome tvangsbetingelser}
+
+En tvangsbetingelse, der kan skrives som en ligning i koordinaterne (og
+eventuelt tiden),
+\begin{equation}
+  f(\vb{r}_1,\dots,\vb{r}_N,t) = 0,
+\end{equation}
+kaldes \emph{holonom}. Pendulets $x^2+y^2-\ell^2=0$ er et eksempel.
+Holonome tvangsbetingelser er netop dem, der kan elimineres ved et
+koordinatvalg som i \eqref{eq:transformationsligning}: de reducerer
+antallet af \emph{koordinater}, vi behøver.
+
+En tvangsbetingelse, der ikke kan skrives på denne form — typisk fordi
+den kun begrænser hastigheder uden at være en totale-differential af
+en funktion af koordinaterne — kaldes \emph{ikke-holonom}. Det klassiske
+eksempel er en mønt, der ruller uden at glide på et plan: mønten kan nå
+et hvilket som helst punkt på planet med en hvilken som helst
+orientering, men rullebetingelsen (ingen glidning) lægger et
+øjeblikkeligt bånd på hastighedsvektoren, som ikke integrerer til et
+enkelt bånd på positionen.
+
+I dette kompendium beskæftiger vi os \emph{udelukkende} med holonome
+tvangsbetingelser. Det er ikke en indskrænkning, der koster os noget
+væsentligt: næsten alle systemer, der er relevante for vejen mod
+Hamilton-Jacobi-teori og kvantisering, er holonome, og den formelle
+maskine (Lagrange- og Hamilton-formalismen), vi bygger op, forudsætter
+det.
+
+\section{Virtuel forskydning og virtuelt arbejde}
+
+For at komme fra Newtons love til et princip, der ikke kræver kendskab
+til tvangskræfterne, indfører vi begrebet \emph{virtuel forskydning}.
+
+En virtuel forskydning $\delta\vb{r}_\alpha$ er en tænkt,
+infinitesimal ændring af partikel $\alpha$'s position, som
+
+\begin{itemize}
+  \item er i overensstemmelse med tvangsbetingelserne på det givne
+        tidspunkt $t$ (systemet "flyttes" til en anden tilladt
+        konfiguration),
+  \item sker \emph{momentant} — tiden holdes fast, $\delta t = 0$ — i
+        modsætning til en virkelig forskydning $d\vb{r}_\alpha$, som
+        sker i løbet af et tidsinterval $dt$, og som derfor kan
+        involvere tidsafhængigheden i tvangsbetingelserne selv.
+\end{itemize}
+
+Ordet "virtuel" markerer netop denne forskel: $\delta\vb{r}_\alpha$ er
+ikke en bevægelse, systemet rent faktisk udfører, men en tilladt
+\emph{sammenligningskonfiguration}, vi bruger som redskab.
+
+\emph{Virtuelt arbejde} er det arbejde, en kraft $\vb{F}_\alpha$ ville
+udføre under en sådan virtuel forskydning:
+\begin{equation}
+  \delta W = \sum_{\alpha} \vb{F}_\alpha \cdot \delta\vb{r}_\alpha.
+\end{equation}
+
+Den centrale egenskab, vi skal udnytte, er denne: for et system med
+\emph{ideale} tvangsbetingelser — dvs.\ tvangsbetingelser, hvis
+tvangskræfter $\vb{R}_\alpha$ står vinkelret på enhver tilladt virtuel
+forskydning — gælder
+\begin{equation}
+  \sum_\alpha \vb{R}_\alpha \cdot \delta\vb{r}_\alpha = 0.
+  \label{eq:ideal-tvang}
+\end{equation}
+Dette er ikke en tilfældig antagelse; det er selve definitionen af, at
+en tvangsbetingelse er "glat" i den forstand, vi har brug for: en
+normalkraft fra en glat skinne, spændingen i en stiv, uelastisk snor,
+eller reaktionen fra en glat flade opfylder alle \eqref{eq:ideal-tvang},
+fordi de netop er rettet vinkelret på de bevægelser, tvangen tillader.
+Friktion opfylder den derimod \emph{ikke} i almindelighed — det er
+grunden til, at friktion kræver særlig behandling i denne formalisme
+(se bemærkningen nedenfor).
+
+\begin{bemaerkning}
+Idealiteten \eqref{eq:ideal-tvang} er den fysiske forudsætning, hele
+det følgende bygger på. Den er ikke en matematisk trivialitet, men et
+udsagn om, hvilke kræfter naturen rent faktisk lader tvangsbetingelser
+udøve. At normalkræfter og snortræk opfylder den, skyldes, at de er
+\emph{reaktionskræfter}: de justerer sig præcis til den størrelse, der
+er nødvendig for at holde tvangen, og ingen mere — de har intet "eget"
+bidrag til bevægelsesenergien langs de tilladte retninger. Friktion er
+anderledes, fordi dens størrelse ikke blot bestemmes af tvangen selv,
+men af den relative bevægelse; den formalisme, vi bygger her, dækker
+derfor konservative systemer og systemer med ideale tvangsbetingelser,
+men skal udvides (typisk med Rayleighs dissipationsfunktion) for at
+håndtere friktion. Vi kommer ikke til at have brug for dette i resten
+af kompendiet.
+\end{bemaerkning}
+
+\section{D'Alemberts princip}
+
+Newtons anden lov for partikel $\alpha$ lyder
+\begin{equation}
+  \vb{F}_\alpha^{(a)} + \vb{R}_\alpha = m_\alpha\ddot{\vb{r}}_\alpha,
+\end{equation}
+hvor vi har opdelt den samlede kraft i en \emph{anvendt} (påtrykt) kraft
+$\vb{F}_\alpha^{(a)}$ — tyngdekraft, fjederkraft, elektrisk kraft, osv.
+— og tvangskraften $\vb{R}_\alpha$. Omskrevet:
+\begin{equation}
+  \vb{F}_\alpha^{(a)} - m_\alpha\ddot{\vb{r}}_\alpha = -\vb{R}_\alpha.
+\end{equation}
+Vi ganger begge sider skalært med en virtuel forskydning
+$\delta\vb{r}_\alpha$ og summerer over alle partikler:
+\begin{equation}
+  \sum_\alpha \left(\vb{F}_\alpha^{(a)} - m_\alpha\ddot{\vb{r}}_\alpha\right)\cdot\delta\vb{r}_\alpha
+  = -\sum_\alpha \vb{R}_\alpha\cdot\delta\vb{r}_\alpha.
+\end{equation}
+Ifølge \eqref{eq:ideal-tvang} er højresiden nul for ideale
+tvangsbetingelser. Vi står tilbage med \emph{D'Alemberts princip}:
+\begin{equation}
+  \boxed{\sum_\alpha \left(\vb{F}_\alpha^{(a)} - m_\alpha\ddot{\vb{r}}_\alpha\right)\cdot\delta\vb{r}_\alpha = 0.}
+  \label{eq:dalembert}
+\end{equation}
+
+Dette er den afgørende pointe i kapitlet: tvangskræfterne
+$\vb{R}_\alpha$ er \emph{helt forsvundet} fra formuleringen. Vi behøver
+ikke kende dem for at bruge \eqref{eq:dalembert} — kun de anvendte
+kræfter og de tilladte virtuelle forskydninger, som selv er bestemt af
+tvangsbetingelsernes geometri.
+
+\begin{bemaerkning}
+D'Alemberts princip kaldes ofte "det generaliserede princip om virtuelt
+arbejde", fordi det udvider den statiske ligevægtsbetingelse
+$\sum_\alpha \vb{F}_\alpha^{(a)}\cdot\delta\vb{r}_\alpha = 0$ (velkendt
+fra statik: et system er i ligevægt, hvis det virtuelle arbejde af de
+anvendte kræfter er nul for alle tilladte virtuelle forskydninger) til
+dynamiske systemer, ved at behandle $-m_\alpha\ddot{\vb{r}}_\alpha$ som
+en ekstra "inertikraft". Denne omtolkning — at accelerationen kan
+regnes med som en kraft, der modvirker bevægelsen — er den samme idé,
+man møder som "d'Alembert-kraft" eller (i mere kavaleret sprogbrug)
+"centrifugalkraft" i roterende referencesystemer.
+\end{bemaerkning}
+
+\section{Eksempel: kloden på et glat skråplan}
+
+Lad os se D'Alemberts princip i arbejde på et konkret eksempel, før vi
+går videre til den generelle omskrivning i generaliserede koordinater
+(kapitel~\ref{kap:lagrange}).
+
+\begin{eksempel}
+En kugle med masse $m$ glider uden friktion ned langs et fast skråplan
+med hældningsvinkel $\alpha$ (se figur~\ref{fig:skraaplan}). Lad $s$
+være afstanden målt langs planet fra toppen. Tvangsbetingelsen er, at
+kuglen forbliver på planets overflade; den eneste frihedsgrad er $s$.
+
+Den anvendte kraft er tyngden, $\vb{F}^{(a)} = -mg\,\hat{\vb{y}}$. En
+virtuel forskydning langs planet er $\delta\vb{r} = \delta s\,\hat{\vb{s}}$,
+hvor $\hat{\vb{s}}$ er enhedsvektoren langs planet, med komponenter
+$(\cos\alpha, -\sin\alpha)$ i det viste koordinatsystem.
+
+Kuglens acceleration er $\ddot{\vb{r}} = \ddot{s}\,\hat{\vb{s}}$ (planet
+er fast, så bevægelsen er ren translation langs $\hat{\vb{s}}$).
+D'Alemberts princip \eqref{eq:dalembert} giver
+\begin{equation}
+  \left(\vb{F}^{(a)} - m\ddot{\vb{r}}\right)\cdot\delta\vb{r} = 0
+  \quad\Longrightarrow\quad
+  \left(-mg\,\hat{\vb{y}} - m\ddot{s}\,\hat{\vb{s}}\right)\cdot\hat{\vb{s}}\,\delta s = 0.
+\end{equation}
+Da $\delta s$ er arbitrær (og ikke-nul), må parentesen selv være nul:
+\begin{equation}
+  -mg\,\hat{\vb{y}}\cdot\hat{\vb{s}} - m\ddot{s} = 0
+  \quad\Longrightarrow\quad
+  \ddot{s} = -g\,\hat{\vb{y}}\cdot\hat{\vb{s}} = g\sin\alpha,
+\end{equation}
+hvor vi har brugt $\hat{\vb{y}}\cdot\hat{\vb{s}} = -\sin\alpha$ ud fra
+komponenterne ovenfor. Vi genfinder det velkendte resultat
+$\ddot{s}=g\sin\alpha$ — men bemærk, at vi \emph{aldrig} har skullet
+opskrive normalkraften $N$ fra planet på kuglen. Den er elimineret
+fuldstændigt, fordi den (ideelt) ikke udfører virtuelt arbejde langs
+den tilladte bevægelse.
+\end{eksempel}
+
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}[scale=1.0]
+    % Skråplan
+    \draw[thick] (0,3) -- (0,0) -- (5,0);
+    \draw[thick] (0,3) -- (5,0);
+    % Vinkelmarkering
+    \draw (1.0,0) arc (0:31:1.0);
+    \node at (1.35,0.28) {$\alpha$};
+    % Kugle på planet
+    \pgfmathsetmacro{\sfrac}{0.45}
+    \coordinate (P) at ({5*\sfrac},{3*(1-\sfrac)});
+    \filldraw[fill=blue!20,draw=blue!60!black,thick] (P) circle (0.22);
+    % s-akse langs planet
+    \draw[-{Latex},dashed] (0,3) -- ($(P)+(0.9,-0.54)$);
+    \node[rotate=-31] at ($(0,3)+(1.6,-0.97)$) {$s$};
+    % Tyngdekraft
+    \draw[-{Latex},thick,red] (P) -- ++(0,-1.1) node[below] {$m\vb{g}$};
+    % Normalkraft (elimineres i D'Alembert, men vist for reference)
+    \draw[-{Latex},thick,ForestGreen] (P) -- ++(0.53,0.90) node[above right] {$\vb{R}$ (elimineres)};
+  \end{tikzpicture}
+  \caption{Kugle på et glat skråplan. Tyngden $m\vb{g}$ er den anvendte
+  kraft; tvangskraften (normalkraften) $\vb{R}$ udfører intet virtuelt
+  arbejde langs den tilladte bevægelse $\delta s$ og forsvinder derfor
+  fra D'Alemberts princip.}
+  \label{fig:skraaplan}
+\end{figure}
+
+\section{Fra D'Alembert til et variationsprincip}
+
+D'Alemberts princip \eqref{eq:dalembert} er stadig formuleret i
+kartesiske koordinater og vektorielt sprog. Det er et vigtigt
+mellemtrin, men ikke slutdestinationen. To ting gør det utilfredsstillende
+som slutformulering:
+
+\begin{enumerate}
+  \item Det er stadig udtrykt via de $3N$ kartesiske koordinater
+        $\vb{r}_\alpha$, ikke via de $n$ uafhængige generaliserede
+        koordinater $q_i$, som faktisk beskriver systemets frihedsgrader.
+  \item Det er et \emph{differentielt} princip: det udtaler sig om
+        systemets tilstand ved ét tidspunkt $t$ ad gangen.
+\end{enumerate}
+
+Den anden pointe peger frem mod noget dybere. Der findes en anden
+klasse af principper i fysikken — \emph{variationsprincipper} — der i
+stedet udtaler sig om hele banen $\vb{r}_\alpha(t)$ fra et starttidspunkt
+$t_1$ til et sluttidspunkt $t_2$ på én gang, og udpeger den faktiske
+bane som den, der gør en bestemt størrelse (et \emph{integral} over
+banen) stationær i forhold til alle "nærliggende" tænkte baner.
+
+Det klassiske forbillede er Fermats princip i optikken: lysets faktiske
+vej mellem to punkter er den, der gør den optiske gangtid stationær
+(typisk minimal) i forhold til alle andre tænkte veje. Fermats princip
+forudsiger både retlinet forplantning i homogene medier \emph{og}
+brydningsloven ved en grænseflade — alt sammen fra ét og samme
+udsagn om et integral. Spørgsmålet, vi arbejder os frem mod i
+kapitel~\ref{kap:lagrange}, er, om der findes et analogt princip for
+mekanisk bevægelse: findes der en størrelse, hvis integral over banen
+er stationært netop for den bane, partiklen faktisk følger?
+
+Svaret er ja, og det er netop \emph{Hamiltons princip}: den faktiske
+bane gør \emph{virkningen}
+\begin{equation}
+  S = \int_{t_1}^{t_2} L\,dt
+\end{equation}
+stationær, hvor $L$ er Lagrange-funktionen. At D'Alemberts princip —
+et differentielt, øjeblik-for-øjeblik-udsagn — faktisk er
+\emph{ækvivalent} med et globalt variationsprincip af denne type, er et
+af de smukkeste resultater i klassisk mekanik, og det er hovedemnet i
+kapitel~\ref{kap:lagrange}, hvor vi udleder Euler-Lagrange-ligningerne
+både fra D'Alemberts princip og fra variationsregning direkte.
+
+\begin{bemaerkning}
+Det er værd at bemærke allerede her, hvor langt dette fører: netop
+fordi Hamiltons princip er formuleret som et udsagn om \emph{hele
+banen} snarere end om kræfter ved et enkelt tidspunkt, er det denne
+formulering — ikke Newtons love direkte — der generaliserer smukkest
+til kvantemekanikken. Feynmans sti-integral-formulering af
+kvantemekanikken (som vi vender tilbage til i kapitel~\ref{kap:felter}
+og i det senere kompendium om kvantefeltteori) bygger direkte på
+virkningsintegralet $S$ og på selve idéen om at summere over
+"nærliggende baner". Variationsprincippet er altså ikke blot en elegant
+omskrivning af Newtons mekanik — det er den formulering, der faktisk
+overlever overgangen til kvanteteorien.
+\end{bemaerkning}
+
+\section{Opsummering}
+
+\begin{itemize}
+  \item Newtons love er lokale og kræver kendskab til tvangskræfter,
+        som ofte er uinteressante og ukendte.
+  \item Holonome tvangsbetingelser kan elimineres ved valg af
+        generaliserede koordinater $q_1,\dots,q_n$ ($n$ = systemets
+        antal frihedsgrader).
+  \item Virtuelle forskydninger $\delta\vb{r}_\alpha$ er momentane,
+        tilladte tænkte forskydninger ($\delta t = 0$).
+  \item For ideale tvangsbetingelser udfører tvangskræfterne intet
+        virtuelt arbejde: $\sum_\alpha \vb{R}_\alpha\cdot\delta\vb{r}_\alpha=0$.
+  \item Dette fører til D'Alemberts princip,
+        $\sum_\alpha(\vb{F}_\alpha^{(a)}-m_\alpha\ddot{\vb{r}}_\alpha)\cdot\delta\vb{r}_\alpha=0$,
+        hvori tvangskræfterne er elimineret.
+  \item D'Alemberts princip er stadig kartesisk og differentielt i
+        tid. Det næste skridt — kapitel~\ref{kap:lagrange} — er at
+        omskrive det i generaliserede koordinater (Lagrange-formalismen)
+        og at vise, at det er ækvivalent med et globalt
+        variationsprincip (Hamiltons princip), som er den formulering,
+        der peger frem mod Hamilton-Jacobi-teori og senere
+        kvantisering.
+\end{itemize}
+
+\begin{opgave}
+Genudled resultatet $\ddot{s}=g\sin\alpha$ fra eksemplet i
+afsnit~\ref{eq:dalembert}'s eksempel ved direkte brug af Newtons anden
+lov med en eksplicit normalkraft $N$, og overbevis dig om, at $N$ falder
+ud af regningen på samme måde, som den gjorde i D'Alembert-formuleringen
+— blot ved en ekstra linje udregning i stedet for slet ikke at optræde.
+\end{opgave}
+
+\begin{opgave}
+Betragt en perle af masse $m$, der er tvunget til at bevæge sig på en
+fast, glat, lodret cirkulær ring med radius $R$, under indflydelse af
+tyngden. Indfør vinklen $\theta$ målt fra ringens laveste punkt som
+generaliseret koordinat, opskriv den tilladte virtuelle forskydning
+$\delta\vb{r}$ i retning af $\theta$, og brug D'Alemberts princip til
+at udlede bevægelsesligningen for $\theta(t)$.
+\end{opgave}
