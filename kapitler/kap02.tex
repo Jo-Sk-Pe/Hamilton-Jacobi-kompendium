@@ -1,0 +1,550 @@
+% kap02.tex — Lagrange-formalisme
+% Hamilton-Jacobi-kompendiet
+
+\chapter{Lagrange-formalisme}
+\label{kap:lagrange}
+
+\section{Målet: fra D'Alembert til én skalarfunktion}
+
+I kapitel~\ref{kap:newton-variation} nåede vi til D'Alemberts princip,
+\begin{equation}
+  \sum_\alpha \left(\vb{F}_\alpha^{(a)} - m_\alpha\ddot{\vb{r}}_\alpha\right)\cdot\delta\vb{r}_\alpha = 0,
+  \tag{\ref*{eq:dalembert}}
+\end{equation}
+som eliminerer tvangskræfterne, men stadig er udtrykt i de $3N$
+kartesiske koordinater $\vb{r}_\alpha$ og deres virtuelle forskydninger
+$\delta\vb{r}_\alpha$ — som ikke er uafhængige, når der er
+tvangsbetingelser. Målet i dette kapitel er at omskrive princippet i de
+$n$ uafhængige generaliserede koordinater $q_1,\dots,q_n$, hvor
+$\delta q_1,\dots,\delta q_n$ \emph{er} uafhængige og arbitrære.
+Resultatet bliver Euler-Lagrange-ligningerne — og undervejs vil vi se,
+at hele bevægelsesligningen for et system kan pakkes ind i én eneste
+skalarfunktion, Lagrange-funktionen $L$.
+
+Vi udleder ligningerne på to uafhængige måder: først direkte fra
+D'Alemberts princip (afsnit~\ref{sec:el-fra-dalembert}), og derefter fra
+et rent variationsprincip, Hamiltons princip
+(afsnit~\ref{sec:hamiltons-princip}). At de to veje fører til samme
+ligninger, er ikke en tilfældighed — det er selve pointen, vi
+identificerede i kapitel~\ref{kap:newton-variation}: det differentielle
+og det globale synspunkt er ækvivalente udtryk for samme fysik.
+
+\section{Euler-Lagrange-ligningerne fra D'Alembert}
+\label{sec:el-fra-dalembert}
+
+\subsection{Omskrivning af de virtuelle forskydninger}
+
+Lad transformationsligningerne være $\vb{r}_\alpha =
+\vb{r}_\alpha(q_1,\dots,q_n,t)$ som i \eqref{eq:transformationsligning}.
+En virtuel forskydning (ved fast $t$, $\delta t=0$) hænger sammen med
+de generaliserede virtuelle forskydninger $\delta q_i$ via kædereglen:
+\begin{equation}
+  \delta\vb{r}_\alpha = \sum_{i=1}^n \pdv{\vb{r}_\alpha}{q_i}\,\delta q_i.
+  \label{eq:delta-r-kaederegel}
+\end{equation}
+Bemærk, at der \emph{ikke} optræder et $\partial\vb{r}_\alpha/\partial t$-led
+her, netop fordi $\delta t=0$ per definition af en virtuel forskydning.
+
+Vi indsætter \eqref{eq:delta-r-kaederegel} i D'Alemberts princip og får
+to led, som vi behandler hver for sig.
+
+\subsection{Det anvendte kraftled: generaliserede kræfter}
+
+\begin{align}
+  \sum_\alpha \vb{F}_\alpha^{(a)}\cdot\delta\vb{r}_\alpha
+  &= \sum_\alpha \vb{F}_\alpha^{(a)}\cdot\sum_i \pdv{\vb{r}_\alpha}{q_i}\,\delta q_i \\
+  &= \sum_i \left(\sum_\alpha \vb{F}_\alpha^{(a)}\cdot\pdv{\vb{r}_\alpha}{q_i}\right)\delta q_i
+  \;\equiv\; \sum_i Q_i\,\delta q_i,
+\end{align}
+hvor vi har defineret den \emph{generaliserede kraft}
+\begin{equation}
+  Q_i \equiv \sum_\alpha \vb{F}_\alpha^{(a)}\cdot\pdv{\vb{r}_\alpha}{q_i}.
+  \label{eq:generaliseret-kraft}
+\end{equation}
+$Q_i$ behøver ikke have dimension af kraft — hvis $q_i$ er en vinkel,
+er $Q_i$ et moment. Det er den generelle egenskab ved generaliserede
+størrelser: $Q_i\,\delta q_i$ skal have dimension af arbejde, hvad
+$Q_i$ og $\delta q_i$ hver for sig så end måler.
+
+\subsection{Inertitéledet}
+
+Dette led er teknisk mere krævende:
+\begin{equation}
+  \sum_\alpha m_\alpha\ddot{\vb{r}}_\alpha\cdot\delta\vb{r}_\alpha
+  = \sum_i \left(\sum_\alpha m_\alpha\ddot{\vb{r}}_\alpha\cdot\pdv{\vb{r}_\alpha}{q_i}\right)\delta q_i.
+\end{equation}
+Vi omskriver parentesen ved at bemærke identiteten
+\begin{equation}
+  \ddot{\vb{r}}_\alpha\cdot\pdv{\vb{r}_\alpha}{q_i}
+  = \dv{t}\left(\dot{\vb{r}}_\alpha\cdot\pdv{\vb{r}_\alpha}{q_i}\right)
+    - \dot{\vb{r}}_\alpha\cdot\dv{t}\left(\pdv{\vb{r}_\alpha}{q_i}\right),
+  \label{eq:produktregel-identitet}
+\end{equation}
+som blot er produktreglen for differentiation, læst baglæns. Vi skal
+nu bruge to hjælperesultater, der begge følger direkte af
+$\vb{r}_\alpha=\vb{r}_\alpha(q_1,\dots,q_n,t)$:
+
+\begin{itemize}
+  \item \textbf{Hastighedsformlen.} Kædereglen giver
+        \begin{equation}
+          \dot{\vb{r}}_\alpha = \sum_j \pdv{\vb{r}_\alpha}{q_j}\dot q_j + \pdv{\vb{r}_\alpha}{t}.
+          \label{eq:hastighed-kaederegel}
+        \end{equation}
+        Da $\vb{r}_\alpha$ ikke afhænger af $\dot q_j$, giver
+        differentiation af \eqref{eq:hastighed-kaederegel} med hensyn
+        til $\dot q_i$ direkte
+        \begin{equation}
+          \pdv{\dot{\vb{r}}_\alpha}{\dot q_i} = \pdv{\vb{r}_\alpha}{q_i}.
+          \label{eq:hastighedsidentitet}
+        \end{equation}
+        Dette er den første "kanoniske" identitet, vi møder: den
+        partielle afledte af \emph{hastigheden} med hensyn til en
+        generaliseret \emph{hastighed} er den samme som den partielle
+        afledte af \emph{positionen} med hensyn til den tilsvarende
+        \emph{koordinat}.
+  \item \textbf{Ombytning af afledte.} Da $\vb{r}_\alpha$ er en
+        glat (to gange kontinuert differentiabel) funktion af
+        $q_1,\dots,q_n,t$, kan vi ombytte den totale tidsafledte og den
+        partielle afledte efter $q_i$:
+        \begin{equation}
+          \dv{t}\left(\pdv{\vb{r}_\alpha}{q_i}\right)
+          = \sum_j \pdv{}{q_j}\left(\pdv{\vb{r}_\alpha}{q_i}\right)\dot q_j
+            + \pdv{}{t}\left(\pdv{\vb{r}_\alpha}{q_i}\right)
+          = \pdv{}{q_i}\left(\sum_j \pdv{\vb{r}_\alpha}{q_j}\dot q_j + \pdv{\vb{r}_\alpha}{t}\right)
+          = \pdv{\dot{\vb{r}}_\alpha}{q_i},
+          \label{eq:ombytning}
+        \end{equation}
+        hvor vi i sidste skridt igen brugte
+        \eqref{eq:hastighed-kaederegel}.
+\end{itemize}
+
+Med \eqref{eq:hastighedsidentitet} og \eqref{eq:ombytning} bliver
+\eqref{eq:produktregel-identitet}:
+\begin{equation}
+  \ddot{\vb{r}}_\alpha\cdot\pdv{\vb{r}_\alpha}{q_i}
+  = \dv{t}\left(\dot{\vb{r}}_\alpha\cdot\pdv{\dot{\vb{r}}_\alpha}{\dot q_i}\right)
+    - \dot{\vb{r}}_\alpha\cdot\pdv{\dot{\vb{r}}_\alpha}{q_i}.
+\end{equation}
+Vi ganger med $m_\alpha$, summerer over $\alpha$, og bemærker at
+$m_\alpha\dot{\vb{r}}_\alpha\cdot\dot{\vb{r}}_\alpha = 2\cdot\frac12
+m_\alpha \dot{\vb{r}}_\alpha^2$, så begge led kan skrives via den
+kinetiske energi
+\begin{equation}
+  T \equiv \sum_\alpha \frac12 m_\alpha \dot{\vb{r}}_\alpha^2:
+\end{equation}
+\begin{equation}
+  \sum_\alpha m_\alpha\ddot{\vb{r}}_\alpha\cdot\pdv{\vb{r}_\alpha}{q_i}
+  = \dv{t}\pdv{T}{\dot q_i} - \pdv{T}{q_i}.
+  \label{eq:inertiled-T}
+\end{equation}
+
+\subsection{Euler-Lagrange-ligningerne}
+
+Vi samler de to led. D'Alemberts princip
+$\sum_i\left(Q_i\,\delta q_i - \left[\dv*{}{t}\pdv*{T}{\dot q_i} - \pdv*{T}{q_i}\right]\delta q_i\right)=0$
+gælder for \emph{alle} uafhængige, arbitrære $\delta q_i$ — og her er
+den afgørende forskel fra kapitel~\ref{kap:newton-variation}: fordi
+$q_i$ er valgt, så tvangsbetingelserne allerede er opfyldt, er
+$\delta q_1,\dots,\delta q_n$ nu \emph{uafhængige}. Vi kan derfor sætte
+hver koefficient til nul for sig:
+\begin{equation}
+  \boxed{\dv{t}\pdv{T}{\dot q_i} - \pdv{T}{q_i} = Q_i, \qquad i=1,\dots,n.}
+  \label{eq:el-med-T-og-Q}
+\end{equation}
+
+Antag nu, at de anvendte kræfter er \emph{konservative}, dvs.\ at de
+kan skrives som gradienten af en potentiel energi $V(\vb{r}_1,\dots,\vb{r}_N)$:
+$\vb{F}_\alpha^{(a)} = -\grad_\alpha V$. Da er
+\begin{equation}
+  Q_i = \sum_\alpha \left(-\pdv{V}{\vb{r}_\alpha}\right)\cdot\pdv{\vb{r}_\alpha}{q_i}
+      = -\pdv{V}{q_i},
+\end{equation}
+hvor $V$ nu forstås som funktion af $q_1,\dots,q_n,t$ via
+\eqref{eq:transformationsligning}. Da $V$ ikke afhænger af
+$\dot q_i$, kan vi flytte $-\partial V/\partial q_i$ ind under samme
+afledte-struktur som $T$, ved at definere \emph{Lagrange-funktionen}
+\begin{equation}
+  \boxed{L(q,\dot q,t) \equiv T(q,\dot q,t) - V(q,t).}
+  \label{eq:def-L}
+\end{equation}
+Da $\partial L/\partial \dot q_i = \partial T/\partial \dot q_i$ (fordi
+$V$ ikke afhænger af $\dot q_i$), bliver \eqref{eq:el-med-T-og-Q} til
+den berømte form:
+\begin{equation}
+  \boxed{\dv{t}\pdv{L}{\dot q_i} - \pdv{L}{q_i} = 0, \qquad i=1,\dots,n.}
+  \label{eq:euler-lagrange}
+\end{equation}
+Dette er \emph{Euler-Lagrange-ligningerne}. De er $n$ andenordens
+differentialligninger — én for hver frihedsgrad — og de indeholder
+\emph{al} den dynamiske information om systemet, uden at
+tvangskræfterne nogen steder er optrådt eksplicit.
+
+\begin{bemaerkning}
+Det er værd at bemærke, hvor meget arbejde der er gemt i denne ene
+ligning. Newtons anden lov skal opskrives separat for hver partikel, i
+et koordinatsystem, hvor tvangskræfterne optræder eksplicit. Med
+$L=T-V$ nedskrevet i de generaliserede koordinater, der passer til
+problemets geometri, følger \emph{alle} bevægelsesligningerne
+automatisk af \eqref{eq:euler-lagrange} — inklusive korrekte "fiktive"
+kræfter som centripetalacceleration, der ellers let glemmes eller
+indføres ad hoc.
+\end{bemaerkning}
+
+\section{Eksempel: perlen på en roterende ring}
+
+\begin{eksempel}
+En perle med masse $m$ kan glide uden friktion langs en cirkulær ring
+med radius $R$, som selv roterer med konstant vinkelhastighed $\omega$
+om en lodret akse gennem ringens centrum (se
+figur~\ref{fig:roterende-ring}). Perlens position på ringen beskrives
+ved vinklen $\theta$ målt fra ringens laveste punkt; ringens egen
+rotationsvinkel om den lodrette akse er $\phi=\omega t$, som er
+\emph{foreskrevet}, ikke en dynamisk frihedsgrad. Systemet har derfor
+kun \'en frihedsgrad, $q_1=\theta$.
+
+I et fast (ikke-roterende) koordinatsystem med origo i ringens centrum
+er perlens position
+\begin{align}
+  x &= R\sin\theta\cos(\omega t), \\
+  y &= R\sin\theta\sin(\omega t), \\
+  z &= -R\cos\theta.
+\end{align}
+Hastighedskomponenterne (brug produktreglen, og husk at $\theta=\theta(t)$):
+\begin{align}
+  \dot x &= R\dot\theta\cos\theta\cos(\omega t) - R\omega\sin\theta\sin(\omega t), \\
+  \dot y &= R\dot\theta\cos\theta\sin(\omega t) + R\omega\sin\theta\cos(\omega t), \\
+  \dot z &= R\dot\theta\sin\theta.
+\end{align}
+Den kinetiske energi $T=\frac12 m(\dot x^2+\dot y^2+\dot z^2)$
+reduceres efter brug af $\cos^2+\sin^2=1$ (gennemfør selv
+udregningen — det er en fin øvelse i at holde styr på krydsled) til
+\begin{equation}
+  T = \frac12 m R^2\dot\theta^2 + \frac12 m R^2\omega^2\sin^2\theta.
+\end{equation}
+Det andet led — som ikke involverer $\dot\theta$ — er netop den
+energi, der i et roterende referencesystem ville vise sig som
+centrifugalpotentialet. Her optræder det helt naturligt fra
+transformationen, uden at vi nogensinde behøvede tale om
+"centrifugalkraft".
+
+Den potentielle energi er $V = mgz = -mgR\cos\theta$, så
+\begin{equation}
+  L = T - V = \frac12 mR^2\dot\theta^2 + \frac12 mR^2\omega^2\sin^2\theta + mgR\cos\theta.
+\end{equation}
+Euler-Lagrange-ligningen \eqref{eq:euler-lagrange} for $\theta$ kræver
+\begin{equation}
+  \pdv{L}{\dot\theta} = mR^2\dot\theta, \qquad
+  \dv{t}\pdv{L}{\dot\theta} = mR^2\ddot\theta, \qquad
+  \pdv{L}{\theta} = mR^2\omega^2\sin\theta\cos\theta - mgR\sin\theta,
+\end{equation}
+og giver
+\begin{equation}
+  mR^2\ddot\theta - mR^2\omega^2\sin\theta\cos\theta + mgR\sin\theta = 0
+  \quad\Longrightarrow\quad
+  \ddot\theta = \omega^2\sin\theta\cos\theta - \frac{g}{R}\sin\theta.
+\end{equation}
+Bemærk ligevægtspunkterne: $\theta=0$ (perlen i bunden) er altid en
+ligevægt, men den er kun \emph{stabil}, hvis $\omega^2 < g/R$. For
+$\omega^2 > g/R$ bliver $\theta=0$ ustabil, og der opstår i stedet et
+nyt, stabilt ligevægtspunkt ved $\cos\theta^\ast = g/(R\omega^2)$ — et
+simpelt eksempel på en bifurkation, som ville have krævet omhyggelig
+bogføring af den roterende ramme og centrifugalkraften, hvis vi havde
+angrebet problemet med Newtons love direkte.
+\end{eksempel}
+
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}[scale=1.0]
+    % Lodret akse
+    \draw[dashed] (0,-2.3) -- (0,2.3);
+    % Ringen (set i perspektiv som ellipse)
+    \draw[thick] (0,0) ellipse (1.8 and 0.55);
+    \draw[thick,rotate around={90:(0,0)}] (0,0) ellipse (1.8 and 0.55);
+    % Perlen
+    \pgfmathsetmacro{\thetadeg}{55}
+    \coordinate (B) at ({1.8*sin(\thetadeg)},{-1.8*cos(\thetadeg)});
+    \filldraw[fill=blue!25,draw=blue!60!black,thick] (B) circle (0.13);
+    % Vinkel theta fra bund
+    \draw[dashed] (0,0) -- (0,-1.8);
+    \draw[dashed] (0,0) -- (B);
+    \draw (0,-0.7) arc ({-90+0}:{-90+\thetadeg}:0.7);
+    \node at ({0.9*sin(\thetadeg/2+45)},{-0.9*cos(\thetadeg/2+45)}) {$\theta$};
+    % Rotationspil for ringen om lodret akse
+    \draw[-{Latex},thick,green!55!black] (1.4,1.1) arc (0:250:0.5);
+    \node[green!55!black] at (1.4,1.75) {$\omega$};
+  \end{tikzpicture}
+  \caption{Perle (blå) på en cirkulær ring, der roterer med konstant
+  vinkelhastighed $\omega$ om den lodrette akse. Perlens eneste
+  frihedsgrad er vinklen $\theta$ målt fra ringens laveste punkt.}
+  \label{fig:roterende-ring}
+\end{figure}
+
+\section{Hamiltons princip: et variationssyn}
+\label{sec:hamiltons-princip}
+
+Vi udleder nu Euler-Lagrange-ligningerne \eqref{eq:euler-lagrange} en
+anden vej — ikke fra D'Alemberts differentielle princip, men fra et
+globalt \emph{variationsprincip}, i tråd med udblikket i slutningen af
+kapitel~\ref{kap:newton-variation}.
+
+\subsection{Virkningen som funktional}
+
+Betragt en tænkt bane $q_i(t)$ mellem to fastholdte tidspunkter $t_1$
+og $t_2$, med fastholdte endepunkter
+$q_i(t_1)=q_i^{(1)}$ og $q_i(t_2)=q_i^{(2)}$. For hver sådan bane
+definerer vi \emph{virkningen}
+\begin{equation}
+  S[q] \equiv \int_{t_1}^{t_2} L(q(t),\dot q(t),t)\,dt.
+  \label{eq:virkning}
+\end{equation}
+$S$ er en \emph{funktional}: den tager en hel funktion $q(t)$ som
+input og giver et enkelt tal som output — i modsætning til en
+almindelig funktion, der tager et tal og giver et tal.
+\emph{Hamiltons princip} siger:
+
+\begin{center}
+\emph{Den faktiske bane, systemet følger, er den bane, der gør $S$
+\textbf{stationær} i forhold til alle nærliggende baner med samme
+fastholdte endepunkter.}
+\end{center}
+
+"Stationær" betyder her det direkte analogon til, at den afledte er
+nul ved et ekstremum for en almindelig funktion — men nu i
+funktionalers verden.
+
+\subsection{Variation af virkningen}
+
+Lad $q_i(t)$ være den (endnu ukendte) faktiske bane, og betragt en
+nærliggende, tænkt bane
+\begin{equation}
+  \tilde q_i(t) = q_i(t) + \delta q_i(t),
+\end{equation}
+hvor $\delta q_i(t)$ er en arbitrær, lille afvigelsesfunktion, som
+opfylder $\delta q_i(t_1)=\delta q_i(t_2)=0$ (endepunkterne er
+fastholdt). Ændringen i virkningen til første orden i $\delta q_i$ er
+\begin{equation}
+  \delta S = \int_{t_1}^{t_2}\sum_i\left(\pdv{L}{q_i}\delta q_i + \pdv{L}{\dot q_i}\delta\dot q_i\right)dt,
+\end{equation}
+hvor $\delta\dot q_i = \dv*{}{t}\delta q_i$, fordi variation og
+tidsafledning kommuterer (begge er blot grænseværdier af
+differenskvotienter, og grænseovergangene kan ombyttes for glatte
+funktioner). Vi integrerer det andet led partielt:
+\begin{equation}
+  \int_{t_1}^{t_2}\pdv{L}{\dot q_i}\dv{}{t}(\delta q_i)\,dt
+  = \left[\pdv{L}{\dot q_i}\delta q_i\right]_{t_1}^{t_2}
+    - \int_{t_1}^{t_2}\dv{}{t}\left(\pdv{L}{\dot q_i}\right)\delta q_i\,dt.
+\end{equation}
+Randtermen forsvinder, netop fordi $\delta q_i(t_1)=\delta q_i(t_2)=0$.
+Vi står tilbage med
+\begin{equation}
+  \delta S = \int_{t_1}^{t_2}\sum_i\left[\pdv{L}{q_i} - \dv{}{t}\left(\pdv{L}{\dot q_i}\right)\right]\delta q_i\,dt.
+  \label{eq:delta-S}
+\end{equation}
+
+\subsection{Variationsregningens grundlemma}
+
+For at $\delta S=0$ skal gælde for \emph{enhver} tilladt afvigelse
+$\delta q_i(t)$ (med de nævnte randbetingelser), må hver
+koefficientfunktion i integranden være identisk nul. Dette følger af
+\emph{variationsregningens fundamentallemma}: hvis en kontinuert
+funktion $f(t)$ opfylder $\int_{t_1}^{t_2}f(t)\,\eta(t)\,dt=0$ for
+\emph{alle} glatte $\eta(t)$ med $\eta(t_1)=\eta(t_2)=0$, så er
+$f(t)\equiv 0$ på hele intervallet. (Beviset er enkelt: var $f(t_0)\neq0$
+for et $t_0$ i det indre af intervallet, kunne man vælge et $\eta$, der
+er positivt og koncentreret i en lille omegn om $t_0$ og nul udenfor —
+og integralet ville da have samme tegn som $f(t_0)$, i modstrid med at
+det skal være nul for alle $\eta$.)
+
+Anvendt på \eqref{eq:delta-S}, koordinat for koordinat, giver dette
+netop
+\begin{equation}
+  \dv{t}\pdv{L}{\dot q_i} - \pdv{L}{q_i} = 0, \qquad i=1,\dots,n,
+\end{equation}
+altså \emph{samme} Euler-Lagrange-ligninger \eqref{eq:euler-lagrange}
+som i afsnit~\ref{sec:el-fra-dalembert} — nu udledt fra et rent
+variationsprincip om hele banen, uden nogen reference til kræfter,
+tvangskræfter eller virtuelle forskydninger ved et enkelt tidspunkt.
+
+\begin{bemaerkning}
+Det er denne ækvivalens, der gør Lagrange-formalismen så kraftfuld.
+Vi har to fuldstændigt forskellige fysiske billeder — "kræfterne
+balancerer på hvert øjeblik" (D'Alembert) og "naturen vælger den bane,
+der gør virkningen stationær" (Hamilton) — der viser sig at give
+\emph{identisk} matematisk indhold. Det er Hamiltons princip, ikke
+D'Alemberts, der generaliserer til feltteori
+(kapitel~\ref{kap:felter}) og til kvantemekanikkens
+sti-integral-formulering, fordi det fra starten er formuleret som et
+udsagn om en hel bane/historie snarere end om kræfter ved et punkt.
+\end{bemaerkning}
+
+\section{Tvangsbetingelser og Lagrange-multiplikatorer}
+
+Indtil nu har vi forudsat, at tvangsbetingelserne allerede er
+elimineret ved valg af generaliserede koordinater. Nogle gange er det
+imidlertid nyttigt — eller nødvendigt, hvis man rent faktisk vil vide,
+hvor stor en tvangskraft er (fx spændingen i en snor) — at beholde
+flere koordinater end frihedsgrader og indføre tvangsbetingelserne
+eksplicit.
+
+Antag, at der er $m$ holonome tvangsbetingelser på formen
+$f_k(q_1,\dots,q_N,t)=0$, $k=1,\dots,m$, blandt $N$ koordinater (hvor
+$N>n=N-m$ er det faktiske antal frihedsgrader). Man kan da vise — ved
+en variation af virkningen, hvor $\delta q_j$ nu er bundet af
+$\sum_j (\partial f_k/\partial q_j)\delta q_j = 0$ for hvert $k$, og ved
+at indføre Lagrange-multiplikatorer $\lambda_k(t)$ til at håndtere
+disse bindinger — at de udvidede Euler-Lagrange-ligninger bliver
+\begin{equation}
+  \dv{t}\pdv{L}{\dot q_j} - \pdv{L}{q_j} = \sum_{k=1}^m \lambda_k\,\pdv{f_k}{q_j}, \qquad j=1,\dots,N.
+  \label{eq:el-multiplikator}
+\end{equation}
+De $m$ led på højresiden er netop de generaliserede tvangskræfter,
+udtrykt via multiplikatorerne $\lambda_k$ — som selv bestemmes ved at
+løse \eqref{eq:el-multiplikator} sammen med tvangsligningerne
+$f_k=0$. Denne metode er praktisk, netop når man \emph{vil} kende
+tvangskraftens størrelse (fx spændingen $\lambda$ i en snor), men vi
+vil i resten af kompendiet næsten altid vælge koordinater, der
+eliminerer tvangsbetingelserne fra start, som i
+afsnit~\ref{sec:el-fra-dalembert}.
+
+\section{Symmetrier og bevarelseslove: Noethers sætning}
+
+Vi slutter kapitlet med et resultat, der viser Lagrange-formalismens
+fulde styrke, og som bliver central senere i kompendiet: forbindelsen
+mellem \emph{symmetrier} i $L$ og \emph{bevarelseslove}.
+
+\subsection{Cykliske koordinater}
+
+Antag, at $L$ ikke afhænger af en bestemt koordinat $q_k$ — dvs.
+$\partial L/\partial q_k = 0$, selvom $L$ udmærket kan afhænge af
+$\dot q_k$. En sådan koordinat kaldes \emph{cyklisk}. Euler-Lagrange-
+ligningen for $q_k$ reduceres da til
+\begin{equation}
+  \dv{t}\pdv{L}{\dot q_k} = 0
+  \quad\Longrightarrow\quad
+  p_k \equiv \pdv{L}{\dot q_k} = \text{konstant}.
+  \label{eq:cyklisk-bevarelse}
+\end{equation}
+Størrelsen $p_k$ kaldes den \emph{generaliserede (kanoniske) impuls}
+konjugeret til $q_k$, og vi ser her det første eksempel på et
+gennemgående mønster: \emph{en kontinuert symmetri i $L$ (uafhængighed
+af en koordinat) giver en bevaret størrelse}. Vi vil møde $p_k$ igen
+som en central variabel, når vi går videre til Hamilton-formalismen i
+kapitel~\ref{kap:hamilton}.
+
+\begin{eksempel}
+For en fri partikel i et plan, $L=\frac12 m(\dot x^2+\dot y^2)$, er
+både $x$ og $y$ cykliske. De bevarede impulser er
+$p_x=m\dot x$ og $p_y=m\dot y$ — de sædvanlige kartesiske
+bevægelsesmængder. For en central kraft i planpolar-koordinater,
+$L=\frac12 m(\dot r^2+r^2\dot\phi^2)-V(r)$, er $\phi$ cyklisk (fordi
+$V$ kun afhænger af $r$), og den bevarede størrelse er
+$p_\phi=mr^2\dot\phi$ — det \emph{arealhastighedsmoment}, vi kender fra
+Keplers anden lov.
+\end{eksempel}
+
+\subsection{Noethers sætning (translationssymmetri i tid)}
+
+Cyklicitet er et specialtilfælde af en mere generel sætning, formuleret
+af Emmy Noether: \emph{til hver kontinuert symmetri af virkningen svarer
+en bevaret størrelse}. Vi viser her det simpleste og for vores formål
+vigtigste eksempel: symmetri under tidstranslation, som giver
+energibevarelse.
+
+Antag, at $L$ ikke afhænger eksplicit af $t$: $\partial L/\partial t=0$
+(systemet er "tidsinvariant" — de fysiske love, det følger, ændrer sig
+ikke fra et tidspunkt til et andet). Vi beregner den totale tidsafledte
+af $L$ langs en faktisk løsning $q_i(t)$:
+\begin{equation}
+  \dv{L}{t} = \sum_i\left(\pdv{L}{q_i}\dot q_i + \pdv{L}{\dot q_i}\ddot q_i\right) + \pdv{L}{t}.
+\end{equation}
+Da $\partial L/\partial t=0$ per antagelse, og da vi langs en faktisk
+løsning kan bruge Euler-Lagrange-ligningen
+$\partial L/\partial q_i = \dv*{}{t}(\partial L/\partial \dot q_i)$ til
+at omskrive det første led:
+\begin{equation}
+  \dv{L}{t} = \sum_i\left[\dv{}{t}\left(\pdv{L}{\dot q_i}\right)\dot q_i + \pdv{L}{\dot q_i}\ddot q_i\right]
+  = \dv{}{t}\sum_i \dot q_i\pdv{L}{\dot q_i},
+\end{equation}
+hvor sidste skridt er produktreglen læst baglæns. Vi kan derfor skrive
+\begin{equation}
+  \dv{}{t}\left(\sum_i \dot q_i\pdv{L}{\dot q_i} - L\right) = 0,
+\end{equation}
+altså er størrelsen
+\begin{equation}
+  \boxed{H \equiv \sum_i \dot q_i\pdv{L}{\dot q_i} - L}
+  \label{eq:def-H-forlobig}
+\end{equation}
+bevaret, når $L$ ikke afhænger eksplicit af tiden. Denne størrelse
+kalder vi $H$ — og notationen er ikke tilfældig: dette er præcis den
+kombination, der bliver til \emph{Hamilton-funktionen}, når vi i
+kapitel~\ref{kap:hamilton} genindfører den systematisk via en
+Legendre-transformation af $L$. For de fleste systemer, vi møder her —
+hvor tvangsbetingelserne er tidsuafhængige, og $V$ ikke afhænger af
+hastigheder — falder $H$ sammen med den samlede mekaniske energi
+$T+V$, men vi udskyder det fulde bevis og den generelle diskussion
+(inklusive tilfælde, hvor de \emph{ikke} falder sammen) til
+kapitel~\ref{kap:hamilton}.
+
+\begin{bemaerkning}
+Vi har her set to eksempler på samme mønster: uafhængighed af $q_k$
+(rumlig symmetri i en koordinat) giver bevaret impuls $p_k$;
+uafhængighed af $t$ (tidssymmetri) giver bevaret "energi" $H$. Dette er
+ikke en tilfældighed, men et specialtilfælde af Noethers generelle
+sætning, som forbinder \emph{enhver} kontinuert symmetri af $L$ (under
+en familie af transformationer parametriseret af én reel parameter)
+med en tilsvarende bevaret størrelse. Den fulde, generelle formulering
+af Noethers sætning — for en vilkårlig kontinuert transformation af
+$q_i$ og $t$ — er ikke nødvendig for vores formål her, men mønstret
+"symmetri $\leftrightarrow$ bevarelseslov" vender vi tilbage til i
+kapitel~\ref{kap:felter}, hvor det bliver et af de bærende principper
+for klassisk feltteori.
+\end{bemaerkning}
+
+\section{Opsummering}
+
+\begin{itemize}
+  \item Ved at udtrykke D'Alemberts princip i generaliserede
+        koordinater — hvor $\delta q_i$ er uafhængige — fås
+        Euler-Lagrange-ligningerne
+        $\dv*{}{t}(\partial L/\partial\dot q_i) - \partial L/\partial q_i = 0$,
+        med $L=T-V$.
+  \item Samme ligninger følger fra Hamiltons princip: den faktiske bane
+        gør virkningen $S=\int L\,dt$ stationær blandt alle baner med
+        fastholdte endepunkter. De to udledninger er ækvivalente, men
+        det er variationssynet (Hamiltons princip), der generaliserer
+        til feltteori og kvantemekanik.
+  \item Tvangsbetingelser, man ikke ønsker at eliminere ved
+        koordinatvalg, kan håndteres med Lagrange-multiplikatorer,
+        som samtidig giver tvangskraftens størrelse.
+  \item En cyklisk koordinat ($\partial L/\partial q_k=0$) giver en
+        bevaret generaliseret impuls $p_k=\partial L/\partial\dot q_k$.
+        Tidsuafhængighed af $L$ giver på samme måde en bevaret
+        størrelse $H=\sum_i\dot q_i(\partial L/\partial\dot q_i)-L$ —
+        et forvarsel om Hamilton-funktionen i
+        kapitel~\ref{kap:hamilton}.
+\end{itemize}
+
+\begin{opgave}
+Gennemfør selv den udregning af $T=\frac12 m(\dot x^2+\dot y^2+\dot z^2)$,
+der blev sprunget over i eksemplet med den roterende ring, og
+bekræft resultatet $T=\frac12 mR^2\dot\theta^2+\frac12 mR^2\omega^2\sin^2\theta$.
+\end{opgave}
+
+\begin{opgave}
+En partikel med masse $m$ bevæger sig i planet under indflydelse af en
+central kraft med potential $V(r)$. Opskriv Lagrange-funktionen i
+planpolar-koordinater $(r,\phi)$, vis at $\phi$ er cyklisk, og udled
+bevægelsesligningen for $r(t)$ ved brug af den bevarede impuls
+$p_\phi=mr^2\dot\phi$ til at eliminere $\dot\phi$. Sammenlign med det
+velkendte "effektive potential" $V_\text{eff}(r)=V(r)+p_\phi^2/(2mr^2)$.
+\end{opgave}
+
+\begin{opgave}
+Vis, at for et system, hvor $\vb{r}_\alpha$ ikke afhænger eksplicit af
+tiden (tidsuafhængige tvangsbetingelser, så $\partial\vb{r}_\alpha/\partial t=0$)
+og hvor $V$ ikke afhænger af hastigheder, er $T$ en homogen
+andengradsfunktion af $\dot q_i$, og brug Eulers sætning om homogene
+funktioner ($\sum_i \dot q_i\,\partial T/\partial \dot q_i = 2T$) til at
+vise, at $H$ defineret i \eqref{eq:def-H-forlobig} netop reducerer til
+$H=T+V$ i dette tilfælde.
+\end{opgave}
