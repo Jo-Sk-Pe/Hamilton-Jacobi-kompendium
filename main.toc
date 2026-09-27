@@ -1,0 +1,114 @@
+\babel@toc {danish}{}\relax 
+\contentsline {part}{I\hspace {1em}Lagrange- og Hamilton-mekanik}{1}{part.1}%
+\contentsline {chapter}{\numberline {1}Newtonsk mekanik og variationsprincipper}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Hvorfor forlade Newton?}{3}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Frihedsgrader og generaliserede koordinater}{3}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Holonome og ikke-holonome tvangsbetingelser}{4}{subsection.1.2.1}%
+\contentsline {section}{\numberline {1.3}Virtuel forskydning og virtuelt arbejde}{4}{section.1.3}%
+\contentsline {section}{\numberline {1.4}D'Alemberts princip}{5}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Eksempel: kloden på et glat skråplan}{6}{section.1.5}%
+\contentsline {section}{\numberline {1.6}Fra D'Alembert til et variationsprincip}{6}{section.1.6}%
+\contentsline {section}{\numberline {1.7}Opsummering}{7}{section.1.7}%
+\contentsline {chapter}{\numberline {2}Lagrange-formalisme}{9}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Målet: fra D'Alembert til én skalarfunktion}{9}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Euler-Lagrange-ligningerne fra D'Alembert}{9}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Omskrivning af de virtuelle forskydninger}{9}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Det anvendte kraftled: generaliserede kræfter}{9}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Inertileddet}{10}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Euler-Lagrange-ligningerne}{11}{subsection.2.2.4}%
+\contentsline {section}{\numberline {2.3}Eksempel: perlen på en roterende ring}{11}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Hamiltons princip: et variationssyn}{12}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Virkningen som funktional}{13}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Variation af virkningen}{13}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}Variationsregningens grundlemma}{13}{subsection.2.4.3}%
+\contentsline {section}{\numberline {2.5}Tvangsbetingelser og Lagrange-multiplikatorer}{14}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Symmetrier og bevarelseslove: Noethers sætning}{14}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}Cykliske koordinater}{14}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {2.6.2}Noethers sætning (translationssymmetri i tid)}{15}{subsection.2.6.2}%
+\contentsline {section}{\numberline {2.7}Opsummering}{15}{section.2.7}%
+\contentsline {chapter}{\numberline {3}Hamilton-formalisme}{17}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Målet: fra hastigheder til impulser}{17}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Legendre-transformationen}{17}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Den generelle idé, illustreret i én variabel}{17}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Anvendt på Lagrange-funktionen}{18}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}Hamiltons ligninger}{18}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Udledning ved direkte differentiation}{18}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Fortolkningen af $H$: bevarelse og energi}{19}{subsection.3.3.2}%
+\contentsline {section}{\numberline {3.4}Eksempel: den harmoniske oscillator i faserum}{20}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Faserummet som arena}{21}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Opsummering}{21}{section.3.6}%
+\contentsline {chapter}{\numberline {4}Poisson-parenteser og kanonisk struktur}{23}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Tidsudviklingen af en vilkårlig størrelse}{23}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Definition af Poisson-parentesen}{23}{section.4.2}%
+\contentsline {section}{\numberline {4.3}De fundamentale parenteser}{24}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Algebraiske egenskaber}{24}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Bevarelseslove via Poisson-parenteser}{25}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Eksempel: banemomentets Poisson-algebra}{25}{subsection.4.5.1}%
+\contentsline {section}{\numberline {4.6}Liouvilles sætning: bevarelse af faserumsvolumen}{26}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Opsummering}{26}{section.4.7}%
+\contentsline {chapter}{\numberline {5}Kanoniske transformationer}{29}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Motivation: frihed til at vælge faserumskoordinater}{29}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Definition}{29}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Det modificerede Hamiltons princip}{29}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Genererende funktion af type $F_1(q,Q,t)$}{30}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Genererende funktion af type $F_2(q,P,t)$}{30}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Eksempel: identitetstransformationen og variableombytning}{31}{section.5.6}%
+\contentsline {section}{\numberline {5.7}Infinitesimale kanoniske transformationer og Poisson-parenteser}{31}{section.5.7}%
+\contentsline {section}{\numberline {5.8}Kanoniske transformationer bevarer Poisson-parenteserne}{32}{section.5.8}%
+\contentsline {section}{\numberline {5.9}Opsummering}{32}{section.5.9}%
+\contentsline {part}{II\hspace {1em}Hamilton-Jacobi-teori}{35}{part.2}%
+\contentsline {chapter}{\numberline {6}Hamilton-Jacobi-teori}{37}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Strategien: transformer bevægelsen væk}{37}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Udledning af Hamilton-Jacobi-ligningen}{37}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}$S$ er virkningen}{38}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Den fulde (komplette) løsning og bevægelsen}{38}{subsection.6.2.2}%
+\contentsline {section}{\numberline {6.3}Tidsuafhængigt $H$: separation i tiden}{39}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Eksempel: den harmoniske oscillator}{39}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Det geometriske billede: $S$ som en ``bølgefront''}{40}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Udblik: fra Hamilton-Jacobi til kvantemekanik}{40}{section.6.6}%
+\contentsline {section}{\numberline {6.7}Opsummering}{41}{section.6.7}%
+\contentsline {chapter}{\numberline {7}Virknings-vinkel-variable}{43}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Motivation: periodiske systemer uden fuld løsning}{43}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Klassifikation af periodisk bevægelse i én frihedsgrad}{43}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Definition af virkningsvariablen}{43}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Den konjugerede vinkelvariabel}{44}{section.7.4}%
+\contentsline {subsection}{\numberline {7.4.1}$\nu $ er svingningsfrekvensen}{44}{subsection.7.4.1}%
+\contentsline {section}{\numberline {7.5}Eksempel: den harmoniske oscillator, igen}{45}{section.7.5}%
+\contentsline {section}{\numberline {7.6}Flere frihedsgrader: separable systemer}{45}{section.7.6}%
+\contentsline {section}{\numberline {7.7}Opsummering}{46}{section.7.7}%
+\contentsline {part}{III\hspace {1em}Fra klassisk virkning til kvantefase}{47}{part.3}%
+\contentsline {chapter}{\numberline {8}Adiabatiske invarianter — broen til den ældre kvanteteori}{49}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Motivation: hvad sker der, når systemet ændres langsomt?}{49}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Udledning af adiabatisk invarians}{49}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}Energiens ændring}{50}{subsection.8.2.1}%
+\contentsline {subsection}{\numberline {8.2.2}$J$'s afhængighed af $\lambda $ ved fast $E$}{50}{subsection.8.2.2}%
+\contentsline {subsection}{\numberline {8.2.3}Sammenligning: $J$ er invariant}{50}{subsection.8.2.3}%
+\contentsline {section}{\numberline {8.3}Eksempel: oscillator med langsomt varierende frekvens}{51}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Bohr-Sommerfeld-kvantiseringsbetingelsen}{51}{section.8.4}%
+\contentsline {section}{\numberline {8.5}Eksempel: kvantisering af den harmoniske oscillator}{52}{section.8.5}%
+\contentsline {section}{\numberline {8.6}Eksempel: partikel i en kasse}{52}{section.8.6}%
+\contentsline {section}{\numberline {8.7}Korrespondensprincippet}{53}{section.8.7}%
+\contentsline {section}{\numberline {8.8}Opsummering}{53}{section.8.8}%
+\contentsline {chapter}{\numberline {9}Klassisk feltteori}{55}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Fra diskret kæde til kontinuert felt}{55}{section.9.1}%
+\contentsline {subsection}{\numberline {9.1.1}Den diskrete kæde}{55}{subsection.9.1.1}%
+\contentsline {subsection}{\numberline {9.1.2}Kontinuumsgrænsen}{55}{subsection.9.1.2}%
+\contentsline {section}{\numberline {9.2}Hamiltons princip for felter}{56}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Eksempel: bølgeligningen for strengen}{57}{section.9.3}%
+\contentsline {section}{\numberline {9.4}Noethers sætning for felter: energitæthed og kontinuitet}{57}{section.9.4}%
+\contentsline {subsection}{\numberline {9.4.1}Eksempel: energitæthed for strengen}{58}{subsection.9.4.1}%
+\contentsline {section}{\numberline {9.5}Rumtranslationssymmetri: impulstæthed}{58}{section.9.5}%
+\contentsline {subsection}{\numberline {9.5.1}Eksempel: impulstæthed for strengen}{59}{subsection.9.5.1}%
+\contentsline {section}{\numberline {9.6}Intern symmetri: ladningsbevarelse}{59}{section.9.6}%
+\contentsline {subsection}{\numberline {9.6.1}Udledning af den bevarede ladningsstrøm}{59}{subsection.9.6.1}%
+\contentsline {subsection}{\numberline {9.6.2}Eksempel: ladningstæthed for det komplekse felt}{60}{subsection.9.6.2}%
+\contentsline {section}{\numberline {9.7}Udblik: relativistisk notation og Klein-Gordon-feltet}{60}{section.9.7}%
+\contentsline {section}{\numberline {9.8}Opsummering}{61}{section.9.8}%
+\contentsline {chapter}{\numberline {10}Hamiltonsk feltteori}{63}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Kanonisk impulstæthed}{63}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Hamilton-tæthed og Hamiltons ligninger for felter}{63}{section.10.2}%
+\contentsline {subsection}{\numberline {10.2.1}Udledning af bevægelsesligningerne}{63}{subsection.10.2.1}%
+\contentsline {section}{\numberline {10.3}Eksempel: strengen i Hamilton-billede}{64}{section.10.3}%
+\contentsline {section}{\numberline {10.4}Poisson-parenteser for felter}{64}{section.10.4}%
+\contentsline {section}{\numberline {10.5}Opsummering}{65}{section.10.5}%
+\contentsline {section}{Kompendiets konklusion}{65}{section*.14}%

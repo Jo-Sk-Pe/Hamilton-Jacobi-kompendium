@@ -159,14 +159,15 @@ $E/\omega=\text{konstant}$, uden at løse bevægelsesligningen i detalje.
 \begin{figure}[htbp]
   \centering
   \begin{tikzpicture}[scale=1.0]
-    \draw[-{Latex}] (-3.4,0) -- (3.4,0) node[right] {$x$};
-    \draw[-{Latex}] (0,-2.2) -- (0,2.2) node[above] {$p$};
     % Oprindelig ellipse (lav omega, stor amplitude, moderat p)
     \draw[thick,blue!60!black,fill=blue!12] (0,0) ellipse (2.6 and 1.3);
-    \node[blue!60!black] at (0,1.7) {tidligt ($\omega$ lille)};
     % Sen ellipse (høj omega, lille amplitude i x, stor i p) - samme areal
     \draw[thick,black,fill=black!8] (0,0) ellipse (1.3 and 2.6);
-    \node at (1.9,-1.9) {sent ($\omega$ stor)};
+    % Akser og labels tegnes til sidst, så intet dækkes af ellipserne
+    \draw[-{Latex}] (-3.4,0) -- (3.4,0) node[right] {$x$};
+    \draw[-{Latex}] (0,-3.0) -- (0,3.0) node[above] {$p$};
+    \node[blue!60!black] at (-2.3,1.75) {tidligt ($\omega$ lille)};
+    \node at (2.4,-1.9) {sent ($\omega$ stor)};
   \end{tikzpicture}
   \caption{Adiabatisk invarians for oscillatoren: når $\omega$ langsomt
   vokser, ændrer faserumsellipsens form sig (amplituden i $x$

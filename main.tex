@@ -81,6 +81,12 @@
 
 \printindex
 
+% Sikrer en helt blank side (uden sidehoved/sidetal) foer bagsiden,
+% i stedet for den "tomme" side med kun sidehoved, som ellers opstaar
+% naar \printindex skifter tilbage fra tospaltet layout.
+\clearpage
+\thispagestyle{empty}
+
 % --- Bagside ---
 \begin{titlepage}
 \centering
