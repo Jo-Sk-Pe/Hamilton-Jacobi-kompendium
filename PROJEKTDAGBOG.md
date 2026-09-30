@@ -4,6 +4,28 @@ Kronologisk log over beslutninger og fremdrift. Nyeste øverst.
 
 ---
 
+## 2026-09-30 (2) — Facitliste til alle opgaver
+
+Jørn påpegede, at kompendiet, for at følge linjen fra de øvrige
+(fx lineær algebra-kompendiet), bør have en facitliste til
+opgaverne. Skrev `kapitler/facitliste.tex` med facit og korte
+løsningsskitser til alle 29 opgaver på tværs af de 10 kapitler,
+organiseret i et afsnit per kapitel, og indsatte den i `main.tex`
+i backmatter (`\input{kapitler/facitliste}` lige efter kapitel 10,
+før `\printindex`).
+
+Fuldt testet i sandbox med rigtig dansk babel: 0 fejl, sidetal
+voksede fra 84 til 90. Den betingede sideparitets-løsning
+(`\ifodd\value{page}`) krævede ingen ændring og gav stadig korrekt
+to blanke sider og bagsiden på en lige side (nu side 90) —
+bekræfter, at løsningen er robust over for fremtidige
+indholdstilføjelser, ikke kun et engangsfix.
+
+Filen blev overført med `device_commit_files` og verificeret med
+`md5sum` på enheden (matchede).
+
+---
+
 ## 2026-09-30 — Udvidelse af kap. 7, 8, 10; ny betinget sideparitets-løsning
 
 Jørn ophævede en selvpålagt, uskreven begrænsning på kapitellængden

@@ -1,0 +1,334 @@
+% facitliste.tex — Facitliste
+% Hamilton-Jacobi-kompendiet
+
+\chapter*{Facitliste}
+\addcontentsline{toc}{chapter}{Facitliste}
+\markboth{FACITLISTE}{FACITLISTE}
+
+Denne facitliste giver facit og korte løsningsskitser til
+kompendiets opgaver — ikke fulde udførte udregninger (de fleste
+opgaver er netop bedt om at \emph{gennemføre} en udregning, hvis
+opskrift allerede står i teksten). Brug den til at tjekke dit eget
+resultat og din metode, ikke som erstatning for selv at regne.
+
+\section*{Kapitel 1: Newtonsk mekanik og variationsprincipper}
+\addcontentsline{toc}{section}{Kapitel 1}
+
+\paragraph{Opgave 1.} Newtons anden lov langs banen og vinkelret på
+den giver to ligninger: $m\ddot s = mg\sin\alpha$ (langs skråplanet)
+og $N=mg\cos\alpha$ (vinkelret, normalkraften). $N$ indgår slet ikke
+i den første ligning — den ``falder ud'' ved, at normalkraften per
+definition ikke har nogen komponent langs den tilladte
+bevægelsesretning, ganske som i D'Alembert-formuleringen, hvor
+tvangskraften forsvinder, fordi $\vb{N}\cdot\delta\vb{r}=0$ for enhver
+tilladt virtuel forskydning. Facit: $\ddot s=g\sin\alpha$.
+
+\paragraph{Opgave 2.} Med $\theta$ som generaliseret koordinat er
+$\vb{r}=R(\sin\theta,-\cos\theta)$ (målt fra ringens centrum, med
+$\theta=0$ i bunden), så $\delta\vb{r}=R(\cos\theta,\sin\theta)\,\delta\theta$.
+Tyngdekraften er $\vb{F}=(0,-mg)$, og tvangskraften (ringens
+normalkraft) står vinkelret på $\delta\vb{r}$ og bidrager derfor ikke.
+D'Alemberts princip, $(\vb{F}-m\ddot{\vb{r}})\cdot\delta\vb{r}=0$, giver
+efter udregning af $\ddot{\vb{r}}$ facit
+\begin{equation*}
+  \ddot\theta = -\frac{g}{R}\sin\theta,
+\end{equation*}
+den velkendte pendulligning (her for en perle på en ring i stedet for
+en snor, men matematisk identisk).
+
+\section*{Kapitel 2: Lagrange-formalisme}
+\addcontentsline{toc}{section}{Kapitel 2}
+
+\paragraph{Opgave 1.} Direkte udregning af $x,y,z$ for et punkt på
+den roterende ring (radius $R$, vinkelhastighed $\omega$ om den
+lodrette akse, $\theta$ målt fra symmetriaksen) og differentiation
+giver, efter sammentrækning af $\sin^2+\cos^2=1$-led, netop
+$T=\frac12mR^2\dot\theta^2+\frac12mR^2\omega^2\sin^2\theta$ — første
+led er den ``sædvanlige'' kinetiske energi fra bevægelse langs
+ringen, andet led kommer fra rotationen om aksen.
+
+\paragraph{Opgave 2.} $L=\frac12m(\dot r^2+r^2\dot\phi^2)-V(r)$.
+$\partial L/\partial\phi=0$, så $\phi$ er cyklisk og
+$p_\phi=mr^2\dot\phi$ er bevaret. Euler-Lagrange-ligningen for $r$,
+$m\ddot r = mr\dot\phi^2 - V'(r)$, bliver efter substitution af
+$\dot\phi=p_\phi/(mr^2)$:
+\begin{equation*}
+  m\ddot r = \frac{p_\phi^2}{mr^3} - V'(r) = -V_\text{eff}'(r),
+  \qquad V_\text{eff}(r)=V(r)+\frac{p_\phi^2}{2mr^2}.
+\end{equation*}
+Bevægelsen i $r$ er altså en endimensional bevægelse i det effektive
+potential $V_\text{eff}$, hvor centrifugalleddet $p_\phi^2/(2mr^2)$
+optræder som et ekstra frastødende bidrag.
+
+\paragraph{Opgave 3.} Er $\vb{r}_\alpha=\vb{r}_\alpha(q)$ uden
+eksplicit tidsafhængighed, er $\dot{\vb{r}}_\alpha=\sum_j(\partial\vb{r}_\alpha/\partial q_j)\dot q_j$
+lineær i $\dot q_j$, så $T=\frac12\sum_\alpha m_\alpha\dot{\vb{r}}_\alpha^2$
+er en \emph{ren} andengradsform i $\dot q_j$ (ingen lineære eller
+konstante led) — en homogen funktion af grad $2$. Eulers sætning giver
+$\sum_i\dot q_i\,\partial T/\partial\dot q_i=2T$. Da $V$ ikke afhænger
+af $\dot q_i$, er $\partial L/\partial\dot q_i=\partial T/\partial\dot q_i$,
+så $H=\sum_i\dot q_ip_i-L=2T-(T-V)=T+V$.
+
+\section*{Kapitel 3: Hamilton-formalisme}
+\addcontentsline{toc}{section}{Kapitel 3}
+
+\paragraph{Opgave 1.} Med $L=\frac12m(\dot r^2+r^2\dot\phi^2)-V(r)$ er
+$p_r=m\dot r$, $p_\phi=mr^2\dot\phi$. Legendre-transformationen giver
+\begin{equation*}
+  H = p_r\dot r+p_\phi\dot\phi-L = \frac{p_r^2}{2m}+\frac{p_\phi^2}{2mr^2}+V(r),
+\end{equation*}
+og Hamiltons ligninger $\dot r=p_r/m$, $\dot p_r=p_\phi^2/(mr^3)-V'(r)$,
+$\dot\phi=p_\phi/(mr^2)$, $\dot p_\phi=0$ er ækvivalente med
+Euler-Lagrange-resultaterne fra kapitel 2, opgave 2 (elimineres
+$p_\phi=mr^2\dot\phi$, genfindes $V_\text{eff}$-ligningen).
+
+\paragraph{Opgave 2.} $p_i=\partial L/\partial\dot r_i=m\dot r_i+eA_i$,
+altså $\vb{p}=m\dot{\vb{r}}+e\vb{A}$. Legendre-transformationen giver,
+efter at have løst $\dot{\vb{r}}=(\vb{p}-e\vb{A})/m$ og indsat,
+\begin{equation*}
+  H = \frac{(\vb{p}-e\vb{A})^2}{2m} + e\Phi.
+\end{equation*}
+Her er $H=T+V=\frac12m\dot{\vb{r}}^2+e\Phi$ (den mekaniske energi),
+men udtrykt ved $\vb{p}$ i stedet for $\dot{\vb{r}}$ —$H$ selv er
+altså stadig den mekaniske energi, men den kanoniske impuls $\vb{p}$
+er \emph{ikke} $m\dot{\vb{r}}$, hvilket er pointen: $H$ og $T+V$ er
+samme \emph{tal}, men som \emph{funktioner} af de kanoniske variable
+er $H(\vb{r},\vb{p})\neq T(\vb{r},\dot{\vb{r}})+V(\vb{r})$, når man
+udtrykker dem korrekt.
+
+\paragraph{Opgave 3.} For $E$ under potentialbrøndens top er banerne
+lukkede ellipselignende kurver om oprindelsen (libration) — ganske
+som for den harmoniske oscillator, men fladet ud/deformeret nær
+$|x|=a$, hvor den uendelige væg tvinger $p$ til at ``springe''
+(fortegnsskift) i stedet for at aftage glat. Når $E$ nærmer sig
+energien for $|x|=a$ (dvs.\ oscillatorens egen energi ved amplitude
+$a$), nærmer faserumsbanen sig en almindelig oscillator-ellipse
+\emph{indeni} boksen, uberørt af væggene; \emph{over} den energi er
+der ingen tilladte baner (partiklen kan ikke være der).
+
+\section*{Kapitel 4: Poisson-parenteser og kanonisk struktur}
+\addcontentsline{toc}{section}{Kapitel 4}
+
+\paragraph{Opgave 1.} Fra definitionen
+$\{f,g\}=\sum_i(\partial f/\partial q_i\,\partial g/\partial p_i-\partial f/\partial p_i\,\partial g/\partial q_i)$
+følger antisymmetri, $\{f,g\}=-\{g,f\}$, direkte ved at bytte $f$ og
+$g$ i hvert led. Leibniz-reglen følger af produktreglen anvendt på
+$\partial(fg)/\partial q_i=f\,\partial g/\partial q_i+g\,\partial f/\partial q_i$
+(og tilsvarende for $\partial/\partial p_i$), indsat i definitionen og
+omgrupperet i led med $f$ udenfor parentesen og led med $g$ udenfor.
+
+\paragraph{Opgave 2.} Jacobi-identiteten,
+$\{\{f,g\},H\}+\{\{g,H\},f\}+\{\{H,f\},g\}=0$, omskrives med
+antisymmetri til $\{\{f,g\},H\}=-\{\{g,H\},f\}-\{\{H,f\},g\}=\{f,\{g,H\}\}-\{g,\{f,H\}\}$.
+Er $\{f,H\}=0$ og $\{g,H\}=0$, forsvinder begge led på højresiden, så
+$\{\{f,g\},H\}=0$ — $\{f,g\}$ er selv bevaret (forudsat
+$\partial f/\partial t=\partial g/\partial t=0$, så det totale
+tidsafledte reducerer til Poisson-parentesen med $H$ alene).
+
+\paragraph{Opgave 3.} Direkte udregning (med
+$L_x=yp_z-zp_y$, $L_y=zp_x-xp_z$) led for led i definitionen giver
+$\{L_x,L_y\}=L_z$ (og cyklisk $\{L_y,L_z\}=L_x$, $\{L_z,L_x\}=L_y$).
+Tilsvarende: $\{L_z,x\}=\{xp_y-yp_x,x\}=-y\{p_x,x\}\cdot(-1)=-y$ (kun
+leddet med $p_x$ og $x$ bidrager, resten er nul), og
+$\{L_z,y\}=x$ ved samme regning. Dette er netop formen af en
+infinitesimal rotation om $z$-aksen, $\delta x=-\varepsilon y$,
+$\delta y=\varepsilon x$, jf.\ $\delta f=\varepsilon\{f,L_z\}$.
+
+\section*{Kapitel 5: Kanoniske transformationer}
+\addcontentsline{toc}{section}{Kapitel 5}
+
+\paragraph{Opgave 1.} Variation af $S$ med $\delta q_i(t_1)=\delta q_i(t_2)=0$
+men $\delta p_i$ fri giver, efter partiel integration af
+$p_i\delta\dot q_i$-leddet i tid (randled forsvinder pga.\
+$\delta q_i=0$ ved endepunkterne):
+\begin{equation*}
+  \delta S = \int dt\sum_i\left[\left(-\dot p_i-\pdv{H}{q_i}\right)\delta q_i
+    + \left(\dot q_i-\pdv{H}{p_i}\right)\delta p_i\right].
+\end{equation*}
+Da $\delta q_i,\delta p_i$ er uafhængige og arbitrære, må hver
+koefficient forsvinde for sig — netop Hamiltons ligninger.
+
+\paragraph{Opgave 2.} Totalt differentieret, $dF_2=dF_1+\sum_i(Q_idP_i+P_idQ_i)$.
+Indsættes $dF_1=\sum_i(p_idq_i-P_idQ_i)+(K-H)dt$ (fra
+\eqref{eq:genererende-betingelse}), ophæves $-P_idQ_i$ og $+P_idQ_i$,
+og man står tilbage med $dF_2=\sum_i(p_idq_i+Q_idP_i)+(K-H)dt$ —
+netop $F_2$-relationerne $p_i=\partial F_2/\partial q_i$,
+$Q_i=\partial F_2/\partial P_i$.
+
+\paragraph{Opgave 3.} Med $Q_i=p_i$, $P_i=-q_i$:
+$\{Q_i,P_j\}=\{p_i,-q_j\}=-\{p_i,q_j\}=\delta_{ij}$ (brug
+$\{p_i,q_j\}=-\delta_{ij}$), så betingelsen er opfyldt. Uden
+minustegnet, $Q_i=p_i,P_i=q_i$: $\{Q_i,P_j\}=\{p_i,q_j\}=-\delta_{ij}\neq\delta_{ij}$
+— transformationen er \emph{ikke} kanonisk uden fortegnsskiftet
+(kun ombytning af $q$ og $p$ uden fortegn bryder den symplektiske
+struktur).
+
+\paragraph{Opgave 4.} Med $G=H$, $\varepsilon=dt$:
+$\delta q_i=dt\,\{q_i,H\}=dt\,\partial H/\partial p_i=\dot q_i\,dt$,
+og $\delta p_i=dt\,\{p_i,H\}=-dt\,\partial H/\partial q_i=\dot p_i\,dt$
+— netop Hamiltons ligninger, nu genlæst som udsagnet om, at den
+infinitesimale ændring i $(q_i,p_i)$ over tidsintervallet $dt$ er
+præcis den kanoniske transformation, $H$ selv genererer. Dette
+bekræfter, at tidsudviklingen fra $t$ til $t+dt$ er en kanonisk
+transformation (og ved sammensætning, at den endelige tidsudvikling
+fra $t_1$ til $t_2$ også er det).
+
+\section*{Kapitel 6: Hamilton-Jacobi-teori}
+\addcontentsline{toc}{section}{Kapitel 6}
+
+\paragraph{Opgave 1.} HJ-ligningen er
+$\frac{1}{2m}(\partial W/\partial x)^2=E$, så
+$\partial W/\partial x=\sqrt{2mE}=p_0$ (konstant), $W=p_0x$. Løsningen
+$\beta=\partial W/\partial E-t=mx/p_0-t$ (konstant) giver, løst for
+$x$: $x(t)=x_0+\frac{p_0}{m}t$, som forventet for en fri partikel.
+
+\paragraph{Opgave 2.} HJ-ligningen er
+$\frac{1}{2m}(\partial W/\partial x)^2+mgx=E$, så
+$\partial W/\partial x=\sqrt{2m(E-mgx)}$, og
+$W=-\frac{1}{3mg}\bigl(2m(E-mgx)\bigr)^{3/2}\big/m$ (ved direkte
+integration). Proceduren
+$\beta=\partial W/\partial E-t=\text{konst.}$ giver, efter
+udregning og genindsættelse af $E=\frac12mv_0^2$ (ved $x=x_0=0$, $t=0$):
+$x(t)=v_0t-\frac12gt^2$ (med $x_0=0$; generelt $x_0+v_0t-\frac12gt^2$).
+
+\paragraph{Opgave 3.} Direkte differentiation af
+$x(t)=a\sin(\omega(t+\beta))$ giver
+$\dot x=a\omega\cos(\omega(t+\beta))$, så
+$p=m\dot x=ma\omega\cos(\omega(t+\beta))$. Sammenholdt med
+$p=\sqrt{2mE-mkx^2}=\sqrt{2mE-mka^2\sin^2(\omega(t+\beta))}$, og brug
+af $E=\frac12ka^2$ (fra amplituden) og $\omega=\sqrt{k/m}$, reducerer
+begge udtryk til samme $ma\omega\cos(\omega(t+\beta))$ ved brug af
+$\cos^2+\sin^2=1$ — identiteten $H=E$ er opfyldt for alle $t$, netop
+fordi $E$ er en bevægelseskonstant.
+
+\section*{Kapitel 7: Virknings-vinkel-variable}
+\addcontentsline{toc}{section}{Kapitel 7}
+
+\paragraph{Opgave 1.} $p_\phi$ er konstant ($=\sqrt{2mR^2E}$, fra
+$H=p_\phi^2/(2mR^2)=E$), så $J=\oint p_\phi\,d\phi=2\pi p_\phi=2\pi\sqrt{2mR^2E}$.
+Løst for $E$: $E(J)=J^2/(8\pi^2mR^2)$, så
+$\nu=dE/dJ=J/(4\pi^2mR^2)=p_\phi/(2\pi mR^2)$. Med $p_\phi=mRv$
+($v$=banehastighed) giver dette $\nu=v/(2\pi R)$ — netop
+omløbsfrekvensen.
+
+\paragraph{Opgave 2.} Kædereglen giver
+$\dot w=\partial w/\partial q\cdot\dot q=(\partial^2W/\partial q\partial J)\dot q$.
+Integreres dette over én periode $\tau$ i $q$ (dvs.\ $\dot q\,dt=dq$),
+fås $\Delta w=\oint\partial^2W/\partial q\partial J\,dq
+=\partial/\partial J\oint\partial W/\partial q\,dq=\partial J/\partial J=1$,
+sammenholdt med $\Delta w=\nu\tau$ fra \eqref{eq:hamilton-vinkel}
+integreret over $\tau$, giver dette $\nu\tau=1$ — samme resultat som
+\eqref{eq:delta-w-1}, nu udledt ved direkte integration af $\dot w$ i
+stedet for at bytte om på differentiation og integration.
+
+\paragraph{Opgave 3.} Med $u=1/r$ bliver
+$2mE+2mk/r-\ell^2/r^2=-\ell^2u^2+2mku+2mE$, et andengradspolynomium i
+$u$ med rødder $u_{1,2}=\bigl(mk\mp\sqrt{m^2k^2+2mE\ell^2}\bigr)/\ell^2$
+(for $E<0$: $u_1<0<u_2$, svarende til $r_{\max}=1/u_1$ negativ i
+$u$, dvs.\ reelt $r_{\max}=-1/u_1$ — vær opmærksom på fortegn ved
+substitutionen $dr=-du/u^2$, som vender integrationsretningen).
+Standardresultatet for $\oint\sqrt{(u_2-u)(u-u_1)}\,du$ (over ét
+fuldt omløb af $u$ mellem rødderne) fører, efter tilbagesubstitution
+og forenkling (brug $u_2-u_1=2\sqrt{m^2k^2+2mE\ell^2}/\ell^2$ og
+$u_1u_2=-2mE/\ell^2$), frem til
+$J_r=-2\pi\ell+2\pi k\sqrt{m/(-2E)}$ — facit \eqref{eq:kepler-Jr}.
+(Numerisk verifikation for selvvalgte $m,k,E,\ell$ anbefales som
+kontrol af mellemregningen.)
+
+\section*{Kapitel 8: Adiabatiske invarianter}
+\addcontentsline{toc}{section}{Kapitel 8}
+
+\paragraph{Opgave 1.} $E/\omega=$ konstant og
+$E=\frac12m\ell^2\omega^2\theta_0^2$ giver
+$m\ell^2\omega\theta_0^2=\text{konst.}$ Med $\omega=\sqrt{g/\ell}$
+($\omega\propto\ell^{-1/2}$) fås $\ell^{2}\ell^{-1/2}\theta_0^2=\ell^{3/2}\theta_0^2=\text{konst.}$,
+altså
+\begin{equation*}
+  \theta_0 \propto \ell^{-3/4}.
+\end{equation*}
+Et pendul, hvis snor langsomt forkortes, svinger altså med \emph{voksende}
+udslagsvinkel $\theta_0$ (selvom den fysiske amplitude $\ell\theta_0\propto\ell^{1/4}$
+faktisk aftager svagt).
+
+\paragraph{Opgave 2.} $k_n=n\pi/L$ og $E_n=\hbar^2k_n^2/(2m)=\hbar^2n^2\pi^2/(2mL^2)$.
+Med $h=2\pi\hbar$, dvs.\ $\hbar=h/(2\pi)$:
+$E_n=\bigl(h/(2\pi)\bigr)^2n^2\pi^2/(2mL^2)=h^2n^2/(8mL^2)$ — identisk
+med Bohr-Sommerfeld-resultatet $E_n=n^2h^2/(8mL^2)$.
+
+\section*{Kapitel 9: Klassisk feltteori}
+\addcontentsline{toc}{section}{Kapitel 9}
+
+\paragraph{Opgave 1.} For den transversale kæde er udsvinget
+$\varphi_i$ vinkelret på kædens retning; hver fjeder strækkes med
+$\Delta\ell\approx(\varphi_{i+1}-\varphi_i)^2/(2a)$ til laveste orden
+(geometrisk, for lille udsving), så den potentielle energi i
+fjederen med spænding (kraft) $\tau_0$ er
+$\tau_0\Delta\ell\approx\frac{\tau_0}{2a}(\varphi_{i+1}-\varphi_i)^2$.
+Dette giver, i kontinuumsgrænsen ($a\to0$, $\tau_0$ fast — modsat den
+longitudinale kæde, hvor det var $ka$, der holdtes fast), samme
+$\mathcal{L}=\frac12\mu\dot\varphi^2-\frac12\tau_0(\varphi')^2$, med
+$\tau=\tau_0$ direkte som den fysiske snorspænding.
+
+\paragraph{Opgave 2.} Med
+$\mathcal{L}_\text{KG}=\frac12(\partial_\mu\varphi\partial^\mu\varphi-m^2\varphi^2)$
+er $\partial\mathcal{L}/\partial(\partial_\mu\varphi)=\partial^\mu\varphi$
+og $\partial\mathcal{L}/\partial\varphi=-m^2\varphi$. Den relativistiske
+Euler-Lagrange-ligning $\partial_\mu(\partial\mathcal{L}/\partial(\partial_\mu\varphi))-\partial\mathcal{L}/\partial\varphi=0$
+giver $\partial_\mu\partial^\mu\varphi+m^2\varphi=0$, dvs.\
+$(\Box+m^2)\varphi=0$ med $\Box\equiv\partial_\mu\partial^\mu=\partial_t^2/c^2-\nabla^2$
+— Klein-Gordon-ligningen.
+
+\paragraph{Opgave 3.} Euler-Lagrange-ligningen for $\psi$ giver
+$\partial\mathcal{L}/\partial\psi=\dot{}(\partial\mathcal{L}/\partial\dot\psi)+(\,\cdot\,)'(\partial\mathcal{L}/\partial\psi')$
+(og tilsvarende for $\psi^\ast$), hvilket indsat i
+$\partial\mathcal{L}/\partial\psi\cdot\delta\psi$ omskriver leddet til
+en ren tidsafledt plus et led, der kan kombineres med
+$\partial\mathcal{L}/\partial\dot\psi\cdot\delta\dot\psi$ til
+$d/dt(\partial\mathcal{L}/\partial\dot\psi\cdot\delta\psi)$ — analogt
+med udledningen af \eqref{eq:kontinuitetsligning}. Samme manøvre for
+det rumlige led (med $\partial\mathcal{L}/\partial\psi'$) giver den
+rumlige total-afledte. Sammenlagt for begge felter ($\psi$ og
+$\psi^\ast$) fås netop \eqref{eq:ladnings-kontinuitet}.
+
+\paragraph{Opgave 4.} Med $\psi=\varphi_1+i\varphi_2$:
+$\dot\psi^\ast\dot\psi=\dot\varphi_1^2+\dot\varphi_2^2$ og
+$\psi^{\ast\prime}\psi'=\varphi_1'^2+\varphi_2'^2$ (krydsledene med
+$i$ ophæver hinanden i produktet af komplekst konjugerede), så
+$\mathcal{L}=\mu(\dot\varphi_1^2+\dot\varphi_2^2)-\tau(\varphi_1'^2+\varphi_2'^2)$
+— to uafhængige reelle strenge, hver med faktor $2$ i forhold til
+\eqref{eq:L-tætthed-streng} (svarende til to frihedsgrader). $U(1)$-
+transformationen $\psi\to e^{i\alpha}\psi$ svarer, skrevet ud i
+real/imaginærdel, til $\varphi_1\to\varphi_1\cos\alpha-\varphi_2\sin\alpha$,
+$\varphi_2\to\varphi_1\sin\alpha+\varphi_2\cos\alpha$ — en almindelig
+2D-rotationsmatrix anvendt på $(\varphi_1,\varphi_2)$. Ladningen
+$Q=\int\rho\,dx=2\mu\int(\varphi_1\dot\varphi_2-\varphi_2\dot\varphi_1)\,dx$
+er dermed den kontinuerte (felt-)analog til banemomentet
+$L_z=xp_y-yp_x$ — begge er Noether-ladningen for en rotation i et
+($2$-dimensionalt) plan, blot for henholdsvis et diskret
+partikelpar $(x,y)$ og et kontinuert feltpar $(\varphi_1,\varphi_2)$.
+
+\section*{Kapitel 10: Hamiltonsk feltteori}
+\addcontentsline{toc}{section}{Kapitel 10}
+
+\paragraph{Opgave 1.} Hamiltons ligninger giver
+$\dot\psi=\partial\mathcal{H}/\partial\pi=\pi^\ast/\mu$ og
+$\dot\pi=-\partial\mathcal{H}/\partial\psi+d/dx(\partial\mathcal{H}/\partial\psi')
+=0+\tau\psi^{\ast\prime\prime}$. Da $\pi=\mu\dot\psi^\ast$, giver
+kombination af de to $\mu\ddot\psi^\ast=\tau\psi^{\ast\prime\prime}$,
+dvs.\ $\ddot\psi^\ast=v^2\psi^{\ast\prime\prime}$ med $v^2=\tau/\mu$.
+Tilsvarende for parret $(\psi^\ast,\pi^\ast)$ giver
+$\ddot\psi=v^2\psi''$ — begge felter opfylder samme bølgeligning,
+som forventet.
+
+\paragraph{Opgave 2.} Analogt til \eqref{eq:Q-genererer}, men nu med
+$\{\psi^\ast(x),\pi^\ast(y)\}=\delta(x-y)$ som det eneste bidragende
+led i $Q=i\int(\psi\pi-\psi^\ast\pi^\ast)dx$ (med et minustegn foran
+$\psi^\ast\pi^\ast$-leddet):
+\begin{equation*}
+  \{\psi^\ast(x),Q\} = -i\int\psi^\ast(y)\{\psi^\ast(x),\pi^\ast(y)\}\,dy
+  = -i\,\psi^\ast(x).
+\end{equation*}
+Sammenholdt med $\delta\psi^\ast=-i\varepsilon\psi^\ast$ (fra
+$U(1)$-transformationens infinitesimale form) bekræfter dette
+$\delta\psi^\ast=\varepsilon\{\psi^\ast,Q\}$ — samme generator-mønster
+som for $\psi$, nu for $\psi^\ast$.

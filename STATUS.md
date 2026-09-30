@@ -35,6 +35,21 @@ lige sidetal — se PROJEKTDAGBOG.md for detaljer. Fuldt testet
 (pdflatex→makeindex→pdflatex×2) med rigtig dansk babel: 0 fejl, 84
 sider, bagsiden på side 84 (lige).
 
+## 2026-09-30 (2) — Facitliste tilføjet
+
+I lyset af konventionen fra de øvrige kompendier (fx lineær algebra-
+kompendiet) er der nu tilføjet en facitliste til alle kompendiets 29
+opgaver (2-4 pr.\ kapitel). Facitlisten (`kapitler/facitliste.tex`)
+er indsat i backmatter, lige efter kapitel 10 og før stikordsregistret.
+Den giver facit og korte løsningsskitser, ikke fulde udførte
+udregninger (opgaverne beder typisk netop om selv at gennemføre en
+udregning, hvis opskrift står i teksten).
+
+Sidetallet voksede til 90 sider (fra 84). Testet fejlfrit
+(pdflatex→makeindex→pdflatex×3) med rigtig dansk babel; den betingede
+sideparitetsløsning fungerede uden ændringer og gav stadig præcis to
+blanke sider og bagsiden på en lige side (side 90).
+
 ## Formål og afgrænsning
 
 Kompendiet skal bygge frem til det tankegods, der var på plads ved
