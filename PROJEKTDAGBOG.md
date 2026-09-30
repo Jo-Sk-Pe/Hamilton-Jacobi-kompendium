@@ -4,6 +4,65 @@ Kronologisk log over beslutninger og fremdrift. Nyeste øverst.
 
 ---
 
+## 2026-09-30 — Udvidelse af kap. 7, 8, 10; ny betinget sideparitets-løsning
+
+Jørn ophævede en selvpålagt, uskreven begrænsning på kapitellængden
+(i forbindelse med det nye kaos/statistik-mekanik-kompendium, hvor
+begrænsningen for alvor blev synlig som et problem) og bad om, at
+kap. 7, 8 og 10 — de kapitler, der bærer overgangene til de øvrige
+kompendier — blev gennemgået og udvidet med det for øje.
+
+Tilføjelser:
+- Kap. 7 fik et nyt geometrisk afsnit om bevægelsestorusen (med
+  figur) samt et fuldt Kepler-/Coulomb-eksempel med flere
+  frihedsgrader, der viser $J_r+J_\phi$-degenerationen bag
+  hydrogenatomets "tilfældige" kvantedegeneration — og forbereder
+  eksplicit et fremtidigt kaos-kompendiums KAM-sætning (resonante vs.
+  inkommensurable tori).
+- Kap. 8 fik et intuitivt afsnit før det formelle bevis, en
+  bemærkning om adiabatisk invarians' sammenbrud nær en separatrix
+  (endnu en kaos-bro), og et udvidet korrespondensprincip-afsnit med
+  niveautætheden $\rho(E)=\tau(E)/h$ (peger mod statistisk mekanik).
+- Kap. 10 fik et nyt eksempel: det komplekse $U(1)$-felt i
+  Hamilton-billedet, hvor Noether-ladningen $Q$ vises at være sin
+  egen Poisson-generator, $\delta\psi=\varepsilon\{\psi,Q\}$ — en
+  direkte forløber for QFT-kompendiets ladningsoperator.
+
+Under første compilering ramte vi en reel fejl: `\oint` var brugt
+uden for matematik-tilstand i løbende tekst i kap. 7 (linjen om
+faktor 2 i $J_r$-integralet), hvilket udløste en kaskade af
+LaTeX-fejl ("Missing $ inserted" → mismatch heleigennem til
+`\end{eksempel}`). Rettet ved at sætte `\oint` i `$...$`.
+
+Da kompendiet voksede med 9 sider (76→85 uden korrektion), viste det
+sig, at den tidligere "altid to blanke sider før bagsiden"-løsning
+kun havde virket ved et tilfælde: den lægger altid netop 1 ekstra
+side til (ikke 2), og garanterer derfor kun et lige sidetal, hvis
+sidetallet lige inden var ulige på et bestemt tidspunkt — hvilket
+ikke længere var tilfældet, efter indholdet voksede. Erstattet med en
+betinget løsning:
+```
+\ifodd\value{page}
+  \thispagestyle{empty}
+  \mbox{}
+  \newpage
+\fi
+```
+lige efter den første garanterede blanke side. Denne tilgang blev
+tidligere (i en anden sammenhæng, med den nu-fjernede
+`titlepage`-baserede bagside) mistænkt for ikke at konvergere — men
+med bagsiden som en almindelig side (uden `titlepage`s interne
+`\cleardoublepage`) konvergerer den nu stabilt: testet over 5
+sammenhængende compileringspas uden ændring i sidetal (84 sider,
+bagsiden på side 84).
+
+Filerne blev denne gang overført til enheden med
+`device_commit_files` og efterfølgende verificeret med `md5sum`
+direkte på enheden (samme kontrol, som tidligere afslørede værktøjets
+upålidelighed) — denne gang matchede kontrolsummerne.
+
+---
+
 ## 2026-09-27 — Lige sidetal til tosidet udskrivning: bagsiden uden titlepage
 
 Jørn påpegede korrekt, at den ekstra blanke side (for at få et lige

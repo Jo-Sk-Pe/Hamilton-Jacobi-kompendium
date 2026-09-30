@@ -36,6 +36,31 @@ $\lambda$ — fx den hånd, der langsomt forkorter pendulets snor).
 Svaret, vi udleder i næste afsnit, er overraskende robust: $J$ er
 \emph{tilnærmelsesvis bevaret}, selv når $E$ ændrer sig betydeligt.
 
+\subsection{Fysisk billede, før algebraen}
+
+Inden vi udleder resultatet formelt, er det værd at have en intuitiv
+grund til at tro på det. Husk fra kapitel~\ref{kap:virkning-vinkel},
+at $J/(2\pi)$ er arealet, faserumsbanen indeslutter. Forestil dig
+denne bane som et fysisk ``reb'', der ligger i faserummet og langsomt
+trækkes sammen eller udvides, efterhånden som $\lambda$ ændres. Fordi
+ændringen er langsom sammenlignet med systemets egen omløbstid
+$\tau$, når systemet at gennemløbe (næsten) en hel, lukket bane, før
+formen af den bane, det følger, selv ændrer sig mærkbart — banen
+``ved ikke'', at $\lambda$ er i færd med at ændre sig, inden for én
+enkelt periode. Det er netop derfor, det giver mening at tale om et
+\emph{tidsgennemsnit over én periode}: over den tidsskala er systemet
+tilnærmelsesvis det samme konservative system, det ville have været,
+hvis $\lambda$ var frosset fast. Arealet, banen indeslutter, kan
+dermed kun ændre sig i kraft af den \emph{langsomme} deformation af
+selve banens form — og, som vi nu viser, ophæver denne deformations
+bidrag til arealet sig eksakt mod det bidrag, energiens egen ændring
+giver, når man gennemsnitliggør over en periode. Resultatet er ikke
+en tilnærmelse i den forstand, at det ``næsten'' passer — det er
+eksakt til \emph{første orden} i den lille størrelse $\dot\lambda\tau/\lambda$,
+med afvigelser af højere orden, som typisk er eksponentielt små i
+forholdet mellem tidsskalaerne (et resultat, der ligger uden for dette
+kompendiums niveau, men som er velkendt fra litteraturen).
+
 \section{Udledning af adiabatisk invarians}
 
 Lad $J(E,\lambda)$ være virkningsvariablen \eqref{eq:def-J}, udregnet
@@ -131,6 +156,25 @@ behandling skal vise, at afvigelserne fra invarians er af højere orden
 i $\dot\lambda/\omega$ og ikke akkumulerer systematisk over mange
 perioder. Vi nøjes her med resultatet i den form, der er nødvendig for
 at forstå dets historiske og begrebsmæssige rolle.
+\end{bemaerkning}
+
+\begin{bemaerkning}
+Beviset forudsætter stiltiende, at ``én periode'' er veldefineret —
+at faserumsbanen er en pæn, lukket kurve med en entydig omløbstid
+$\tau$. Dette bryder netop sammen tæt på en \emph{separatrix}: en
+bane, der adskiller kvalitativt forskellige typer bevægelse (fx
+libration fra rotation, som for et pendul der lige akkurat når op til
+den ustabile ligevægt i toppen). \index{separatrix}Her går $\tau\to\infty$, og selve
+forudsætningen $\dot\lambda\tau\ll\lambda$ for adiabaticitet kan ikke
+længere opfyldes, uanset hvor langsomt $\lambda$ ændres. Konsekvensen
+er dramatisk: et system, der langsomt drives hen mod en separatrix,
+kan ``vælge'' tilfældigt mellem de forskellige bevægelsestyper på den
+anden side — adiabatisk invarians brydes ikke gradvist, men
+katastrofalt, i et fænomen kendt som \emph{separatrix-krydsning} eller
+``adiabatisk kaos''. Dette er endnu et sted, hvor dette kompendiums
+pæne, integrable verden støder på sin egen grænse, og er et
+naturligt startpunkt for det planlagte kompendium om kaos og
+ikke-lineær dynamik.
 \end{bemaerkning}
 
 \section{Eksempel: oscillator med langsomt varierende frekvens}
@@ -304,6 +348,29 @@ den klassiske svingningskvant $h\nu(E)$ — sammenlign med
 \eqref{eq:nu-er-frekvens}, $\nu=dE/dJ$, som i kvantesproget netop
 bliver $\Delta E/\Delta J$ med $\Delta J=h$.
 
+En anden, mere kvantitativ formulering er nyttig at have med sig:
+niveautætheden. Antallet af tilladte tilstande med energi under $E$
+er, ifølge \eqref{eq:bohr-sommerfeld}, netop $n=J(E)/h$, så
+niveautætheden — antal tilstande pr.\ energienhed — er
+\begin{equation}
+  \rho(E)\index{niveautæthed} \equiv \dv{n}{E} = \frac{1}{h}\dv{J}{E} = \frac{1}{h\nu(E)} = \frac{\tau(E)}{h},
+  \label{eq:niveautaethed}
+\end{equation}
+hvor vi brugte \eqref{eq:nu-er-frekvens}. Niveautætheden er altså,
+op til faktoren $1/h$, banens \emph{egen omløbstid} $\tau(E)$ — jo
+langsommere systemet bevæger sig (jo længere periode), jo tættere
+ligger energiniveauerne. Dette er den kvantitative kerne i
+korrespondensprincippet: klassisk mekanik beskriver et \emph{kontinuum}
+af tilstande, og kvantemekanikken nærmer sig dette kontinuum netop
+der, hvor niveauerne (målt i enheder af den lokale energiskala) ligger
+tæt, dvs.\ hvor $\rho(E)h\nu(E)=1$ svarer til mange niveauer pr.\
+``naturlig'' energiinterval. \eqref{eq:niveautaethed} er også den
+klassiske forløber for begrebet \emph{tilstandstæthed} i statistisk
+mekanik, hvor den samme størrelse (nu for et system med mange
+frihedsgrader) styrer entropien $S=k_B\ln\rho$ — endnu et punkt, hvor
+dette kompendiums resultater peger direkte videre mod et kommende
+kompendium om statistisk mekanik.
+
 \begin{bemaerkning}
 Korrespondensprincippet er den sidste brik i broen fra klassisk
 mekanik til kvantemekanik, som dette kompendium bygger. Vi har nu set
@@ -343,7 +410,11 @@ kvantefeltteori-kompendium.
   \item For partiklen i kassen giver reglen det \emph{eksakte}
         kvantemekaniske resultat $E_n=n^2h^2/(8mL^2)$.
   \item Korrespondensprincippet: klassisk og kvantemekanisk beskrivelse
-        falder sammen for store kvantetal $n$.
+        falder sammen for store kvantetal $n$; kvantitativt udtrykt ved
+        niveautætheden $\rho(E)=\tau(E)/h$.
+  \item Adiabatisk invarians bryder sammen nær en separatrix (hvor
+        $\tau\to\infty$) — et sted, hvor kompendiets integrable verden
+        støder på kaos.
 \end{itemize}
 
 \begin{opgave}

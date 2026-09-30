@@ -107,6 +107,79 @@ Den første er blot definitionen af $\pi$ igen; kombineres de to
 og som et konsistenstjek af hele Legendre-transformationen for feltet.
 \end{eksempel}
 
+\section{Eksempel: det komplekse felt og ladningen som generator}
+\label{sec:komplekst-felt-hamilton}
+
+\begin{eksempel}
+Strengen er et reelt felt; for at se, hvordan Hamilton-billedet
+håndterer et felt med \emph{intern} struktur, genbesøger vi det
+komplekse felt $\psi(x,t)$ fra
+afsnit~\ref{sec:ladning} i kapitel~\ref{kap:felter}, med
+Lagrange-tæthed \eqref{eq:L-komplekst-felt},
+$\mathcal{L}=\mu\dot\psi^\ast\dot\psi-\tau\psi^{\ast\prime}\psi'$.
+Da $\psi$ og $\psi^\ast$ behandles som uafhængige felter, får de hver
+sin kanoniske impulstæthed:
+\begin{equation}
+  \pi \equiv \pdv{\mathcal{L}}{\dot\psi} = \mu\dot\psi^\ast, \qquad
+  \pi^\ast \equiv \pdv{\mathcal{L}}{\dot\psi^\ast} = \mu\dot\psi,
+\end{equation}
+(bemærk krydskoblingen: $\pi$, den til $\psi$ konjugerede impuls, er
+proportional med $\dot\psi^\ast$, \emph{ikke} $\dot\psi$ — en
+konsekvens af, at $\mathcal{L}$ blander $\psi$ og $\psi^\ast$).
+Inverteres disse, $\dot\psi=\pi^\ast/\mu$, $\dot\psi^\ast=\pi/\mu$, og
+Hamilton-tætheden bliver
+\begin{equation}
+  \mathcal{H} = \pi\dot\psi + \pi^\ast\dot\psi^\ast - \mathcal{L}
+  = \frac{\pi\pi^\ast}{\mu} + \tau\,\psi^{\ast\prime}\psi'.
+\end{equation}
+Hamiltons ligninger \eqref{eq:hamilton-ligninger-felt} (nu ét par for
+hvert af de to felter) reproducerer, ganske som for strengen, hver sin
+bølgeligning for $\psi$ og $\psi^\ast$ — et konsistenstjek, vi
+overlader til opgave~1.
+
+\textbf{Ladningen som Poisson-generator.} Genkald Noether-ladningstætheden
+$\rho=i(\psi\,\partial\mathcal{L}/\partial\dot\psi-\psi^\ast\,\partial\mathcal{L}/\partial\dot\psi^\ast)$
+fra \eqref{eq:ladnings-kontinuitet}. Udtrykt ved de kanoniske impulser
+er dette netop $\rho=i(\psi\pi-\psi^\ast\pi^\ast)$, så den totale
+bevarede ladning er
+\begin{equation}
+  Q \equiv \int\rho\,dx = i\int\bigl(\psi\pi-\psi^\ast\pi^\ast\bigr)\,dx.
+  \label{eq:Q-kanonisk}
+\end{equation}
+\index{Noether-ladning som generator}Vi beregner nu $\{\psi(x),Q\}$ med de fundamentale felt-Poisson-
+parenteser \eqref{eq:felt-poisson} (udledt i næste afsnit, men brugt
+her et skridt forud, da eksemplet naturligt hører sammen med $Q$):
+kun leddet med $\{\psi(x),\pi(y)\}=\delta(x-y)$ i integranden bidrager,
+\begin{equation}
+  \{\psi(x),Q\} = i\int\psi(y)\,\{\psi(x),\pi(y)\}\,dy
+  = i\int\psi(y)\,\delta(x-y)\,dy = i\,\psi(x).
+  \label{eq:Q-genererer}
+\end{equation}
+Sammenlign nu med $U(1)$-transformationens infinitesimale form fra
+kapitel~\ref{kap:felter}, $\delta\psi=i\varepsilon\psi$: resultatet
+\eqref{eq:Q-genererer} viser præcis, at
+\begin{equation}
+  \boxed{\delta\psi = \varepsilon\,\{\psi,Q\},}
+\end{equation}
+altså den \emph{samme} formel, $\delta f=\varepsilon\{f,G\}$, som vi
+udledte for infinitesimale kanoniske transformationer i
+kapitel~\ref{kap:kanoniske-transf} — nu med Noether-ladningen $Q$
+selv i rollen som generator $G$. Dette er ikke en tilfældighed, men
+selve den dybere sandhed bag Noethers sætning i det Hamiltonske
+billede: \emph{den bevarede størrelse, symmetrien giver anledning
+til, er samtidig, via Poisson-parentesen, generatoren af symmetrien
+selv} — ganske som $H$ selv genererer tidsudvikling
+(kapitel~\ref{kap:kanoniske-transf}). Under den kanoniske
+kvantiseringsregel, vi indfører i næste afsnit,
+$\{\cdot,\cdot\}\to\frac{1}{i\hbar}[\cdot,\cdot]$, bliver $Q$ til
+ladningsoperatoren $\hat Q$, og \eqref{eq:Q-genererer} bliver til
+kommutatoren $[\hat\psi,\hat Q]=-\hbar\,\hat\psi$: $\hat Q$ genererer
+$U(1)$-fasetransformationen på feltoperatoren $\hat\psi$, ganske som
+$\hat H$ genererer tidsudvikling. Dette er en af udgangspunkterne
+for det senere kvantefeltteori-kompendiums behandling af ladede
+felter.
+\end{eksempel}
+
 \section{Poisson-parenteser for felter}
 
 Vi generaliserer til sidst Poisson-parentesen (kapitel~\ref{kap:poisson})
@@ -139,13 +212,27 @@ fundamentale ligetids-kommutationsrelation
 \begin{equation}
   \bigl[\hat\varphi(x),\hat\pi(y)\bigr] = i\hbar\,\delta(x-y).
 \end{equation}
-Dette er selve udgangspunktet for kanonisk feltkvantisering — reglen,
-der forvandler et klassisk felt $\varphi(x,t)$ (en almindelig funktion)
-til en \emph{feltoperator} $\hat\varphi(x,t)$. Vi udfører ikke denne
-kvantisering her; det er det senere QFT-kompendiums opgave. Men med
-\eqref{eq:felt-poisson} har vi nået præcis det punkt, hvorfra den
-kvantisering tager sit udspring — og dermed også det punkt, hvor dette
-kompendiums rejse ender.
+Dette er selve udgangspunktet for kanonisk feltkvantisering: reglen
+er, ganske som for et system med endeligt mange frihedsgrader, at
+erstatte den klassiske Poisson-parentes med kommutatoren via
+\begin{equation}
+  \{f,g\} \;\longrightarrow\; \frac{1}{i\hbar}\bigl[\hat f,\hat g\bigr]
+  \qquad\text{(kanonisk kvantisering}\index{kanonisk kvantisering}\text{)},
+\end{equation}
+anvendt her på selve feltet og dets impulstæthed. Et klassisk felt
+$\varphi(x,t)$ (en almindelig, talværdi funktion) bliver herved til en
+\emph{feltoperator} $\hat\varphi(x,t)$ — det centrale, nye objekt i
+kvantefeltteorien, uden modstykke i den kvantemekanik, vi kender fra
+[[kvantemekanik-kompendiet]] (hvor $\hat q_i$ er en operator, men det
+klassiske udgangspunkt $q_i(t)$ er ét enkelt tal for hver frihedsgrad,
+ikke en hel funktion af rummet). Vi udfører ikke selve kvantiseringen
+her; det er det senere QFT-kompendiums opgave, og eksemplet ovenfor
+med ladningen $Q$ som generator viser allerede, hvordan symmetri og
+bevarelseslov (kapitel~\ref{kap:felter}) sammen med den kanoniske
+struktur (dette kapitel) tilsammen forbereder netop det skridt. Men
+med \eqref{eq:felt-poisson} har vi nået præcis det punkt, hvorfra
+kvantiseringen tager sit udspring — og dermed også det punkt, hvor
+dette kompendiums rejse ender.
 \end{bemaerkning}
 
 \begin{figure}[htbp]
@@ -185,11 +272,32 @@ kompendiums rejse ender.
         rumlige afledte $\varphi'$.
   \item For strengen: $\mathcal{H}=\pi^2/(2\mu)+\frac12\tau(\varphi')^2$,
         og Hamiltons ligninger reproducerer bølgeligningen.
+  \item For det komplekse $U(1)$-felt: Noether-ladningen
+        $Q=i\int(\psi\pi-\psi^\ast\pi^\ast)dx$ genererer selv symmetrien
+        via Poisson-parentesen, $\delta\psi=\varepsilon\{\psi,Q\}$ —
+        samme mønster som $H$ genererer tidsudvikling.
   \item De fundamentale felt-Poisson-parenteser er
         $\{\varphi(x),\pi(y)\}=\delta(x-y)$ — den klassiske forløber
         for kvantefeltteoriens ligetids-kommutator
-        $[\hat\varphi(x),\hat\pi(y)]=i\hbar\delta(x-y)$.
+        $[\hat\varphi(x),\hat\pi(y)]=i\hbar\delta(x-y)$, via
+        kvantiseringsreglen $\{\cdot,\cdot\}\to\frac{1}{i\hbar}[\cdot,\cdot]$.
 \end{itemize}
+
+\begin{opgave}
+Udled, ved at bruge Hamiltons ligninger \eqref{eq:hamilton-ligninger-felt}
+på $\mathcal{H}=\pi\pi^\ast/\mu+\tau\psi^{\ast\prime}\psi'$
+(afsnit~\ref{sec:komplekst-felt-hamilton}) for hvert af de to par
+$(\psi,\pi)$ og $(\psi^\ast,\pi^\ast)$, at både $\psi$ og $\psi^\ast$
+opfylder bølgeligningen $\ddot\psi=v^2\psi''$ (med $v^2=\tau/\mu$),
+som forventet fra kapitel~\ref{kap:felter}.
+\end{opgave}
+
+\begin{opgave}
+Genudfør udregningen \eqref{eq:Q-genererer} for $\psi^\ast$ i stedet
+for $\psi$: vis, at $\{\psi^\ast(x),Q\}=-i\psi^\ast(x)$, og bekræft,
+at dette stemmer med $\delta\psi^\ast=-i\varepsilon\psi^\ast$
+(kapitel~\ref{kap:felter}) via $\delta\psi^\ast=\varepsilon\{\psi^\ast,Q\}$.
+\end{opgave}
 
 \section*{Kompendiets konklusion}
 \addcontentsline{toc}{section}{Kompendiets konklusion}

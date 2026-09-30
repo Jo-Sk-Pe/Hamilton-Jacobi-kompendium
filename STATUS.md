@@ -3,6 +3,38 @@
 Alle 10 kapitler er skrevet og compilerer uden fejl (2026-09-27) —
 kompendiets første fulde udkast er færdigt.
 
+## 2026-09-30 — Udvidelse af kap. 7, 8, 10 (ophævet længdebegrænsning)
+
+Jørn besluttede at ophæve en selvpålagt (uskreven) længdebegrænsning
+på kapitlerne, i lyset af arbejdet med det nye kaos/statistik-
+kompendium. Kap. 7, 8 og 10 blev udpeget som de kapitler, der havde
+lidt mest under den — netop dem, der bærer overgangene til de andre
+kompendier — og er nu udvidet:
+
+- **Kap. 7**: nyt afsnit om bevægelsestorusen (med figur) og et fuldt
+  udregnet flerdimensionalt eksempel (Kepler-/Coulomb-problemet,
+  $J_r+J_\phi$-degenerationen, hydrogenatomets "tilfældige"
+  kvantedegeneration). Peger eksplicit frem mod KAM-sætningen og det
+  planlagte kaos-kompendium (resonante vs.\ inkommensurable tori).
+- **Kap. 8**: nyt intuitivt afsnit før det formelle bevis for
+  adiabatisk invarians; ny bemærkning om sammenbrud nær en separatrix
+  ("adiabatisk kaos") som endnu en bro til kaos-kompendiet; udvidet
+  korrespondensprincip-afsnit med niveautætheden $\rho(E)=\tau(E)/h$,
+  som også peger mod et fremtidigt statistisk mekanik-kompendium.
+- **Kap. 10**: nyt eksempel med det komplekse $U(1)$-felt i
+  Hamilton-billedet, der viser at Noether-ladningen $Q$ selv er
+  Poisson-generator af symmetrien ($\delta\psi=\varepsilon\{\psi,Q\}$)
+  — direkte forberedelse til QFT-kompendiets ladningsoperator.
+  Uddybet kvantiseringsafsnittet ($\{\cdot,\cdot\}\to\tfrac{1}{i\hbar}[\cdot,\cdot]$).
+  To nye opgaver.
+
+Sidetallet voksede fra 76 til 84 sider. Den betingede
+side-paritetsløsning (`\ifodd\value{page}`) erstattede den tidligere
+faste "altid to blanke sider"-løsning, som kun tilfældigt gav et
+lige sidetal — se PROJEKTDAGBOG.md for detaljer. Fuldt testet
+(pdflatex→makeindex→pdflatex×2) med rigtig dansk babel: 0 fejl, 84
+sider, bagsiden på side 84 (lige).
+
 ## Formål og afgrænsning
 
 Kompendiet skal bygge frem til det tankegods, der var på plads ved

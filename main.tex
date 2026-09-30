@@ -91,12 +91,17 @@
 \mbox{}
 \newpage
 
-% Endnu en blank side, saa bagsiden lander paa en LIGE side (forsiden af
-% det sidste fysiske ark ved tosidet udskrivning), og saa det samlede
-% sidetal i dokumentet bliver lige.
-\thispagestyle{empty}
-\mbox{}
-\newpage
+% Tilføjer om nødvendigt endnu en blank side, saa bagsiden altid lander
+% paa en LIGE side (forsiden af det sidste fysiske ark ved tosidet
+% udskrivning). Betinget (i stedet for altid to blanke sider), fordi
+% det samlede sidetal frem til dette punkt kan ændre paritet, efterhaanden
+% som kompendiet vokser. Bagsiden er nu IKKE et titlepage-miljoe, saa der
+% er intet internt \cleardoublepage, der modarbejder dette.
+\ifodd\value{page}
+  \thispagestyle{empty}
+  \mbox{}
+  \newpage
+\fi
 
 % --- Bagside ---
 % NB: vi bruger IKKE titlepage-miljoeet her, fordi det i en twoside-klasse
